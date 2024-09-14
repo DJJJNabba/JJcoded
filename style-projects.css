@@ -235,3 +235,315 @@ pre code {
 .download-links a:hover {
     background-color: #45a049;
 }
+
+/* Improved Table Styles */
+/* Improved Table Styles */
+table {
+    width: fit-content; /* Table takes up only as much space as needed */
+    border-collapse: collapse;
+    margin: 20px auto; /* Center the table */
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 14px 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+table td {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Remove extra space beyond the table */
+table {
+    display: table;
+    margin: 0 auto;
+}
+
+/* Ensuring responsive scrolling if necessary */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto; /* Allow horizontal scroll if necessary on small screens */
+    }
+}
+
+
+#survey-results p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* Styling the analysis paragraph */
+#survey-results h2 {
+    margin-top: 0px;
+}
+
+#survey-results table {
+    margin-bottom: 25px;
+}
+
+#survey-results p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Improved Table Styles for Boundaries and Limitations */
+#boundaries-limitations table {
+    width: 100%; /* Make the table take up full width */
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#boundaries-limitations table th, 
+#boundaries-limitations table td {
+    padding: 14px 10px; /* Increase padding for better readability */
+    text-align: left; /* Align text to the left for consistency */
+    vertical-align: top; /* Ensure text is aligned at the top of each cell */
+}
+
+#boundaries-limitations table th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#boundaries-limitations table td {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+#boundaries-limitations table tr:hover {
+    background-color: #f1f1f1; /* Add hover effect */
+}
+
+/* Ensure table stays responsive */
+@media (max-width: 768px) {
+    #boundaries-limitations table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Avatar Section Styling */
+.avatar-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* Avatar Container Flexbox */
+.avatar-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px; /* Increase gap between image and text */
+    width: 100%;
+}
+
+/* Avatar Image Styling */
+.avatar-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly increased shadow for pop */
+}
+
+/* Avatar Info List Styling */
+.avatar-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.8; /* Add more spacing between lines for better readability */
+}
+
+.avatar-info li {
+    margin-bottom: 10px;
+}
+
+.avatar-info li strong {
+    color: #4CAF50;
+    font-weight: bold; /* Slightly increase the font weight for labels */
+    font-size: 1.1rem; /* Increase the font size of the labels */
+}
+
+/* Ensuring responsiveness */
+@media (max-width: 768px) {
+    .avatar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .avatar-image {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* Flexbox layout for paired sections */
+.flex-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Adjust gap between sections */
+    justify-content: space-between;
+    align-items: stretch; /* Ensures both sections have equal height */
+}
+
+.flex-section {
+    flex: 1;
+    min-width: 48%; /* Ensures two sections fit side by side on larger screens */
+    max-width: 48%;
+    box-sizing: border-box;
+    background-color: white; /* Ensure background remains white */
+    padding: 20px;
+    margin-bottom: 20px; /* Extra margin to improve spacing between section rows */
+    border-radius: 12px; /* Smoother rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly enhanced shadow for a clean look */
+    transition: transform 0.3s ease; /* Adds a smooth hover effect */
+}
+
+.flex-section:hover {
+    transform: translateY(-5px); /* Slightly raises the section when hovered */
+}
+
+.flex-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.flex-section p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify; /* Ensures neat alignment for longer texts */
+}
+
+/* Max-width configuration for specific sections */
+.max-width-small {
+    max-width: 30%;
+}
+
+.max-width-medium {
+    max-width: 45%;
+}
+
+.max-width-large {
+    max-width: 70%;
+}
+
+.max-width-very-large {
+    max-width: 85%;
+}
+
+.max-width-full {
+    max-width: 100%;
+}
+
+/* Responsive fallback: stack sections on smaller screens */
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .flex-section {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Improving the overall readability */
+p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Adding some space between the images and the text in the UI Design section */
+#ui-design ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#ui-design ul img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#ui-design ul li:hover img {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Section Styles */
+section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+
+section p, section ul {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+section ul {
+    padding-left: 20px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+/* Class to center the entire section/container horizontally with top margin */
+.centered-section {
+    width: fit-content; /* Ensures the container takes only as much space as needed */
+    margin: 40px auto 0 auto; /* Centers the container horizontally and adds a 40px top margin */
+    text-align: left; /* Ensures the text remains aligned to the left inside */
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1: Python Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="style-projects.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <header>
+        <h1>Project 1: Python Game</h1>
+        <nav>
+            <a href="index.html" class="nav-link">Back to Projects</a>
+        </nav>
+    </header>
+
+    <section class="project-detail">
+        <h2>Project Description</h2>
+        <p>This Python game is a simple adventure game...</p>
+
+        <!-- Two-Column Layout -->
+        <div class="content-container">
+            <!-- Left Column: Source Code Block with Tabs -->
+            <div class="code-container">
+                <div class="code-header">
+                    <!-- Folder and Tab buttons -->
+                    <div class="tab-bar">
+                        <!-- Folders and Tabs inline -->
+                        <div class="folder-group">
+                            <div class="folder-wrapper">
+                                <button class="folder-button" onclick="toggleFolder('src-folder')">src/</button>
+                                <div id="src-folder" class="file-tabs" style="display: none;">
+                                    <button class="tab-button" onclick="showCode('game.py')">game.py</button>
+                                    <button class="tab-button" onclick="showCode('level.py')">level.py</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="folder-group">
+                            <div class="folder-wrapper">
+                                <button class="folder-button" onclick="toggleFolder('assets-folder')">assets/</button>
+                                <div id="assets-folder" class="file-tabs" style="display: none;">
+                                    <button class="tab-button" onclick="showCode('game.png')">game.png</button>
+                                    <button class="tab-button" onclick="showCode('background.png')">background.png</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Files outside folders -->
+                        <button class="tab-button" onclick="showCode('main.py')">main.py</button>
+                        <button class="tab-button" onclick="showCode('config.py')">config.py</button>
+                    </div>
+                    <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                
+                <!-- Code blocks or image display -->
+                <div class="code-display">
+                    <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
+                </div>
+            </div>
+
+            <!-- Right Column: Carousel for Images/Videos -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="images/screenshot1.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
+                        <img src="images/screenshot2.png" class="carousel-item" alt="Screenshot 2" style="display: none;">
+                        <img src="images/screenshot3.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <video controls class="carousel-item" style="display: none;">
+                            <source src="videos/pygamevid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Link -->
+        <div class="download-links">
+            <a href="path_to_project1.zip" download>Download Project Files</a>
+        </div>
+    </section>
+
+    <!-- Prism JS for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Python syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+
+    <!-- Carousel and Code Tab Script -->
+    <script>
+        const codeFiles = {
+            'main.py': `import pygame
+print("hello world")`,
+
+            'config.py': `# Config file
+SETTINGS = {
+    'fullscreen': True,
+    'resolution': (1920, 1080)
+}`,
+
+            'game.py': `# Game logic
+def run_game():
+    print("Running the game")`,
+
+            'level.py': `# Level loading
+def load_level():
+    console.log("Loading level")`,
+
+            // Image files
+            'game.png': 'images/game.png',
+            'background.png': 'images/background.png'
+        };
+
+        function showCode(filename) {
+            const codeBlock = document.getElementById('code-block');
+            const codeContainer = document.querySelector('.code-display');
+            const isImage = /\.(png|jpg|jpeg|gif)$/i.test(filename);  // Check if the file is an image
+
+            if (isImage) {
+                // If it's an image, replace code with the image
+                codeBlock.innerHTML = '';  // Clear code block content
+                codeContainer.style.backgroundColor = '#f0f0f0';  // Change background color for images
+                
+                const image = document.createElement('img');
+                image.src = codeFiles[filename];
+                image.alt = filename;
+                image.style.maxWidth = '100%';  // Ensure image fits within container
+                image.style.borderRadius = '8px';
+                image.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                
+                codeBlock.appendChild(image);  // Display image
+            } else {
+                // If it's code, show the code and reset the background
+                codeBlock.textContent = codeFiles[filename];
+                codeContainer.style.backgroundColor = '#2d2d2d';  // Set background for code
+                Prism.highlightAll();  // Apply syntax highlighting
+            }
+
+            setActiveTab(filename);  // Highlight the active tab
+        }
+
+        function setActiveTab(activeFilename) {
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let button of buttons) {
+                button.classList.remove('active');
+                if (button.textContent === activeFilename) {
+                    button.classList.add('active');
+                }
+            }
+        }
+
+        function toggleFolder(folderId) {
+            const folder = document.getElementById(folderId);
+            folder.style.display = folder.style.display === "inline-flex" ? "none" : "inline-flex";
+        }
+
+        document.getElementById('copy-code-btn').addEventListener('click', function() {
+            const code = document.getElementById('code-block').textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                alert('Code copied to clipboard!');
+            });
+        });
+
+        window.onload = function() {
+            showCode('main.py');  // Display main.py content by default
+        };
+    </script>
+</body>
+</html>

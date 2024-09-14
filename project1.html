@@ -6,7 +6,7 @@
     <title>Project 1: Python Game</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css">
-    <link rel="stylesheet" href="style-projects.css">
+    <link rel="stylesheet" href="style-projects.css"> <!-- Link to external CSS -->
 </head>
 <body>
     <header>
@@ -18,16 +18,14 @@
 
     <section class="project-detail">
         <h2>Project Description</h2>
-        <p>This Python game is a simple adventure game...</p>
+        <p>This Python game is a simple adventure game, developed as part of my Year 10 Term 3 Digital Solutions assignment, for which I received a 100% (20/20) grade.</p>
 
         <!-- Two-Column Layout -->
         <div class="content-container">
             <!-- Left Column: Source Code Block with Tabs -->
             <div class="code-container">
                 <div class="code-header">
-                    <!-- Folder and Tab buttons -->
                     <div class="tab-bar">
-                        <!-- Folders and Tabs inline -->
                         <div class="folder-group">
                             <div class="folder-wrapper">
                                 <button class="folder-button" onclick="toggleFolder('src-folder')">src/</button>
@@ -41,25 +39,21 @@
                             <div class="folder-wrapper">
                                 <button class="folder-button" onclick="toggleFolder('assets-folder')">assets/</button>
                                 <div id="assets-folder" class="file-tabs" style="display: none;">
-                                    <button class="tab-button" onclick="showCode('sprite.png')">sprite.png</button>
+                                    <button class="tab-button" onclick="showCode('game.png')">game.png</button>
                                     <button class="tab-button" onclick="showCode('background.png')">background.png</button>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Files outside folders -->
                         <button class="tab-button" onclick="showCode('main.py')">main.py</button>
                         <button class="tab-button" onclick="showCode('config.py')">config.py</button>
                     </div>
                     <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
                 </div>
                 
-                <!-- Code blocks for different files -->
-                <pre class="line-numbers"><code id="code-block" class="language-python">
-# Example Python code
-def game():
-    print("This is a game!")
-                </code></pre>
+                <!-- Code blocks or image display -->
+                <div class="code-display">
+                    <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
+                </div>
             </div>
 
             <!-- Right Column: Carousel for Images/Videos -->
@@ -84,78 +78,325 @@ def game():
         <div class="download-links">
             <a href="path_to_project1.zip" download>Download Project Files</a>
         </div>
+
+        <!-- New sections start here -->
+
+    <div class="flex-sections">
+
+        <section id="problem-description" class="max-width-medium">
+            <h2>Problem Description</h2>
+            <p>
+We have been tasked to program a 2d game using the pygame library in python that satisfies users’ needs and preferences through conducting an informal interview. 
+            </p>
+        </section>
+
+        <section id="scope" class="max-width-medium">
+            <h2>Scope</h2>
+            <p>
+The goal of this project is to develop a game using Pygame that explores and showcases gaming features such as level progression, enemies, and customization. The game will be designed based on insights gathered from an interview, focusing on implementing these key features effectively. Scalability and community viability are not required for this project, as the emphasis is on demonstrating core gameplay elements.
+The gaming industry has seen tremendous growth over the past few decades, evolving into a global business with approximately 3.32 billion daily users. The journey began with the creation of the first video game, "Tennis for Two," by William Higinbotham on October 18th, 1958. This project aims to contribute to this rich history by creating a game that reflects the ongoing importance of fundamental gaming mechanics.
+            </p>
+        </section>
+    
+    </div>
+
+    <section id="boundaries-limitations">
+        <h2>Boundaries and Limitations</h2>
+        <table>
+            <tr>
+                <th>Boundary</th>
+                <th>Limitation</th>
+            </tr>
+            <tr>
+                <td>Language: The game must be developed using Python and the Pygame library.</td>
+                <td>IT limitations: Our computers have hardware and software restrictions which limit our ability to create high quality games or use specific tools.</td>
+            </tr>
+            <tr>
+                <td>Coding experience: The potential of the game is limited to my current coding knowledge and concepts.</td>
+                <td>Time constraints: The project must be completed within a small timeframe which limits the game’s potential features.</td>
+            </tr>
+            <tr>
+                <td>The game must explore specific features: immersion, progression, social interaction, and surprise.</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>The game should be appealing towards 15-year-olds.</td>
+                <td></td>
+            </tr>
+        </table>
+    </section>
+    
+
+        <section id="survey-results" class="centered-section max-width-very-large">
+            <h2>Survey Results</h2>
+            <p>
+                I decided to give survey participants the opportunity to construct ideas for their ideal game, incorporating all features they enjoy in gaming into one. These are the survey responses, simplified for analysis purposes.
+            </p>
+            <table>
+                <tr>
+                    <th>What camera should be used?</th>
+                    <th>What style</th>
+                    <th>What environment?</th>
+                    <th>Combat mechanic?</th>
+                    <th>Visual style</th>
+                    <th>What makes a game engaging?</th>
+                </tr>
+                <tr>
+                    <td>Top down</td>
+                    <td>Base defence</td>
+                    <td>Futuristic</td>
+                    <td>Real time</td>
+                    <td>Realistic</td>
+                    <td>Achievements</td>
+                </tr>
+                <tr>
+                    <td>Front on</td>
+                    <td>Platformer</td>
+                    <td>Post apocalyptic</td>
+                    <td>Real time</td>
+                    <td>Pixel-art</td>
+                    <td>Replayability</td>
+                </tr>
+                <tr>
+                    <td>Front on</td>
+                    <td>Sandbox</td>
+                    <td>Planet earth</td>
+                    <td>Real time</td>
+                    <td>Pixel-art</td>
+                    <td>On the clock</td>
+                </tr>
+                <tr>
+                    <td>Top down</td>
+                    <td>Strategy</td>
+                    <td>Space</td>
+                    <td>Turn-based</td>
+                    <td>Cartoon</td>
+                    <td>Bosses</td>
+                </tr>
+            </table>
+            <h2>Analysis of Results</h2>
+            <p>According to the survey results, it is clear that the preferred gameplay/combat mechanic is real time fighting, displaying a preferability for dynamic, fast paced gameplay. Next, most responses wanted to play a game with pixel-art visuals. Specifically, all the people who preferred front-on games chose to have a pixel art style. Front on camera was selected twice, often used in platformer games or sandboxes where it might provide a more engaging experience. The environments provided by surveyors indicates two general themes: High tech, and grounded dystopian. The choices futuristic and space are more speculative and higher tech whereas planet earth and post-apocalyptic are more dystopian. It is clear in the table that elements of a game that extent its longevity and challenge are enjoyed. “Achievements” and Replayability” illustrates how players want to be able to return to a game and still enjoy it. “On the clock” indicates time-based challenges or speed-running, and “Bosses” are a feature that adds excitement and milestones to a game. </p>
+        </section>
+
+        <div class="flex-sections">
+            <section id="avatar" class="avatar-section">
+                <h2>Avatar</h2>
+                <div class="avatar-container">
+                    <img src="images/Picture1.png" alt="Avatar Image" class="avatar-image">
+                    <ul class="avatar-info">
+                        <li><strong>Name:</strong> Nick</li>
+                        <li><strong>Age:</strong> 15</li>
+                        <li><strong>Future Pathway:</strong> Considering engineering or pursing medicine</li>
+                        <li><strong>BYO Device:</strong> Windows 11</li>
+                        <li><strong>Interests:</strong> Gaming, coding</li>
+                        <li><strong>Personality:</strong> Introvert, gamer</li>
+                        <li><strong>Preferred Gaming Styles:</strong> Shooter, Movement based, Turn-based, Real time, FPS, Level progression</li>
+                        <li><strong>What Makes a Game Enjoyable:</strong> Being on the clock, fast paced gameplay, intuitive movement </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+
+        <section id="review-existing-game">
+            <h2>Review of Existing Game</h2>
+            <p>Insert review of existing game here...</p>
+        </section>
+
+        <section id="game-concept">
+            <h2>Intended Game Concept</h2>
+            <p>Insert description of the game concept here...</p>
+        </section>
+
+        <section id="ui-design">
+            <h2>UI Design</h2>
+            <p>Showcase of key UI components:</p>
+            <ul>
+                <li><img src="title-screen.png" alt="Title Screen">Title Screen</li>
+                <li><img src="pause-menu.png" alt="In-Game Pause Menu">In-Game Pause Menu</li>
+                <li><img src="health-bars.png" alt="Health/Hunger/Thirst Bars">Health/Hunger/Thirst Bars</li>
+                <li><img src="game-over.png" alt="Game Over Screen">Game Over Screen</li>
+                <li><img src="game-stats.png" alt="Live Game Stats">Live Game Statistics and Records</li>
+                <li><img src="victory-screen.png" alt="Victory Screen">Victory Screen</li>
+                <li><img src="level-editor.png" alt="Level Editor Sidebar">Level Editor Sidebar</li>
+            </ul>
+        </section>
+
+        <section id="object-asset-design">
+            <h2>Object/Asset Design</h2>
+            <table>
+                <tr>
+                    <th>Object</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Usage</th>
+                </tr>
+                <tr><td>Object 1</td><td>Size 1</td><td>Color 1</td><td>Usage 1</td></tr>
+            </table>
+        </section>
+
+        <section id="student-review">
+            <h2>Student Review of the Game</h2>
+            <table>
+                <tr>
+                    <th>Aspect</th>
+                    <th>Rating</th>
+                </tr>
+                <tr><td>Aspect 1</td><td>Rating 1</td></tr>
+                <tr><td>Aspect 2</td><td>Rating 2</td></tr>
+            </table>
+        </section>
+
+        <section id="recommended-changes">
+            <h2>Recommended Changes for the Future</h2>
+            <p>Insert recommended changes here...</p>
+        </section>
+
+        <section id="evaluation">
+            <h2>Evaluation</h2>
+            <p>Insert project evaluation here...</p>
+        </section>
+
+        <section id="usability-principles">
+            <h2>Usability Principles</h2>
+            <table>
+                <tr>
+                    <th>Principle</th>
+                    <th>Description</th>
+                </tr>
+                <tr><td>Principle 1</td><td>Description 1</td></tr>
+                <tr><td>Principle 2</td><td>Description 2</td></tr>
+            </table>
+        </section>
+
+        <section id="references">
+            <h2>References</h2>
+            <ul>
+                <li>Insert reference 1</li>
+                <li>Insert reference 2</li>
+            </ul>
+        </section>
     </section>
 
     <!-- Prism JS for syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <!-- Python syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
 
     <!-- Carousel and Code Tab Script -->
     <script>
         let slideIndex = 0;
-        let slideInterval;
-
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            clearInterval(slideInterval); // Reset the interval when manually navigating
-            showSlides(slideIndex += n);
+        let autoSlideInterval; // Store the auto-slide interval
+        const slideDuration = 4000; // 4 seconds for each image
+        let slides; // Declare slides here to initialize later
+    
+        function initCarousel() {
+            slides = document.querySelectorAll(".carousel-item"); // Get all slides after DOM is loaded
+            showSlides(slideIndex);
+            autoSlideInterval = setInterval(autoShowSlides, slideDuration); // Start auto slide for images
         }
-
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("carousel-item");
-            if (n >= slides.length) { slideIndex = 0; }
-            if (n < 0) { slideIndex = slides.length - 1; }
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                if (slides[i].tagName === "VIDEO") {
-                    slides[i].pause();
-                    slides[i].currentTime = 0;
-                }
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            resetAutoSlide(); // Reset the auto-slide when manually navigating
+        }
+    
+        function autoShowSlides() {
+            const currentSlide = slides[slideIndex];
+            
+            // If the current slide is not a video, auto-show the next slide after 4 seconds
+            if (currentSlide.tagName !== "VIDEO") {
+                slideIndex++;
+                showSlides(slideIndex);
             }
-
-            let currentSlide = slides[slideIndex];
+        }
+    
+        function showSlides(n) {
+            if (n >= slides.length) {
+                slideIndex = 0;  // Go back to the first slide
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;  // Go to the last slide
+            }
+    
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.style.display = "none";
+                if (slide.tagName === "VIDEO") {
+                    slide.pause(); // Pause any videos if they are playing
+                    slide.currentTime = 0; // Reset video to start
+                }
+            });
+    
+            // Show the current slide
+            const currentSlide = slides[slideIndex];
             currentSlide.style.display = "block";
-
+    
+            // If the current slide is a video, play it and only advance after it's done
             if (currentSlide.tagName === "VIDEO") {
                 currentSlide.play();
-                currentSlide.onended = () => {
-                    plusSlides(1);
+                currentSlide.onended = function () {
+                    plusSlides(1);  // Move to the next slide when the video finishes
                 };
+                clearInterval(autoSlideInterval); // Stop auto-slide during video playback
             } else {
-                slideInterval = setTimeout(() => plusSlides(1), 4000);
+                resetAutoSlide(); // Restart auto-slide if an image is displayed
             }
         }
-
+    
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval); // Clear the current interval
+            autoSlideInterval = setInterval(autoShowSlides, slideDuration); // Restart auto-slide after 4 seconds
+        }
+    
+        window.onload = function () {
+            initCarousel(); // Initialize the carousel on page load
+            showCode('main.py');  // Display main.py content by default
+        };
+    
         const codeFiles = {
             'main.py': `import pygame
-print("hello world")`,
-
+    print("hello world")`,
             'config.py': `# Config file
-SETTINGS = {
-    'fullscreen': True,
-    'resolution': (1920, 1080)
-}`,
-
+    SETTINGS = {
+                    'fullscreen': True,
+                    'resolution': (1920, 1080)
+                }`,
             'game.py': `# Game logic
-def run_game():
-    print("Running the game")`,
-
+            def run_game() {
+                print("Running the game")
+            }`,
             'level.py': `# Level loading
-def load_level():
-    print("Loading level")`
+            def load_level() {
+                console.log("Loading level")
+            }`,
+            'game.png': 'images/game.png',
+            'background.png': 'images/background.png'
         };
-
+    
         function showCode(filename) {
             const codeBlock = document.getElementById('code-block');
-            codeBlock.textContent = codeFiles[filename];
-            Prism.highlightAll();
+            const codeContainer = document.querySelector('.code-display');
+            const isImage = /\.(png|jpg|jpeg|gif)$/i.test(filename);
+    
+            if (isImage) {
+                codeBlock.innerHTML = '';
+                codeContainer.style.backgroundColor = '#f0f0f0';
+    
+                const image = document.createElement('img');
+                image.src = codeFiles[filename];
+                image.alt = filename;
+                image.style.maxWidth = '100%';
+                image.style.borderRadius = '8px';
+                image.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                codeBlock.appendChild(image);
+            } else {
+                codeBlock.textContent = codeFiles[filename];
+                codeContainer.style.backgroundColor = '#2d2d2d';
+                Prism.highlightAll();
+            }
             setActiveTab(filename);
         }
-
+    
         function setActiveTab(activeFilename) {
             const buttons = document.getElementsByClassName('tab-button');
             for (let button of buttons) {
@@ -165,22 +406,19 @@ def load_level():
                 }
             }
         }
-
+    
         function toggleFolder(folderId) {
             const folder = document.getElementById(folderId);
             folder.style.display = folder.style.display === "inline-flex" ? "none" : "inline-flex";
         }
-
-        document.getElementById('copy-code-btn').addEventListener('click', function() {
+    
+        document.getElementById('copy-code-btn').addEventListener('click', function () {
             const code = document.getElementById('code-block').textContent;
-            navigator.clipboard.writeText(code).then(function() {
+            navigator.clipboard.writeText(code).then(function () {
                 alert('Code copied to clipboard!');
             });
         });
-
-        window.onload = function() {
-            showCode('main.py'); // Display the main.py content by default
-        };
     </script>
+    
 </body>
 </html>
