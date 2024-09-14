@@ -107,10 +107,51 @@ nav a:hover {
 }
 
 /* About Me Section */
+
+
 #about {
-    margin: 20px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f4f7fa; /* Light background to contrast the text */
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+#about h2 {
+    font-size: 2rem;
+    color: #45a049;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#about p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-container p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    #about {
+        padding: 20px 10px;
+    }
+
+    #about h2 {
+        font-size: 1.8rem;
+    }
+
+    #about p {
+        font-size: 1rem;
+    }
 }
