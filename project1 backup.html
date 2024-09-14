@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1: Python Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="style-projects.css">
+</head>
+<body>
+    <header>
+        <h1>Project 1: Python Game</h1>
+        <nav>
+            <a href="index.html" class="nav-link">Back to Projects</a>
+        </nav>
+    </header>
+
+    <section class="project-detail">
+        <h2>Project Description</h2>
+        <p>This Python game is a simple adventure game...</p>
+
+        <!-- Two-Column Layout -->
+        <div class="content-container">
+            <!-- Left Column: Source Code Block with Tabs -->
+            <div class="code-container">
+                <div class="code-header">
+                    <!-- Tab buttons -->
+                    <div class="tab-buttons">
+                        <button class="tab-button active" onclick="showCode('game.py')">game.py</button>
+                        <button class="tab-button" onclick="showCode('enemy.py')">enemy.py</button>
+                        <button class="tab-button" onclick="showCode('level.py')">level.py</button>
+                    </div>
+                    <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                
+                <!-- Code blocks for different files -->
+                <pre class="line-numbers"><code id="code-block" class="language-python">
+# Example Python code
+def game():
+    print("This is a game!")
+                </code></pre>
+            </div>
+
+            <!-- Right Column: Carousel for Images/Videos -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="images/screenshot1.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
+                        <img src="images/screenshot2.png" class="carousel-item" alt="Screenshot 2" style="display: none;">
+                        <img src="images/screenshot3.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <video controls class="carousel-item" style="display: none;">
+                            <source src="videos/video1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Download Link -->
+        <div class="download-links">
+            <a href="path_to_project1.zip" download>Download Project Files</a>
+        </div>
+    </section>
+
+    <!-- Prism JS for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Python syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+
+    <!-- Carousel and Code Tab Script -->
+    <script>
+        let slideIndex = 0;
+        let slideInterval;
+
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            clearInterval(slideInterval); // Reset the interval when manually navigating
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("carousel-item");
+            if (n >= slides.length) { slideIndex = 0; }
+            if (n < 0) { slideIndex = slides.length - 1; }
+
+            // Reset all slides' display and stop videos
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+                if (slides[i].tagName === "VIDEO") {
+                    slides[i].pause();
+                    slides[i].currentTime = 0;
+                }
+            }
+
+            // Display the current slide
+            let currentSlide = slides[slideIndex];
+            currentSlide.style.display = "block";
+
+            if (currentSlide.tagName === "VIDEO") {
+                currentSlide.play();
+                currentSlide.onended = () => {
+                    plusSlides(1); // Move to the next slide when video ends
+                };
+            } else {
+                // If it's an image, set a timer to move to the next slide after 4 seconds
+                slideInterval = setTimeout(() => plusSlides(1), 4000);
+            }
+        }
+
+        // Code file content for each tab
+        const codeFiles = {
+            'game.py': `import pygame
+print("hello world")
+`,
+
+            'enemy.py': `# Enemy code
+        class Enemy:
+            def __init__(self):
+                self.health = 100`,
+
+            'level.py': `# Level management code
+        def load_level(level_name):
+            print(f"Loading {level_name} level")`
+        };
+
+        // Function to show the selected code file
+        function showCode(filename) {
+            const codeBlock = document.getElementById('code-block');
+            codeBlock.textContent = codeFiles[filename];
+            Prism.highlightAll(); // Re-apply syntax highlighting
+            setActiveTab(filename);
+        }
+
+        // Function to set the active tab visually
+        function setActiveTab(activeFilename) {
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let button of buttons) {
+                button.classList.remove('active');
+                if (button.textContent === activeFilename) {
+                    button.classList.add('active');
+                }
+            }
+        }
+
+        // Copy code to clipboard
+        document.getElementById('copy-code-btn').addEventListener('click', function() {
+            const code = document.getElementById('code-block').textContent;
+            navigator.clipboard.writeText(code).then(function() {
+                alert('Code copied to clipboard!');
+            });
+        });
+
+        // Automatically show the content for game.py by default on page load
+        window.onload = function() {
+            showCode('game.py'); // Display the game.py content
+        };
+    </script>
+</body>
+</html>

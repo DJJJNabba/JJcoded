@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #45a049;
+}
+
+/* Project Page Specific */
+section.project-detail {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Two-Column Layout */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 100%; /* Ensure the content container stays within full width */
+    box-sizing: border-box;
+}
+/* Code Block Styles */
+
+.code-container {
+    display: block;
+    background-color: #2d2d2d;
+    color: #fff;
+    padding: 0; /* Remove padding to prevent gap */
+    border-radius: 8px;
+    width: 48%; /* Ensure it takes up 48% of the container */
+    position: relative;
+    max-height: 535px; /* Limit height */
+    overflow-y: auto; /* Scroll when content overflows vertically */
+    overflow-x: auto; /* Allow horizontal scroll */
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Custom Scrollbar for Code Block */
+.code-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.code-container::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
+.code-container::-webkit-scrollbar-track {
+    background-color: #1e1e1e;
+}
+
+/* Adjust pre and code to remove extra space */
+pre[class*=language-] {
+    padding: 10px; /* Adjust padding */
+    margin: 0; /* Remove extra margin */
+    overflow: auto !important; /* Allow both horizontal and vertical scrolling */
+    white-space: pre; /* Do not wrap lines */
+}
+
+pre code {
+    display: block;
+    white-space: pre; /* Prevent line wrapping */
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Adjust padding */
+    border-bottom: 1px solid #444;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-button {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.tab-button.active {
+    background-color: #4CAF50;
+}
+
+.tab-button:hover {
+    background-color: #3e8e41;
+}
+
+.copy-code-btn {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Carousel Styles */
+.carousel-container {
+    width: 48%; /* Same width as code container for balance */
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-item {
+    display: none;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel:hover .carousel-prev,
+.carousel:hover .carousel-next {
+    opacity: 1;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Download Button */
+.download-links a {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.download-links a:hover {
+    background-color: #45a049;
+}
