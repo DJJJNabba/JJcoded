@@ -26,35 +26,51 @@
             <div class="code-container">
                 <div class="code-header">
                     <div class="tab-bar">
-                        <div class="folder-group">
-                            <div class="folder-wrapper">
-                                <button class="folder-button" onclick="toggleFolder('src-folder')">src/</button>
-                                <div id="src-folder" class="file-tabs" style="display: none;">
-                                    <button class="tab-button" onclick="showCode('game.py')">game.py</button>
-                                    <button class="tab-button" onclick="showCode('level.py')">level.py</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="folder-group">
-                            <div class="folder-wrapper">
-                                <button class="folder-button" onclick="toggleFolder('assets-folder')">assets/</button>
-                                <div id="assets-folder" class="file-tabs" style="display: none;">
-                                    <button class="tab-button" onclick="showCode('game.png')">game.png</button>
-                                    <button class="tab-button" onclick="showCode('background.png')">background.png</button>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="tab-button" onclick="showCode('main.py')">main.py</button>
+                        <!-- Python Files in the root -->
+                        <button class="tab-button" onclick="showCode('block.py')">block.py</button>
                         <button class="tab-button" onclick="showCode('config.py')">config.py</button>
+                        <button class="tab-button" onclick="showCode('enemy.py')">enemy.py</button>
+                        <button class="tab-button" onclick="showCode('hud.py')">hud.py</button>
+                        <button class="tab-button" onclick="showCode('items.py')">items.py</button>
+                        <button class="tab-button" onclick="showCode('LevelEditor.py')">LevelEditor.py</button>
+                        <button class="tab-button" onclick="showCode('main.py')">main.py</button>
+                        <button class="tab-button" onclick="showCode('main_menu.py')">main_menu.py</button>
+                        <button class="tab-button" onclick="showCode('main2.py')">main2.py</button>
+                        <button class="tab-button" onclick="showCode('object.py')">object.py</button>
+                        <button class="tab-button" onclick="showCode('player.py')">player.py</button>
+                        <button class="tab-button" onclick="showCode('stats.txt')">stats.txt</button>
+            
+                        <!-- eraser.png in the root -->
+                        <button class="tab-button" onclick="showCode('eraser.png')">eraser.png</button>
+            
+                        <!-- textures/ folder -->
+                        <div class="folder-group">
+                            <div class="folder-wrapper">
+                                <button class="folder-button" onclick="toggleFolder('textures-folder')">textures/</button>
+                                <div id="textures-folder" class="file-tabs" style="display: none;">
+                                    <button class="tab-button" onclick="showCode('textures/background.png')">background</button>
+                                    <button class="tab-button" onclick="showCode('textures/dirt_texture.png')">dirt</button>
+                                    <button class="tab-button" onclick="showCode('textures/stone_texture.png')">stone</button>
+                                    <button class="tab-button" onclick="showCode('textures/grass_texture.png')">grass</button>
+                                    <button class="tab-button" onclick="showCode('textures/dude_monster.png')">dude</button>
+                                    <button class="tab-button" onclick="showCode('textures/enemy_texture.png')">enemy</button>
+                                    <button class="tab-button" onclick="showCode('textures/food_texture.png')">food</button>
+                                    <button class="tab-button" onclick="showCode('textures/heli_texture1.png')">heli</button>
+                                    <button class="tab-button" onclick="showCode('textures/water_texture.png')">water</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+            
                     <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
                 </div>
-                
+            
                 <!-- Code blocks or image display -->
                 <div class="code-display">
                     <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
                 </div>
             </div>
+            
 
             <!-- Right Column: Carousel for Images/Videos -->
             <div class="carousel-container">
@@ -76,14 +92,14 @@
 
         <!-- Download Link -->
         <div class="download-links">
-            <a href="path_to_project1.zip" download>Download Project Files</a>
+            <a href="projects/project1.zip" download>Download Project Files</a>
         </div>
 
         <!-- New sections start here -->
 
     <div class="flex-sections">
 
-        <section id="problem-description" class="max-width-medium">
+        <section id="problem-description" class="max-width-small">
             <h2>Problem Description</h2>
             <p>
 We have been tasked to program a 2d game using the pygame library in python that satisfies users’ needs and preferences through conducting an informal interview. 
@@ -125,8 +141,6 @@ The gaming industry has seen tremendous growth over the past few decades, evolvi
             </tr>
         </table>
     </section>
-    
-
         <section id="survey-results" class="centered-section max-width-very-large">
             <h2>Survey Results</h2>
             <p>
@@ -178,8 +192,7 @@ The gaming industry has seen tremendous growth over the past few decades, evolvi
             <p>According to the survey results, it is clear that the preferred gameplay/combat mechanic is real time fighting, displaying a preferability for dynamic, fast paced gameplay. Next, most responses wanted to play a game with pixel-art visuals. Specifically, all the people who preferred front-on games chose to have a pixel art style. Front on camera was selected twice, often used in platformer games or sandboxes where it might provide a more engaging experience. The environments provided by surveyors indicates two general themes: High tech, and grounded dystopian. The choices futuristic and space are more speculative and higher tech whereas planet earth and post-apocalyptic are more dystopian. It is clear in the table that elements of a game that extent its longevity and challenge are enjoyed. “Achievements” and Replayability” illustrates how players want to be able to return to a game and still enjoy it. “On the clock” indicates time-based challenges or speed-running, and “Bosses” are a feature that adds excitement and milestones to a game. </p>
         </section>
 
-        <div class="flex-sections">
-            <section id="avatar" class="avatar-section">
+            <section id="avatar" class="avatar-section max-width-medium">
                 <h2>Avatar</h2>
                 <div class="avatar-container">
                     <img src="images/Picture1.png" alt="Avatar Image" class="avatar-image">
@@ -195,88 +208,191 @@ The gaming industry has seen tremendous growth over the past few decades, evolvi
                     </ul>
                 </div>
             </section>
-        </div>
         
-
-        <section id="review-existing-game">
+    <div class="flex-sections">
+        <section id="review-existing-game" class="max-width-medium">
             <h2>Review of Existing Game</h2>
-            <p>Insert review of existing game here...</p>
+            <p>60 seconds
+                “A dark comedy atomic adventure of scavenge and survival.” (Gentleman, 2016). The game takes place in a town when a nuclear bomb is set to detonate and the themes are resource management, scavenging, survival, apocalypse. I am taking inspiration from this game and rather than using turn-based strategy mechanics, I will be using real time strategy and decision making.
+            </p>
         </section>
 
         <section id="game-concept">
             <h2>Intended Game Concept</h2>
-            <p>Insert description of the game concept here...</p>
+            <p>"Atomic Dawn " takes you to an interesting pixelated world where the fast reaction and intelligent use of resources contribute primarily. When you venture out into the vibrant world to explore, can you find the route to safety. Can you survive purely by scavenging canned beans and looking for water? Along the way, you will face various obstacles and intelligent enemies which challenge your platforming. At the end of the level, you are racing to get to an extraction point to escape the dangers around you. “Atomic Dawn” is an incredible survival experience packed with stylised graphics and fun gameplay that seeks to bring back some of the magic in what are often seen as just mundane side-scrollers. Will you collect all the resources, survive enemies and make it out alive? </p>
         </section>
+    </div>
 
-        <section id="ui-design">
-            <h2>UI Design</h2>
-            <p>Showcase of key UI components:</p>
-            <ul>
-                <li><img src="title-screen.png" alt="Title Screen">Title Screen</li>
-                <li><img src="pause-menu.png" alt="In-Game Pause Menu">In-Game Pause Menu</li>
-                <li><img src="health-bars.png" alt="Health/Hunger/Thirst Bars">Health/Hunger/Thirst Bars</li>
-                <li><img src="game-over.png" alt="Game Over Screen">Game Over Screen</li>
-                <li><img src="game-stats.png" alt="Live Game Stats">Live Game Statistics and Records</li>
-                <li><img src="victory-screen.png" alt="Victory Screen">Victory Screen</li>
-                <li><img src="level-editor.png" alt="Level Editor Sidebar">Level Editor Sidebar</li>
-            </ul>
-        </section>
+    <section id="ui-design">
+        <h2>UI Design</h2>
+        <p>Showcase of key UI components:</p>
+        <ul class="ui-list">
+            <li>
+                <img src="images/mainmenu.png" alt="Title Screen">
+                <span>Title Screen</span>
+            </li>
+            <li>
+                <img src="images/pausemenu.png" alt="In-Game Pause Menu">
+                <span>In-Game Pause Menu</span>
+            </li>
+            <li>
+                <img src="images/modularbars.png" alt="Health/Hunger/Thirst Bars">
+                <span>Health/Hunger/Thirst Bars</span>
+            </li>
+            <li>
+                <img src="images/gameover.png" alt="Game Over Screen">
+                <span>Game Over Screen</span>
+            </li>
+            <li>
+                <img src="images/statistics.png" alt="Live Game Stats">
+                <span>Live Game Statistics and Records</span>
+            </li>
+            <li>
+                <img src="images/winscreen.png" alt="Victory Screen">
+                <span>Victory Screen</span>
+            </li>
+            <li>
+                <img src="images/leveleditersidebar.png" alt="Level Editor Sidebar">
+                <span>Level Editor Sidebar</span>
+            </li>
+        </ul>
+    </section>
+    
 
-        <section id="object-asset-design">
-            <h2>Object/Asset Design</h2>
-            <table>
+    <section id="object-asset-design">
+        <h2>Object/Asset Design</h2>
+        <table>
+            <thead>
                 <tr>
-                    <th>Object</th>
-                    <th>Size</th>
-                    <th>Color</th>
-                    <th>Usage</th>
+                    <th>Object Name</th>
+                    <th>Static / Movable / Playable</th>
+                    <th>Image</th>
+                    <th>Description</th>
                 </tr>
-                <tr><td>Object 1</td><td>Size 1</td><td>Color 1</td><td>Usage 1</td></tr>
-            </table>
-        </section>
-
-        <section id="student-review">
-            <h2>Student Review of the Game</h2>
-            <table>
+            </thead>
+            <tbody>
                 <tr>
+                    <td>Player</td>
+                    <td>Playable</td>
+                    <td><img src="images/player.png" alt="Player Image" /></td>
+                    <td>The player is a simplistic 32x32 character with fluid, well-transitioned animations between idle, run, jump, and death.</td>
+                </tr>
+                <tr>
+                    <td>Enemy</td>
+                    <td>Moveable</td>
+                    <td><img src="images/enemy.png" alt="Enemy Image" /></td>
+                    <td>The enemy is a simplistic 32x32 character with fluid, well-transitioned animations between idle, run, jump, and attack while running.</td>
+                </tr>
+                <tr>
+                    <td>Item</td>
+                    <td>Static</td>
+                    <td><img src="images/food.png" alt="Item Image" /><img src="images/water.png" alt="Item Image" /></td>
+                    <td>The two items, food and water, are simplistic and vibrantly pop out. In-game, these move up and down on a sine wave to get the players attention and mark them as collectible. The beans also spin which adds to the vibe.</td>
+                </tr>
+                <tr>
+                    <td>Block</td>
+                    <td>Static</td>
+                    <td><img src="images/blocks.png" alt="Block Image" /></td>
+                    <td>The three block types, grass, stone, and dirt, were hand-drawn for artistic purposes and fit the pixel art aesthetic of the game. They are sized perfectly for the grid-based level editor.</td>
+                </tr>
+                <tr>
+                    <td>Object</td>
+                    <td>Static</td>
+                    <td><img src="images/heli.png" alt="Object Image" /></td>
+                    <td>The “object” is an asset that could use any texture but serves as the end of the level. The adaptability could mean players could have a helicopter, convoy, submarine, etc., to end their level. It would not be difficult for users to add this functionality to their own levels too.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+
+    <section id="student-review">
+        <h2>Student Review of the Game</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student</th>
                     <th>Aspect</th>
-                    <th>Rating</th>
+                    <th>Review</th>
                 </tr>
-                <tr><td>Aspect 1</td><td>Rating 1</td></tr>
-                <tr><td>Aspect 2</td><td>Rating 2</td></tr>
-            </table>
-        </section>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Nick</td>
+                    <td>Gameplay & Survival Mechanic</td>
+                    <td>It’s a good game. I enjoy the gameplay mechanic of eating and drinking to stay alive. The AI are also pretty advanced, and it is a fun challenge.</td>
+                </tr>
+                <tr>
+                    <td>Livv</td>
+                    <td>Game Complexity & Design</td>
+                    <td>The game is really exceptional and intricate, especially for the limitations of Pygame which highlight the true skill and effort put into coding it.</td>
+                </tr>
+                <tr>
+                    <td>Darcy</td>
+                    <td>AI & Level Editor</td>
+                    <td>The AI are really good at their job, and it is impressive to see a successful level editor built into the program.</td>
+                </tr>
+                <tr>
+                    <td>Ashton</td>
+                    <td>Level Creation</td>
+                    <td>I love how you can make your own maps and piece them together yourself so there is no need to make several maps by default.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
 
         <section id="recommended-changes">
             <h2>Recommended Changes for the Future</h2>
-            <p>Insert recommended changes here...</p>
+            <p>
+                In the future, there could be a co-op mode, which utilizes online multiplayer. This would require teamwork skills and problem-solving to complete puzzles and continue with unique gameplay mechanics. Players would also need to sacrifice resources for each other, and it could allow for fun moments. Implementing online multiplayer would require a backend server to handle events and synchronisation while the front-end program displays the game correctly, tasks of which require extensive research and careful implementation. Next, an in-program level browser could be added that allowed users to upload their own maps with a name and thumbnail and access a wide range of other peoples in a repository would allow for incredible replayability as the user would never run out of content. Leaning into the sandbox side of this adventure game, there could be functions that allowed players to design their own character, enemies, blocks, and have them adaptively apply would be fantastic. The performance of this program varies from computer to computer so using hardware acceleration to speed up the efficiency or use of a different engine would allow more people to have access to the game (Chiradeep BasuMallick, 2024). Sound and music design can tell a story to players throughout the course of a game, immersing them in the experience, and providing them with audible feedback which is important to many people. This is why in the future, adding music and sound effects would be beneficial. Going into more detail, there could be different zones that have different themes such as eerie caves with mysterious ambience, luscious mountains with tranquil music, or even the dark depths with horror tracks. “It can help create an immersive atmosphere, reinforce the game's story and emotions, and improve game memory and recognition.” (figmatest, 2024). Adding a tutorial for the user would significantly increase the learnability of the level editor without needing to get external help. This is because specific controls are needed to save, load, select objects, and spawn them in which are not highlighted. A tutorial could be added to the main menu for users to be sure they won’t miss it.
+            </p>
         </section>
 
         <section id="evaluation">
             <h2>Evaluation</h2>
-            <p>Insert project evaluation here...</p>
+            <p>
+                Atomic Dawn was created after the influence of several students’ suggestions and the collaborative ideal game was established, matching a wide range of audiences tastes while still having unique aspects. Overall, the game development process went extremely well, with tens of hours soaked into the project and many tools being developed in the process that can be used in the future. This is the most advanced coding task I have taken up and it has certainly improved my ability to use python, json, file managing, sprite sheets, HUD elements, UI menus and interfaces, and find methods to achieve what I want to accomplish by finding online resources. The 2d pygame side-scroller survival sandbox that was developed was a success and it met the criteria of the task through having the following features. Firstly, due to the custom level editor, there are infinite possibilities for new experiences to be made, aligning with the scope of the task to include level progression. Next, through using algorithmic AI, the enemies of my game had high intelligence and spatial awareness without the requirement of resource intensive, high data caching for machine learning models, often high in disk size which is less than preferred when working with the already limited python ecosystem, as seen in the statement, “Python is widely used for machine learning but it can be slow and may need more memory compared to other languages such as C or C++” (What Are the Downsides of Using Python in a Machine Learning Project?, 2023). Customisation is one of the most important aspects of my game, allowing users to generate their own experiences and challenge their abilities, perfectly matching the scope of the project. After thorough reporting and review with other students, the feedback for Atomic Dawn is overwhelmingly positive and the future outlook of the game will only continue to expand.
+            </p>
         </section>
 
         <section id="usability-principles">
             <h2>Usability Principles</h2>
             <table>
-                <tr>
-                    <th>Principle</th>
-                    <th>Description</th>
-                </tr>
-                <tr><td>Principle 1</td><td>Description 1</td></tr>
-                <tr><td>Principle 2</td><td>Description 2</td></tr>
+                <thead>
+                    <tr>
+                        <th>Principle</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Effectiveness</td>
+                        <td>The game was effective in its job to immerse the user with fluid animations, detailed textures, and adaptive HUD elements such as health, hunger, and thirst bars. The game incorporates progression through custom level design, letting people make their own stages. High scores are recorded, allowing players to compete with each other and themselves, offering a fun challenge. The game has a unique gameplay loop with its resource management, surprising players with challenges they must overcome.</td>
+                    </tr>
+                    <tr>
+                        <td>Learnability</td>
+                        <td>The gameplay mechanics are intuitive and simplistic, with a clear task and objective for the user, as the game is a side scroller with one direction of progression. While it may take time for the user to develop strategies to manage resources effectively, this is part of the fun. Although the game is easy to pick up and understand, the level editor would require a 10-second tutorial to learn its mechanics.</td>
+                    </tr>
+                    <tr>
+                        <td>Safety</td>
+                        <td>Throughout development, there were several errors in the code, but the final product is flawless and stable for players of any kind. It runs with no errors and will not crash unexpectedly.</td>
+                    </tr>
+                </tbody>
             </table>
         </section>
+        
 
         <section id="references">
             <h2>References</h2>
             <ul>
-                <li>Insert reference 1</li>
-                <li>Insert reference 2</li>
+                <li>Gentleman, R. (2016, September 22). <em>60 Seconds! Atomic Adventure</em>. App Store. <a href="https://apps.apple.com/us/app/60-seconds-atomic-adventure/id1072395467" target="_blank">https://apps.apple.com/us/app/60-seconds-atomic-adventure/id1072395467</a></li>
+                <li>BasuMallick, C. (2024, January 5). What is Hardware Acceleration? Working, Pros and Cons | Spiceworks. Spiceworks Inc; Spiceworks. <a href="https://www.spiceworks.com/tech/hardware/articles/what-is-hardware-acceleration/#:~:text=Hardware%20acceleration%20enhances%20performance%20by" target="_blank">https://www.spiceworks.com/tech/hardware/articles/what-is-hardware-acceleration/</a></li>
+                <li>What are the downsides of using Python in a Machine Learning project? (2023). Linkedin.com. <a href="https://www.linkedin.com/advice/1/what-downsides-using-python-machine-learning-project#:~:text=Python%20is%20widely%20used%20for" target="_blank">https://www.linkedin.com/advice/1/what-downsides-using-python-machine-learning-project</a></li>
+                <li>figmatest. (2024, April 25). The importance of music in video games. TuneTailors. <a href="https://tunetailors.com/blogs/sound-stories/the-importance-of-music-in-video-games/#:~:text=It%20can%20help%20create%20an" target="_blank">https://tunetailors.com/blogs/sound-stories/the-importance-of-music-in-video-games</a></li>
             </ul>
         </section>
-    </section>
+        
 
     <!-- Prism JS for syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
@@ -353,25 +469,2210 @@ The gaming industry has seen tremendous growth over the past few decades, evolvi
             showCode('main.py');  // Display main.py content by default
         };
     
-        const codeFiles = {
-            'main.py': `import pygame
-    print("hello world")`,
-            'config.py': `# Config file
-    SETTINGS = {
-                    'fullscreen': True,
-                    'resolution': (1920, 1080)
-                }`,
-            'game.py': `# Game logic
-            def run_game() {
-                print("Running the game")
-            }`,
-            'level.py': `# Level loading
-            def load_level() {
-                console.log("Loading level")
-            }`,
-            'game.png': 'images/game.png',
-            'background.png': 'images/background.png'
-        };
+    const codeFiles = {
+    // Root level Python files
+    'block.py': `import pygame  # Import the Pygame library
+
+class Block(pygame.sprite.Sprite):  # Define a Block class that inherits from pygame.sprite.Sprite
+    def __init__(self, x, y, texture_paths, initial_texture_index=0):  # Initialize the Block with position, texture paths, and initial texture index
+        super().__init__()  # Initialize the parent class (pygame.sprite.Sprite)
+        self.texture_paths = texture_paths  # Store the paths of the textures for this block
+        self.current_texture_index = initial_texture_index  # Set the initial texture index
+        self.image = pygame.image.load(self.texture_paths[self.current_texture_index]).convert_alpha()  # Load the initial texture image
+        self.rect = self.image.get_rect(topleft=(x, y))  # Get the rectangular area of the image and set its top-left position
+
+    def change_texture(self):  # Method to change the block's texture
+        self.current_texture_index = (self.current_texture_index + 1) % len(self.texture_paths)  # Cycle through the available textures
+        self.image = pygame.image.load(self.texture_paths[self.current_texture_index]).convert_alpha()  # Load the new texture image
+
+    def get_current_texture_index(self):  # Method to get the current texture index
+        return self.current_texture_index  # Return the current texture index
+`,
+    'config.py': `GRID_SIZE = 32
+# Screen dimensions
+SCREEN_WIDTH = 1280  # Multiple of 32
+SCREEN_HEIGHT = 736  # Multiple of 32`,
+    'enemy.py': `import pygame  # Import the Pygame library
+import random  # Import the random library for generating random numbers
+
+class Enemy(pygame.sprite.Sprite):  # Define an Enemy class that inherits from pygame.sprite.Sprite
+    def __init__(self, x, y, texture_paths, level_map, grid_size, initial_texture_index=0):  # Initialize the enemy with position, textures, level map, and other parameters
+        super().__init__()  # Initialize the parent class (pygame.sprite.Sprite)
+        self.level_map = level_map  # Store the level map reference
+        self.grid_size = grid_size  # Store the grid size
+        self.texture_paths = texture_paths  # Store the texture paths for the enemy
+        self.current_texture_index = initial_texture_index  # Set the initial texture index
+        self.ENEMY_SIZE = 32  # Define the size of the enemy (32x32 pixels)
+        self.animation_frames = {  # Load the animation frames for different actions
+            'idle': self.load_frames(texture_paths['idle'], 4),  # Load idle frames
+            'jump': self.load_frames(texture_paths['jump'], 8),  # Load jump frames
+            'run': self.load_frames(texture_paths['run'], 6),  # Load run frames
+            'attack': self.load_frames(texture_paths['attack'], 6)  # Load attack frames
+        }
+        self.current_animation = 'idle'  # Start with the idle animation
+        self.current_frame = 0  # Initialize the current animation frame index
+        self.animation_speed = 0.3  # Set the speed of the animation
+        self.animation_timer = 0  # Initialize the animation timer
+        self.facing_right = True  # Track the direction the enemy is facing
+        self.random_wait = random.randint(30,50)  # Random wait time before action
+        self.random_delay = random.randint(11,15)  # Random delay between actions
+
+        self.ENEMY_SPEED = 4  # Set the speed of the enemy's movement
+        self.GRAVITY = 1  # Set the gravity applied to the enemy
+        self.JUMP_STRENGTH = -13  # Set the strength of the enemy's jump
+        self.vertical_velocity = 0  # Start with zero vertical velocity
+        self.on_ground = False  # Initialize as not on the ground
+        self.rect = self.animation_frames[self.current_animation][self.current_frame].get_rect(topleft=(x, y))  # Get the rect for positioning
+        self.image = self.animation_frames[self.current_animation][self.current_frame]  # Set the initial image
+
+        self.collision_rect = pygame.Rect(self.rect.x, self.rect.y, 20, 26)  # Define a smaller collision rect for precise collision detection
+
+        self.state = 'idle'  # Start in the idle state
+        self.statedelay = 0  # Initialize the state delay timer
+        self.direction = random.choice(['left', 'right'])  # Randomly choose the initial direction
+        self.tick = 0  # Initialize the tick counter
+        self.timetick = 0  # Initialize the time tick counter
+
+        self.is_attacking = False  # Track if the enemy is currently attacking
+
+    def load_frames(self, texture_path, num_frames):  # Load animation frames from a sprite sheet
+        sheet = pygame.image.load(texture_path).convert_alpha()  # Load the sprite sheet image
+        frames = []  # Initialize a list to store frames
+        frame_width = sheet.get_width() // num_frames  # Calculate the width of each frame
+
+        for i in range(num_frames):  # Iterate through each frame in the sprite sheet
+            frame = sheet.subsurface(pygame.Rect(i * frame_width, 0, frame_width, self.ENEMY_SIZE))  # Extract the frame
+            frame = pygame.transform.scale(frame, (self.ENEMY_SIZE, self.ENEMY_SIZE))  # Scale the frame to the enemy's size
+            frames.append(frame)  # Add the frame to the list
+
+        return frames  # Return the list of frames
+
+    def animate(self):  # Animate the enemy's current action
+        num_frames = len(self.animation_frames[self.current_animation])  # Get the number of frames in the current animation
+
+        if self.current_frame >= num_frames:  # Reset the frame index if it exceeds the available frames
+            self.current_frame = 0
+            if self.current_animation == 'attack':  # If the attack animation is complete
+                self.is_attacking = False  # Mark attack as complete
+
+        self.animation_timer += self.animation_speed  # Increment the animation timer
+        if self.animation_timer >= 1:  # Advance to the next frame if the timer exceeds the threshold
+            self.animation_timer = 0
+            self.current_frame = (self.current_frame + 1) % num_frames  # Loop the frame index within the available frames
+
+        frame = self.animation_frames[self.current_animation][self.current_frame]  # Get the current frame
+
+        if not self.facing_right:  # Flip the frame horizontally if the enemy is facing left
+            frame = pygame.transform.flip(frame, True, False)
+
+        self.image = frame  # Update the enemy's image with the current frame
+
+    def update(self, block_group, SCREEN_WIDTH, player, camera_x, player_group):  # Update the enemy's behavior and position
+        distance_to_player = abs(self.rect.x - player.rect.x)  # Calculate the distance to the player
+
+        if distance_to_player > 1800:  # Skip actions if the player is too far away
+            return
+
+        self.collision_rect.topleft = (self.rect.x + (self.ENEMY_SIZE - 20) // 2, self.rect.y + (self.ENEMY_SIZE - 26) // 2)  # Update the collision rect position
+
+        if self.state == "idle":  # Behavior when idle
+            if self.timetick >= self.random_wait:  # Decide the next action after waiting
+                self.direction = random.choice(['left', 'right', 'nothing'])  # Randomly choose a direction or do nothing
+                self.timetick = 0  # Reset the tick counter
+            else:
+                if self.direction == 'nothing':  # If doing nothing, increment the tick counter slower
+                    self.timetick += 2
+                self.timetick += 1  # Increment the tick counter
+
+        if abs(player.rect.x - self.rect.x) <= 280 and abs(player.rect.y - self.rect.y) <= 120:  # Detect proximity to the player to start attacking
+            self.state = 'attack'  # Set state to attack
+
+        if self.state == 'attack':  # Behavior when attacking
+            if self.rect.x >= player.rect.x:  # Move left if the player is to the left
+                if self.statedelay >= self.random_delay:  # Wait before changing direction
+                    self.direction = 'left'
+                    self.statedelay = 0
+                else:
+                    self.statedelay += 1
+            elif self.rect.x < player.rect.x:  # Move right if the player is to the right
+                if self.statedelay >= self.random_delay:
+                    self.direction = 'right'
+                    self.statedelay = 0
+                else:
+                    self.statedelay += 1
+
+        if abs(player.rect.x - self.rect.x) <= 50 and not self.is_attacking:  # Use attack animation when close enough to damage the player
+            self.is_attacking = True  # Mark as attacking
+            self.current_animation = 'attack'  # Play the attack animation
+            self.current_frame = 0  # Restart the animation
+        elif self.is_attacking:  # If already attacking, continue the attack animation
+            self.current_animation = 'attack'
+        elif self.state == 'attack':  # Continue running if in attack state but not attacking
+            self.current_animation = 'run'
+        else:  # Idle otherwise
+            self.current_animation = 'idle'
+
+        if self.direction == 'left':  # Move left if the direction is left
+            self.rect.x -= self.ENEMY_SPEED
+            self.facing_right = False
+        elif self.direction == 'right':  # Move right if the direction is right
+            self.rect.x += self.ENEMY_SPEED
+            self.facing_right = True
+
+        self.animate()  # Animate the enemy
+
+        collided_blocks = pygame.sprite.spritecollide(self, block_group, False)  # Check for horizontal collisions with blocks
+        for block in collided_blocks:  # Handle block collisions
+            if self.rect.right > block.rect.left and self.rect.left < block.rect.left:  # If moving right into a block
+                self.rect.right = block.rect.left
+                if self.state == 'idle':
+                    self.direction = 'left'
+            elif self.rect.left < block.rect.right and self.rect.right > block.rect.right:  # If moving left into a block
+                self.rect.left = block.rect.right
+                if self.state == 'idle':
+                    self.direction = 'right'
+
+        self.vertical_velocity += self.GRAVITY  # Apply gravity
+
+        self.rect.y += self.vertical_velocity  # Apply vertical movement
+
+        collided_blocks = pygame.sprite.spritecollide(self, block_group, False)  # Check for vertical collisions with blocks
+        self.on_ground = False  # Assume not on the ground until confirmed
+        for block in collided_blocks:  # Handle vertical block collisions
+            if self.rect.bottom > block.rect.top and self.rect.top < block.rect.top:  # If landing on a block
+                self.rect.bottom = block.rect.top
+                self.vertical_velocity = 0
+                self.on_ground = True  # Confirm the enemy is on the ground
+            elif self.rect.top < block.rect.bottom and self.rect.bottom > block.rect.bottom:  # If hitting the underside of a block
+                self.rect.top = block.rect.bottom
+                self.vertical_velocity = 0
+
+        if self.on_ground and self.should_jump(block_group):  # If on the ground and should jump
+            self.vertical_velocity = self.JUMP_STRENGTH  # Apply jump strength
+            self.on_ground = False  # Set as not on the ground
+
+    def should_jump(self, block_group):  # Determine if the enemy should jump
+        if self.direction == 'right':  # Check for blocks in the path when moving right
+            test_offsets = [
+                (self.ENEMY_SIZE, -1 * self.ENEMY_SIZE),  # 1 block right, 1 block up
+                (2 * self.ENEMY_SIZE, -1 * self.ENEMY_SIZE),  # 2 blocks right, 1 block up
+                (3 * self.ENEMY_SIZE, -1 * self.ENEMY_SIZE),  # 3 blocks right, 1 block up
+                (self.ENEMY_SIZE, -2 * self.ENEMY_SIZE),  # 1 block right, 2 blocks up
+                (2 * self.ENEMY_SIZE, -2 * self.ENEMY_SIZE),  # 2 blocks right, 2 blocks up
+                (3 * self.ENEMY_SIZE, -2 * self.ENEMY_SIZE),  # 3 blocks right, 2 blocks up
+                (self.ENEMY_SIZE, -3 * self.ENEMY_SIZE),  # 1 block right, 3 blocks up
+                (2 * self.ENEMY_SIZE, -3 * self.ENEMY_SIZE),  # 2 blocks right, 3 blocks up
+                (3 * self.ENEMY_SIZE, -3 * self.ENEMY_SIZE)  # 3 blocks right, 3 blocks up
+            ]
+        elif self.direction == 'left':  # Check for blocks in the path when moving left
+            test_offsets = [
+                (-self.ENEMY_SIZE, -1 * self.ENEMY_SIZE),  # 1 block left, 1 block up
+                (-2 * self.ENEMY_SIZE, -1 * self.ENEMY_SIZE),  # 2 blocks left, 1 block up
+                (-3 * self.ENEMY_SIZE, -1 * self.ENEMY_SIZE),  # 3 blocks left, 1 block up
+                (-self.ENEMY_SIZE, -2 * self.ENEMY_SIZE),  # 1 block left, 2 blocks up
+                (-2 * self.ENEMY_SIZE, -2 * self.ENEMY_SIZE),  # 2 blocks left, 2 blocks up
+                (-3 * self.ENEMY_SIZE, -2 * self.ENEMY_SIZE),  # 3 blocks left, 2 blocks up
+                (-self.ENEMY_SIZE, -3 * self.ENEMY_SIZE),  # 1 block left, 3 blocks up
+                (-2 * self.ENEMY_SIZE, -3 * self.ENEMY_SIZE),  # 2 blocks left, 3 blocks up
+                (-3 * self.ENEMY_SIZE, -3 * self.ENEMY_SIZE)  # 3 blocks left, 3 blocks up
+            ]
+        else:
+            return False
+
+        head_rect = pygame.Rect(self.rect.x, self.rect.y - self.ENEMY_SIZE, self.ENEMY_SIZE, self.ENEMY_SIZE)  # Create a rect for the head
+        upper_head_rect = pygame.Rect(self.rect.x, self.rect.y - 2 * self.ENEMY_SIZE, self.ENEMY_SIZE, self.ENEMY_SIZE)  # Create a rect for the upper head
+
+        relevant_blocks = [block for block in block_group if self.rect.colliderect(block.rect.inflate(self.ENEMY_SIZE * 4, self.ENEMY_SIZE * 4))]  # Filter blocks near the enemy
+
+        for block in relevant_blocks:  # Check for collisions with the head
+            if head_rect.colliderect(block.rect) or upper_head_rect.colliderect(block.rect):
+                return False
+
+        for offset in test_offsets:  # Test potential jump locations
+            target_x = self.rect.x + offset[0]
+            target_y = self.rect.y + offset[1]
+
+            target_rect = pygame.Rect(target_x, target_y, self.ENEMY_SIZE, self.ENEMY_SIZE)  # Create a rect for the target position
+            ground_rect = pygame.Rect(target_x, target_y + self.ENEMY_SIZE, self.ENEMY_SIZE, self.ENEMY_SIZE)  # Create a rect for the ground beneath
+
+            clear_path = True  # Assume path is clear
+            ground_beneath = False  # Assume no ground beneath
+
+            for block in relevant_blocks:  # Check for collisions with the target and ground rects
+                if target_rect.colliderect(block.rect):
+                    clear_path = False
+                if ground_rect.colliderect(block.rect):
+                    ground_beneath = True
+
+            if clear_path and ground_beneath:  # If path is clear and there's ground beneath, jump
+                return True
+
+        return False  # No reason to jump
+
+    def get_current_texture_index(self):  # Get the current texture index
+        return self.current_texture_index  # Return the current texture index
+`,
+    'hud.py': `import pygame  # Import the Pygame library
+
+def draw_hud(screen, player, high_score, best_time):  # Function to draw the HUD on the screen
+    font = pygame.font.SysFont(None, 36)  # Set up the font for the HUD text
+    BAR_WIDTH = 200  # Width of the health, hunger, and thirst bars
+    BAR_HEIGHT = 20  # Height of the bars
+    RED = (255, 0, 0)  # Color for the background of the bars
+    GREEN = (0, 255, 0)  # Color for the health bar
+    YELLOW = (255, 255, 0)  # Color for the hunger bar
+    CYAN = (0, 255, 255)  # Color for the thirst bar
+    BLACK = (0, 0, 0)  # Color for the text
+
+    pygame.draw.rect(screen, RED, (10, 10, BAR_WIDTH, BAR_HEIGHT))  # Draw the background for the health bar
+    pygame.draw.rect(screen, GREEN, (10, 10, BAR_WIDTH * (player.health / player.MAX_STAT), BAR_HEIGHT))  # Draw the health bar
+
+    pygame.draw.rect(screen, RED, (10, 40, BAR_WIDTH, BAR_HEIGHT))  # Draw the background for the hunger bar
+    pygame.draw.rect(screen, YELLOW, (10, 40, BAR_WIDTH * (player.hunger / player.MAX_STAT), BAR_HEIGHT))  # Draw the hunger bar
+
+    pygame.draw.rect(screen, RED, (10, 70, BAR_WIDTH, BAR_HEIGHT))  # Draw the background for the thirst bar
+    pygame.draw.rect(screen, CYAN, (10, 70, BAR_WIDTH * (player.thirst / player.MAX_STAT), BAR_HEIGHT))  # Draw the thirst bar
+
+    # Display current score
+    score_text = font.render(f'Score: {int(player.score)}', True, BLACK)  # Create the score text
+    screen.blit(score_text, (10, 130))  # Draw the score text on the screen
+
+    # Display high score
+    high_score_text = font.render(f'High Score: {int(high_score)}', True, BLACK)
+    screen.blit(high_score_text, (10, 100))
+
+    # Display best time
+    best_time_text = font.render(f'Best Time: {int(best_time)}s', True, BLACK)
+    screen.blit(best_time_text, (10, 160))
+`,
+    'items.py': `import pygame  # Import the Pygame library
+import math  # Import the math library for sine wave calculations
+
+class Food(pygame.sprite.Sprite):  # Define a Food class that inherits from pygame.sprite.Sprite
+    def __init__(self, x, y, texture_paths, initial_texture_index=0, animation_speed=0.1):  # Initialize the Food with position, textures, and animation speed
+        super().__init__()  # Initialize the parent class (pygame.sprite.Sprite)
+        self.texture_paths = texture_paths  # Store the texture paths for the food
+        self.current_texture_index = initial_texture_index  # Set the initial texture index
+        self.current_frame = self.current_texture_index  # Set the current frame to the initial texture index
+        self.animation_speed = animation_speed  # Set the speed of the animation
+        self.frame_count = len(texture_paths)  # Get the number of frames in the animation
+        self.ITEM_SIZE = 32  # Define the size of the food item (32x32 pixels)
+        
+        self.original_x = x  # Store the original X position (grid-aligned)
+        self.original_y = y  # Store the original Y position (grid-aligned)
+        
+        self.image = pygame.image.load(self.texture_paths[self.current_frame]).convert_alpha()  # Load the initial texture image
+        self.rect = self.image.get_rect()  # Get the rectangular area of the image
+        self.rect.x = self.original_x  # Set the X position of the rect
+        self.rect.y = self.original_y  # Set the Y position of the rect
+        
+        self.sine_wave_amplitude = 5  # Set the amplitude of the sine wave for vertical movement
+        self.time_elapsed = 0  # Initialize the time elapsed for sine wave calculations
+    
+    def update(self, dt):  # Update the food's position and animation
+        self.current_frame = (self.current_frame + self.animation_speed) % self.frame_count  # Advance the animation frame
+        self.image = pygame.image.load(self.texture_paths[int(self.current_frame)]).convert_alpha()  # Load the current frame's texture
+        
+        self.time_elapsed += dt  # Increment the time elapsed
+        sine_wave_offset = math.sin(self.time_elapsed * 2 * math.pi) * self.sine_wave_amplitude  # Calculate the vertical offset using a sine wave
+        self.rect.y = self.original_y + int(sine_wave_offset)  # Apply the vertical offset to the rect's Y position
+
+    def change_texture(self):  # Change the food's texture
+        self.current_texture_index = (self.current_texture_index + 1) % len(self.texture_paths)  # Cycle through available textures
+        self.image = pygame.image.load(self.texture_paths[self.current_texture_index]).convert_alpha()  # Load the new texture image
+
+    def get_current_texture_index(self):  # Get the current texture index
+        return self.current_texture_index  # Return the current texture index
+
+class Water(pygame.sprite.Sprite):  # Define a Water class that inherits from pygame.sprite.Sprite
+    def __init__(self, x, y, texture_paths, initial_texture_index=0, animation_speed=0.1):  # Initialize the Water with position, textures, and animation speed
+        super().__init__()  # Initialize the parent class (pygame.sprite.Sprite)
+        self.texture_paths = texture_paths  # Store the texture paths for the water
+        self.current_texture_index = initial_texture_index  # Set the initial texture index
+        self.animation_speed = animation_speed  # Set the speed of the animation
+        self.ITEM_SIZE = 32  # Define the size of the water item (32x32 pixels)
+        
+        self.original_x = x  # Store the original X position (grid-aligned)
+        self.original_y = y  # Store the original Y position (grid-aligned)
+        
+        self.image = pygame.image.load(self.texture_paths[self.current_texture_index]).convert_alpha()  # Load the initial texture image
+        self.rect = self.image.get_rect()  # Get the rectangular area of the image
+        self.rect.x = self.original_x  # Set the X position of the rect
+        self.rect.y = self.original_y  # Set the Y position of the rect
+        
+        self.sine_wave_amplitude = 5  # Set the amplitude of the sine wave for vertical movement
+        self.time_elapsed = 0  # Initialize the time elapsed for sine wave calculations
+    
+    def update(self, dt):  # Update the water's position and animation
+        self.time_elapsed += dt  # Increment the time elapsed
+        sine_wave_offset = math.sin(self.time_elapsed * 2 * math.pi) * self.sine_wave_amplitude  # Calculate the vertical offset using a sine wave
+        self.rect.y = self.original_y + int(sine_wave_offset)  # Apply the vertical offset to the rect's Y position
+
+    def change_texture(self):  # Change the water's texture
+        self.current_texture_index = (self.current_texture_index + 1) % len(self.texture_paths)  # Cycle through available textures
+        self.image = pygame.image.load(self.texture_paths[self.current_texture_index]).convert_alpha()  # Load the new texture image
+
+    def get_current_texture_index(self):  # Get the current texture index
+        return self.current_texture_index  # Return the current texture index
+`,
+    'LevelEditor.py': `import pygame  # Import the Pygame library for creating the game window and handling events
+import json  # Import the JSON library for saving and loading level data
+import os  # Import the OS library for file handling
+import math  # Import the Math library for mathematical calculations
+from items import Food, Water  # Import the Food and Water classes from the items module
+from block import Block  # Import the Block class from the block module
+from player import Player  # Import the Player class from the player module
+from enemy import Enemy  # Import the Enemy class from the enemy module
+from object import Object  # Import the Object class from the object module
+from main_menu import pause_menu  # Import the pause_menu function from the main_menu module
+
+# Initialize Pygame
+pygame.init()  # Initialize all Pygame modules
+
+# Constants
+SCREEN_WIDTH = 1280  # Set the width of the screen (must be a multiple of 32 for grid alignment)
+SCREEN_HEIGHT = 736  # Set the height of the screen (must be a multiple of 32 for grid alignment)
+GRID_SIZE = 32  # Set the size of each grid cell (32x32 pixels)
+PANEL_WIDTH = 75  # Set the width of the selection panel
+PANEL_COLOR = (50, 50, 50, 128)  # Set the color of the panel (semi-transparent gray)
+PANEL_BORDER_COLOR = (255, 255, 255)  # Set the color of the panel border (white)
+HIGHLIGHT_COLOR = (255, 255, 0)  # Set the color for highlighting selected items (yellow)
+BACKGROUND_COLOR = (131, 235, 255)  # Set the background color of the screen (light blue)
+
+# Eraser Constants
+ERASER_TEXTURE_PATH = "textures/eraser.png"  # Path to the eraser texture image
+
+# Camera or viewport offsets
+camera_x = 0  # Initialize the camera's horizontal offset
+camera_y = 0  # Initialize the camera's vertical offset
+
+# Create the screen
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.NOFRAME)  # Create a Pygame window with no frame
+pygame.display.set_caption("Level Editor")  # Set the window title to "Level Editor"
+
+# Sprite groups
+food_group = pygame.sprite.Group()  # Group for all food sprites
+water_group = pygame.sprite.Group()  # Group for all water sprites
+block_group = pygame.sprite.Group()  # Group for all block sprites
+player_group = pygame.sprite.Group()  # Group for all player sprites
+enemy_group = pygame.sprite.Group()  # Group for all enemy sprites
+object_group = pygame.sprite.Group()  # Group for all object sprites
+
+selected_texture = None  # Initialize the selected texture as None
+selected_type = None  # Initialize the selected block type as None
+
+# Paths to the player's textures for different animations
+player_texture_paths = {
+    'idle': 'textures/dude/Dude_Monster_Idle_4.png',  # Idle animation texture
+    'jump': 'textures/dude/Dude_Monster_Jump_8.png',  # Jump animation texture
+    'run': 'textures/dude/Dude_Monster_Run_6.png',  # Run animation texture
+    'death': 'textures/dude/Dude_Monster_Death_8.png'  # Death animation texture
+}
+
+# Paths to the enemy's textures for different animations
+enemy_texture_paths = {
+    'idle': 'textures/enemy/Owlet_Monster_Idle_4.png',  # Idle animation texture
+    'jump': 'textures/enemy/Owlet_Monster_Jump_8.png',  # Jump animation texture
+    'run': 'textures/enemy/Owlet_Monster_Run_6.png',  # Run animation texture
+    'attack': 'textures/enemy/Owlet_Monster_Walk+Attack_6.png'
+}
+
+# Dictionary mapping block types to their corresponding textures
+textures = {
+    "X": [  # Block textures
+        "textures/blocks/stone_texture.png",
+        "textures/blocks/grass_texture.png",
+        "textures/blocks/dirt_texture.png"
+    ],
+    "F": [  # Food textures
+        "textures/food/food_texture_frame_1.png",
+    ],
+    "W": [  # Water texture
+        "textures/water/water_texture.png"
+    ],
+    "P": [  # Player textures
+        "textures/dude/Dude_Monster_Idle_4.png",
+        "textures/dude/Dude_Monster_Jump_8.png",
+        "textures/dude/Dude_Monster_Run_6.png",
+        "textures/dude/Dude_Monster_Death_8.png"
+    ],
+    "E": {  # Enemy textures
+        'idle': 'textures/enemy/Owlet_Monster_Idle_4.png',
+        'jump': 'textures/enemy/Owlet_Monster_Jump_8.png',
+        'run': 'textures/enemy/Owlet_Monster_Run_6.png',
+        'attack': 'textures/enemy/Owlet_Monster_Walk+Attack_6.png'
+    },
+    "O": [  # Object textures (e.g., helicopter)
+        "textures/heli/heli_texture1.png",
+        "textures/heli/heli_texture2.png",
+    ]
+}
+
+# Load level and textures from JSON
+def load_level_from_json(filename):
+    if os.path.exists(filename):  # Check if the level file exists
+        print(f"Loading level from {filename}")  # Print a message indicating the level is being loaded
+        with open(filename, 'r') as file:  # Open the level file in read mode
+            data = json.load(file)  # Load the JSON data from the file
+        return data['level'], data['textures']  # Return the level map and textures
+    else:
+        print(f"No saved level found at {filename}")  # Print an error message if the file doesn't exist
+        raise FileNotFoundError(f"No saved level found at {filename}")  # Raise a FileNotFoundError
+
+def save_level_to_json(filename, level_map, textures):
+    data_to_save = {  # Create a dictionary with the level map and textures
+        "level": level_map,  # Save the level map
+        "textures": textures  # Save the textures
+    }
+    with open(filename, 'w') as file:  # Open the file in write mode
+        json.dump(data_to_save, file, indent=4)  # Dump the data to the file in JSON format, with indentation for readability
+
+def initialize_map(level_map, textures):
+    # Clear all sprite groups to prepare for loading a new level
+    block_group.empty()
+    food_group.empty()
+    water_group.empty()
+    player_group.empty()
+    enemy_group.empty()
+    object_group.empty()
+    
+    for block_data in level_map:  # Iterate over each block in the level map
+        x = block_data['x'] * GRID_SIZE  # Calculate the X position in pixels
+        y = block_data['y'] * GRID_SIZE  # Calculate the Y position in pixels
+        texture_index = block_data['texture_index']  # Get the texture index
+        block_type = block_data['type']  # Get the block type
+        
+        if block_type == 'X':  # If the block is a regular block
+            block = Block(x, y, textures['X'], texture_index)  # Create a Block instance
+            block_group.add(block)  # Add the block to the block group
+        elif block_type == 'F':  # If the block is food
+            food = Food(x, y, textures['F'], texture_index)  # Create a Food instance
+            food_group.add(food)  # Add the food to the food group
+        elif block_type == 'W':  # If the block is water
+            water = Water(x, y, textures['W'], texture_index)  # Create a Water instance
+            water_group.add(water)  # Add the water to the water group
+        elif block_type == 'P':  # If the block is a player
+            player = Player(x, y, player_texture_paths, level_map, GRID_SIZE, texture_index)  # Create a Player instance
+            player_group.add(player)  # Add the player to the player group
+        elif block_type == 'E':  # If the block is an enemy
+            enemy = Enemy(x, y, enemy_texture_paths, GRID_SIZE, texture_index)  # Create an Enemy instance
+            enemy_group.add(enemy)  # Add the enemy to the enemy group
+        elif block_type == 'O':  # If the block is an object
+            object = Object(x, y, textures['O'], texture_index)  # Create an Object instance
+            object_group.add(object)  # Add the object to the object group
+
+def update_level_map():
+    updated_map = []  # Create an empty list to hold the updated level map
+    
+    for block in block_group:  # Iterate over all blocks
+        updated_map.append({  # Add each block's data to the updated map
+            'x': block.rect.x // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'y': block.rect.y // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'type': 'X',  # Type is 'X' for regular blocks
+            'texture_index': block.get_current_texture_index()  # Get the block's current texture index
+        })
+    
+    for object in object_group:  # Iterate over all objects
+        updated_map.append({  # Add each object's data to the updated map
+            'x': object.rect.x // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'y': object.rect.y // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'type': 'O',  # Type is 'O' for objects
+            'texture_index': object.get_current_texture_index()  # Get the object's current texture index
+        })
+
+    for food in food_group:  # Iterate over all food items
+        updated_map.append({  # Add each food's data to the updated map
+            'x': food.original_x // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'y': food.original_y // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'type': 'F',  # Type is 'F' for food
+            'texture_index': food.get_current_texture_index()  # Get the food's current texture index
+        })
+    
+    for water in water_group:  # Iterate over all water items
+        updated_map.append({  # Add each water's data to the updated map
+            'x': water.original_x // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'y': water.original_y // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'type': 'W',  # Type is 'W' for water
+            'texture_index': water.get_current_texture_index()  # Get the water's current texture index
+        })
+    
+    for player in player_group:  # Iterate over all players
+        updated_map.append({  # Add each player's data to the updated map
+            'x': player.rect.x // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'y': player.rect.y // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'type': 'P',  # Type is 'P' for player
+            'texture_index': player.get_current_texture_index()  # Get the player's current texture index
+        })
+    
+    for enemy in enemy_group:  # Iterate over all enemies
+        updated_map.append({  # Add each enemy's data to the updated map
+            'x': enemy.rect.x // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'y': enemy.rect.y // GRID_SIZE,  # Convert pixel position to grid coordinates
+            'type': 'E',  # Type is 'E' for enemy
+            'texture_index': enemy.current_texture_index  # Get the enemy's current texture index
+        })
+    
+    return updated_map  # Return the updated level map
+
+def move_camera(dx, dy):
+    global camera_x, camera_y  # Use global camera offsets
+    camera_x += dx  # Move the camera horizontally by dx
+    camera_y += dy  # Move the camera vertically by dy
+
+def draw_panel():
+    # Draw panel background
+    panel_rect = pygame.Rect(SCREEN_WIDTH - PANEL_WIDTH, 0, PANEL_WIDTH, SCREEN_HEIGHT)  # Define the panel's rectangular area
+    pygame.draw.rect(screen, PANEL_COLOR, panel_rect)  # Draw the panel's background color
+    pygame.draw.rect(screen, PANEL_BORDER_COLOR, panel_rect, 2)  # Draw the panel's border
+
+    # Draw block and item textures
+    x_start = SCREEN_WIDTH - PANEL_WIDTH + 5  # Starting X position for the textures
+    y_start = 10  # Starting Y position for the textures
+    spacing = 75  # Vertical spacing between textures
+    
+    index = 0  # Index for tracking the position in the panel
+    for block_type in textures:  # Iterate over all block types
+        for texture_path in (textures[block_type] if block_type == "X" else textures[block_type][:1]):  # Iterate over each texture path (limit to the first texture for non-blocks)
+            texture_image = pygame.image.load(texture_path).convert_alpha()  # Load the texture image
+            rect = texture_image.get_rect(topleft=(x_start, y_start + index * spacing))  # Get the texture's rect
+            
+            # Scale the image down to fit in the panel
+            scaled_image = pygame.transform.scale(texture_image, (PANEL_WIDTH - 10, PANEL_WIDTH - 10))  # Scale the image to fit within the panel width
+            
+            # Correct the position of the rect to match the scaled image
+            rect = scaled_image.get_rect(topleft=(x_start, y_start + index * spacing))  # Recalculate the rect for the scaled image
+            
+            # Highlight if mouse is over the texture
+            if rect.collidepoint(pygame.mouse.get_pos()):  # If the mouse is over this texture
+                pygame.draw.rect(screen, HIGHLIGHT_COLOR, rect.inflate(4, 4), 2)  # Draw a highlight around the texture
+            
+            screen.blit(scaled_image, rect.topleft)  # Draw the texture image at its position
+            index += 1  # Move to the next position in the panel
+
+    # Draw eraser tool at the bottom
+    eraser_image = pygame.image.load(ERASER_TEXTURE_PATH).convert_alpha()  # Load the eraser image
+    eraser_rect = eraser_image.get_rect(topleft=(x_start, y_start + index * spacing))  # Get the rect for the eraser
+    
+    # Scale eraser image down to fit in the panel
+    scaled_eraser_image = pygame.transform.scale(eraser_image, (PANEL_WIDTH - 10, PANEL_WIDTH - 10))  # Scale the eraser image to fit within the panel width
+    
+    # Correct the position of the rect to match the scaled image
+    eraser_rect = scaled_eraser_image.get_rect(topleft=(x_start, y_start + index * spacing))  # Recalculate the rect for the scaled eraser image
+    
+    # Highlight eraser if mouse is over it
+    if eraser_rect.collidepoint(pygame.mouse.get_pos()):  # If the mouse is over the eraser
+        pygame.draw.rect(screen, HIGHLIGHT_COLOR, eraser_rect.inflate(4, 4), 2)  # Draw a highlight around the eraser
+    
+    screen.blit(scaled_eraser_image, eraser_rect.topleft)  # Draw the eraser image at its position
+
+def get_selected_texture():
+    x_start = SCREEN_WIDTH - PANEL_WIDTH + 5  # Starting X position for the textures
+    y_start = 10  # Starting Y position for the textures
+    spacing = 75  # Vertical spacing between textures
+    
+    index = 0  # Index for tracking the position in the panel
+    for block_type in textures:  # Iterate over all block types
+        for texture_path in (textures[block_type] if block_type == "X" else textures[block_type][:1]):  # Iterate over each texture path (limit to the first texture for non-blocks)
+            texture_image = pygame.image.load(texture_path).convert_alpha()  # Load the texture image
+            rect = texture_image.get_rect(topleft=(x_start, y_start + index * spacing))  # Get the texture's rect
+            
+            # Adjust rect to match the scaled image
+            rect = rect.inflate(PANEL_WIDTH - 10, PANEL_WIDTH - 10)  # Adjust the rect to fit within the panel
+            
+            if rect.collidepoint(pygame.mouse.get_pos()):  # If the mouse is over this texture
+                return block_type, texture_path, index if block_type == "X" else 0  # Return the block type, texture path, and texture index
+            
+            index += 1  # Move to the next position in the panel
+    
+    # Check if eraser is selected
+    eraser_rect = pygame.Rect(x_start, y_start + index * spacing, PANEL_WIDTH - 10, PANEL_WIDTH - 10)  # Create a rect for the eraser
+    if eraser_rect.collidepoint(pygame.mouse.get_pos()):  # If the mouse is over the eraser
+        return "eraser", None, None  # Return the eraser as the selected tool
+    
+    return None, None, None  # Return None if nothing is selected
+
+def draw_world():
+    # Draw all blocks, food, and water relative to the camera
+    for block in block_group:  # Draw all blocks
+        screen.blit(block.image, (block.rect.x - camera_x, block.rect.y - camera_y))  # Draw block relative to camera
+    for food in food_group:  # Draw all food items
+        screen.blit(food.image, (food.rect.x - camera_x, food.rect.y - camera_y))  # Draw food relative to camera
+    for water in water_group:  # Draw all water items
+        screen.blit(water.image, (water.rect.x - camera_x, water.rect.y - camera_y))  # Draw water relative to camera
+    for player in player_group:  # Draw all players
+        screen.blit(player.image, (player.rect.x - camera_x, player.rect.y - camera_y))  # Draw player relative to camera
+    for enemy in enemy_group:  # Draw all enemies
+        screen.blit(enemy.image, (enemy.rect.x - camera_x, enemy.rect.y - camera_y))  # Draw enemy relative to camera
+    for object in object_group:  # Draw all objects
+        screen.blit(object.image, (object.rect.x - camera_x, object.rect.y - camera_y))  # Draw object relative to camera
+
+# Start with level1.json
+level_file = 'level1.json'  # Set the initial level file
+try:
+    level_map, textures = load_level_from_json(level_file)  # Try to load the level and textures from JSON
+    initialize_map(level_map, textures)  # Initialize the map with the loaded data
+except FileNotFoundError as e:  # If the file is not found
+    print(e)  # Print the error message
+    level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}  # Use default textures if file not found
+    initialize_map(level_map, textures)  # Initialize the map with default data
+
+# Main editor loop
+clock = pygame.time.Clock()  # Create a clock object to manage the frame rate
+
+def main(textures):
+    global running, level_file  # Use global variables for running status and level file
+    running = True  # Set the running status to True
+    while running:
+        dt = clock.tick(60) / 1000  # Limit the frame rate to 60 FPS and get the time elapsed since last frame
+        
+        for event in pygame.event.get():  # Iterate over all Pygame events
+            if event.type == pygame.QUIT:  # If the quit event is triggered
+                running = False  # Set running to False to exit the loop
+            elif event.type == pygame.KEYDOWN:  # If a key is pressed
+                if event.key == pygame.K_ESCAPE:  # If the Escape key is pressed
+                    pause_menu()  # Call the pause menu
+                elif event.key == pygame.K_1:  # If the "1" key is pressed
+                    if pygame.key.get_mods() & pygame.KMOD_SHIFT:  # If Shift is also pressed
+                        level_map = update_level_map()  # Update the level map with current changes
+                        save_level_to_json('level1.json', level_map, textures)  # Save the map to level1.json
+                        print("Level saved to level1.json!")  # Print confirmation message
+                    else:
+                        level_file = 'level1.json'  # Set the level file to level1.json
+                        try:
+                            level_map, textures = load_level_from_json(level_file)  # Try to load the level from JSON
+                            initialize_map(level_map, textures)  # Initialize the map with the loaded data
+                            print("Level1 loaded.")  # Print confirmation message
+                        except FileNotFoundError as e:  # If the file is not found
+                            print(e)  # Print the error message
+                elif event.key == pygame.K_2:  # If the "2" key is pressed
+                    if pygame.key.get_mods() & pygame.KMOD_SHIFT:  # If Shift is also pressed
+                        level_map = update_level_map()  # Update the level map with current changes
+                        save_level_to_json('level2.json', level_map, textures)  # Save the map to level2.json
+                        print("Level saved to level2.json!")  # Print confirmation message
+                    else:
+                        level_file = 'level2.json'  # Set the level file to level2.json
+                        try:
+                            level_map, textures = load_level_from_json(level_file)  # Try to load the level from JSON
+                            initialize_map(level_map, textures)  # Initialize the map with the loaded data
+                            print("Level2 loaded.")  # Print confirmation message
+                        except FileNotFoundError as e:  # If the file is not found
+                            print(e)  # Print the error message
+                elif event.key == pygame.K_RIGHT or event.key == pygame.K_d:  # If the right arrow or "D" key is pressed
+                    move_camera(GRID_SIZE, 0)  # Move the camera to the right
+                elif event.key == pygame.K_LEFT or event.key == pygame.K_a:  # If the left arrow or "A" key is pressed
+                    move_camera(-GRID_SIZE, 0)  # Move the camera to the left
+                elif event.key == pygame.K_DOWN or event.key == pygame.K_s:  # If the down arrow or "S" key is pressed
+                    move_camera(0, GRID_SIZE)  # Move the camera down
+                elif event.key == pygame.K_UP or event.key == pygame.K_w:  # If the up arrow or "W" key is pressed
+                    move_camera(0, -GRID_SIZE)  # Move the camera up
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # If a mouse button is clicked
+                x, y = event.pos  # Get the mouse position
+                grid_x = (x + camera_x) // GRID_SIZE  # Calculate the grid X coordinate
+                grid_y = (y + camera_y) // GRID_SIZE  # Calculate the grid Y coordinate
+                if x >= SCREEN_WIDTH - PANEL_WIDTH:  # Check if the click is inside the panel
+                    if event.button == 1:  # If the left mouse button is clicked
+                        selected_type, selected_texture, texture_index = get_selected_texture()  # Get the selected texture
+                elif event.button == 3:  # If the right mouse button is clicked
+                    if selected_type == "eraser":  # If the eraser is selected
+                        # Erase block/food/water
+                        for block in block_group:  # Iterate over all blocks
+                            if block.rect.collidepoint(x + camera_x, y + camera_y):  # Check if the mouse is over the block
+                                block_group.remove(block)  # Remove the block
+                        for food in food_group:  # Iterate over all food items
+                            if food.rect.collidepoint(x + camera_x, y + camera_y):  # Check if the mouse is over the food
+                                food_group.remove(food)  # Remove the food
+                        for water in water_group:  # Iterate over all water items
+                            if water.rect.collidepoint(x + camera_x, y + camera_y):  # Check if the mouse is over the water
+                                water_group.remove(water)  # Remove the water
+                        for player in player_group:  # Iterate over all players
+                            if player.rect.collidepoint(x + camera_x, y + camera_y):  # Check if the mouse is over the player
+                                player_group.remove(player)  # Remove the player
+                        for enemy in enemy_group:  # Iterate over all enemies
+                            if enemy.rect.collidepoint(x + camera_x, y + camera_y):  # Check if the mouse is over the enemy
+                                enemy_group.remove(enemy)  # Remove the enemy
+                        for object in object_group:  # Iterate over all objects
+                            if object.rect.collidepoint(x + camera_x, y + camera_y):  # Check if the mouse is over the object
+                                object_group.remove(object)  # Remove the object
+                    elif selected_type and selected_texture:  # If a texture is selected
+                        # Place block/food/water
+                        if selected_type == 'X':  # If placing a block
+                            block = Block(grid_x * GRID_SIZE, grid_y * GRID_SIZE, textures[selected_type], texture_index)  # Create a Block instance
+                            block_group.add(block)  # Add the block to the block group
+                        elif selected_type == 'F':  # If placing food
+                            food = Food(grid_x * GRID_SIZE, grid_y * GRID_SIZE, textures[selected_type], texture_index)  # Create a Food instance
+                            food_group.add(food)  # Add the food to the food group
+                        elif selected_type == 'W':  # If placing water
+                            water = Water(grid_x * GRID_SIZE, grid_y * GRID_SIZE, textures[selected_type], texture_index)  # Create a Water instance
+                            water_group.add(water)  # Add the water to the water group
+                        elif selected_type == 'P':  # If placing a player
+                            # Ensure correct texture paths are being used
+                            player_texture_paths = {  # Define the player textures
+                                'idle': 'textures/dude/Dude_Monster_Idle_4.png',
+                                'jump': 'textures/dude/Dude_Monster_Jump_8.png',
+                                'run': 'textures/dude/Dude_Monster_Run_6.png',
+                                'death': 'textures/dude/Dude_Monster_Death_8.png'
+                            }
+                            
+                            player = Player(grid_x * GRID_SIZE, grid_y * GRID_SIZE, player_texture_paths, {}, GRID_SIZE, texture_index)  # Create a Player instance
+                            player_group.add(player)  # Add the player to the player group
+                        elif selected_type == 'E':  # If placing an enemy
+                            enemy = Enemy(grid_x * GRID_SIZE, grid_y * GRID_SIZE, enemy_texture_paths, GRID_SIZE, texture_index)  # Create an Enemy instance
+                            enemy_group.add(enemy)  # Add the enemy to the enemy group
+                        elif selected_type == 'O':  # If placing an object
+                            object = Object(grid_x * GRID_SIZE, grid_y * GRID_SIZE, textures[selected_type], texture_index)  # Create an Object instance
+                            object_group.add(object)  # Add the object to the object group
+        
+        food_group.update(dt)  # Update all food items
+        water_group.update(dt)  # Update all water items
+
+        # Clear the screen
+        screen.fill(BACKGROUND_COLOR)  # Fill the screen with the background color
+
+        # Draw the world (blocks, food, water)
+        draw_world()  # Draw all elements in the world
+
+        # Draw the selection panel
+        draw_panel()  # Draw the selection panel on the side
+
+        # Update the display
+        pygame.display.flip()  # Update the full display surface to the screen
+
+    pygame.quit()  # Quit Pygame when the loop ends
+
+if __name__ == "__main__":
+    main()  # Run the main function if this script is executed directly
+`,
+    'main.py': `import pygame
+import sys
+import json
+import shutil
+import os
+from player import Player
+from enemy import Enemy
+from items import Food, Water
+from hud import draw_hud
+from block import Block
+from object import Object
+from config import *
+from main_menu import pause_menu
+from main_menu import end_menu, next_level_menu, you_survived_menu
+
+STATS_FILE = 'stats.txt'
+
+# Function to copy the current script to main2.py if running as main.py
+def copy_to_main2():
+    current_file = os.path.basename(__file__)  # Get the current file name
+    if current_file == 'main.py':  # Check if the file is named main.py
+        shutil.copy(__file__, 'main2.py')  # Copy this file to main2.py
+
+# Copy main.py to main2.py when this script is run, if named main.py
+copy_to_main2()
+
+# Initialize Pygame
+pygame.init()
+
+# Load stats from the stats.txt file
+def load_stats():
+    if os.path.exists(STATS_FILE):
+        with open(STATS_FILE, 'r') as file:
+            stats = json.load(file)
+            return stats['high_score'], stats['best_time']
+    return 0, float('inf')  # Default values if the file does not exist
+
+# Save stats to the stats.txt file
+def save_stats(high_score, best_time):
+    stats = {'high_score': high_score, 'best_time': best_time}
+    with open(STATS_FILE, 'w') as file:
+        json.dump(stats, file)
+
+# Variables to store the high score and best time
+high_score, best_time = load_stats()
+
+# Initialize high_score and best_time with default values
+high_score, best_time = load_stats()  # Load from file or set defaults
+if best_time == float('inf'):
+    best_time = 9999  # Set a large but finite default time if no best time has been recorded
+
+# Variables for the current level and level file
+current_level = 1
+level_file = 'level1.json'
+
+
+# Function to load a specific level based on level number
+def load_level(level_num):
+    global current_level, level_file, level_map, textures
+
+    current_level = level_num  # Set the current level number
+    level_file = f'level{level_num}.json'  # Determine the level file name
+
+    try:
+        # Try to load the level map and textures from the JSON file
+        level_map, textures = load_level_from_json(level_file)
+        initialize_map(level_map, textures)
+    except FileNotFoundError as e:
+        print(e)
+        # If the level file is not found, initialize with default data
+        level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}
+        initialize_map(level_map, textures)
+
+# Function to load the next level or end the game if the last level is completed
+def next_level():
+    global current_level
+    if current_level == 2:
+        # If the current level is 2, show the "You Survived" menu
+        you_survived_menu(player.score, pygame.time.get_ticks() // 1000)
+    else:
+        # Otherwise, increment the level and load the next one
+        current_level += 1
+        load_level(current_level)  # Load the next level
+        game_loop()  # Start the game loop for the new level
+
+# Camera settings
+camera_x = 0
+camera_y = 0
+CAMERA_LERP_SPEED = 0.06  # Speed at which the camera follows the player
+
+# Colors used in the game
+WHITE = (255, 255, 255)
+BACKGROUND_COLOR = (131, 235, 255)
+
+# Screen dimensions and zoom factor
+SCREEN_WIDTH, SCREEN_HEIGHT = 1280, 736
+zoom_factor = 3  # Fixed 3x zoom
+
+# Paths to the player textures
+player_texture_paths = {
+    'idle': 'textures/dude/Dude_Monster_Idle_4.png',
+    'jump': 'textures/dude/Dude_Monster_Jump_8.png',
+    'run': 'textures/dude/Dude_Monster_Run_6.png',
+    'death': 'textures/dude/Dude_Monster_Death_8.png'
+}
+
+# Paths to the enemy textures
+enemy_texture_paths = {
+    'idle': 'textures/enemy/Owlet_Monster_Idle_4.png',
+    'jump': 'textures/enemy/Owlet_Monster_Jump_8.png',
+    'run': 'textures/enemy/Owlet_Monster_Run_6.png',
+    'attack': 'textures/enemy/Owlet_Monster_Walk+Attack_6.png'
+}
+
+# Dictionary holding various textures used in the game
+textures = {
+    "X": [
+        "textures/blocks/stone_texture.png",
+        "textures/blocks/grass_texture.png",
+        "textures/blocks/dirt_texture.png"
+    ],
+    "F": [
+        "textures/food/food_texture_frame_1.png",
+    ],
+    "W": [
+        "textures/water/water_texture.png"
+    ],
+    "P": [
+        "textures/dude/Dude_Monster_Idle_4.png",
+        "textures/dude/Dude_Monster_Jump_8.png",
+        "textures/dude/Dude_Monster_Run_6.png",
+        "textures/dude/Dude_Monster_Death_8.png"
+    ],
+    "E": {
+        'idle': 'textures/enemy/Owlet_Monster_Idle_4.png',
+        'jump': 'textures/enemy/Owlet_Monster_Jump_8.png',
+        'run': 'textures/enemy/Owlet_Monster_Run_6.png',
+        'attack': 'textures/enemy/Owlet_Monster_Walk+Attack_6.png'
+    },
+    "O": [
+        "textures/heli/heli_texture1.png",
+        "textures/heli/heli_texture2.png",
+    ]
+}
+
+# Create the game window with a fixed size
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.NOFRAME)
+pygame.display.set_caption("Survival Game")
+
+# Create sprite groups for different types of game entities
+player_group = pygame.sprite.Group()
+enemy_group = pygame.sprite.Group()
+food_group = pygame.sprite.Group()
+water_group = pygame.sprite.Group()
+block_group = pygame.sprite.Group()
+object_group = pygame.sprite.Group()  # Group for objects like the helicopter
+
+# Font for displaying FPS (Frames Per Second)
+font = pygame.font.Font(None, 36)
+
+# Function to load the level data from a JSON file
+def load_level_from_json(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as file:
+            data = json.load(file)  # Load the JSON data
+        return data['level'], data['textures']  # Return the level map and textures
+    else:
+        raise FileNotFoundError(f"No saved level found at {filename}")
+
+# Initialize variables to store the player's spawn position
+player_spawn_x = 0
+player_spawn_y = 0
+
+# Function to initialize the game map based on the loaded level data
+def initialize_map(level_map, textures):
+    global player_spawn_x, player_spawn_y
+    
+    # Clear all sprite groups to prepare for loading the new map
+    block_group.empty()
+    food_group.empty()
+    water_group.empty()
+    player_group.empty()
+    enemy_group.empty()
+    object_group.empty()
+
+    # Loop through each block in the level map and create the corresponding game objects
+    for block_data in level_map:
+        x = block_data['x'] * GRID_SIZE
+        y = block_data['y'] * GRID_SIZE
+        texture_index = block_data['texture_index']
+        block_type = block_data['type']
+        
+        if block_type == 'X':  # If the block type is 'X', create a Block
+            block = Block(x, y, textures['X'], texture_index)
+            block_group.add(block)
+        elif block_type == 'F':  # If the block type is 'F', create Food
+            food = Food(x, y, textures['F'], texture_index)
+            food_group.add(food)
+        elif block_type == 'W':  # If the block type is 'W', create Water
+            water = Water(x, y, textures['W'], texture_index)
+            water_group.add(water)
+        elif block_type == 'P':  # If the block type is 'P', create a Player
+            player = Player(x, y, player_texture_paths, level_map, GRID_SIZE, texture_index)
+            player_group.add(player)
+            player_spawn_x = x  # Store the player's spawn position
+            player_spawn_y = y
+        elif block_type == 'E':  # If the block type is 'E', create an Enemy
+            enemy = Enemy(x, y, enemy_texture_paths, level_map, GRID_SIZE, texture_index)
+            enemy_group.add(enemy)
+        elif block_type == 'O':  # If the block type is 'O', create an Object (e.g., helicopter)
+            object = Object(x, y, textures['O'], texture_index)
+            object_group.add(object)
+
+# Function to draw the game world, scaling it according to the zoom factor
+def draw_world():
+    # Define the visible area of the screen based on the camera position and zoom factor
+    visible_rect = pygame.Rect(camera_x, camera_y, SCREEN_WIDTH + 30 / zoom_factor, SCREEN_HEIGHT + 30 / zoom_factor)
+
+    # Draw all blocks within the visible area
+    for block in block_group:
+        if visible_rect.colliderect(block.rect):
+            scaled_image = pygame.transform.scale(block.image, (int(block.rect.width * zoom_factor), int(block.rect.height * zoom_factor)))
+            screen.blit(scaled_image, (round((block.rect.x - camera_x) * zoom_factor), round((block.rect.y - camera_y) * zoom_factor)))
+        
+    # Draw all objects within the visible area
+    for object in object_group:
+        if visible_rect.colliderect(object.rect):
+            scaled_image = pygame.transform.scale(object.image, (int(object.rect.width * zoom_factor), int(object.rect.height * zoom_factor)))
+            screen.blit(scaled_image, (round((object.rect.x - camera_x) * zoom_factor), round((object.rect.y - camera_y) * zoom_factor)))
+
+    # Draw all sprites within the visible area
+    for sprite_group in [block_group, food_group, water_group, player_group, enemy_group, object_group]:
+        for sprite in sprite_group:
+            if visible_rect.colliderect(sprite.rect):
+                scaled_image = pygame.transform.scale(sprite.image, (int(sprite.rect.width * zoom_factor), int(sprite.rect.height * zoom_factor)))
+                screen.blit(scaled_image, (round((sprite.rect.x - camera_x) * zoom_factor), round((sprite.rect.y - camera_y) * zoom_factor)))
+
+    # Draw the player's HUD (Health, score, etc.)
+    for player in player_group:
+        draw_hud(screen, player, high_score, best_time)
+
+# Load the initial level
+try:
+    load_level(1)
+except FileNotFoundError as e:
+    print(e)
+    # If the level file is not found, initialize with default data
+    level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}
+    initialize_map(level_map, textures)
+
+# Initialize the camera position based on the player's position
+if player_group:
+    player = player_group.sprites()[0]
+    camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+    camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor))
+else:
+    camera_x = camera_y = 0
+
+# Calculate the level dimensions in pixels
+level_width_in_pixels = max(block.rect.right for block in block_group) if block_group else SCREEN_WIDTH
+level_height_in_pixels = max(block.rect.bottom for block in block_group) if block_group else SCREEN_HEIGHT
+camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+
+# Main game loop variables
+running = True
+clock = pygame.time.Clock()
+
+# Main game loop
+def game_loop():
+    global running, camera_x, camera_y, high_score, best_time
+    running = True
+
+    # Ensure the player is correctly assigned
+    if player_group:
+        player = player_group.sprites()[0]
+        player.rect.x = player_spawn_x
+        player.rect.y = player_spawn_y
+
+        # Reset the camera position to match the player's new position
+        camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+        camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor))
+        camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+        camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+    else:
+        # Handle the case where no player is found in the group
+        print("Error: No player found in the player group.")
+        return
+    
+    while running:
+        dt = clock.tick(60) / 1000  # Time since the last frame in seconds
+        fps = clock.get_fps()  # Current frames per second
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pause_menu()  # Call the pause menu
+                elif event.key == pygame.K_PERIOD:  # Check if the '.' key is pressed
+                    print(f"Player X: {player.rect.x}")
+                    print(f"Camera X: {camera_x}, Camera Y: {camera_y}")
+                    print(f"Zoom Factor: {zoom_factor}")
+                    print(f"Target Camera X: {target_camera_x}, Target Camera Y: {target_camera_y}")
+                    you_survived_menu(player.score, pygame.time.get_ticks() // 1000)
+                    # Teleport player to spawn position
+                    for player in player_group:
+                        player.rect.x = player_spawn_x
+                        player.rect.y = player_spawn_y
+
+                    # Reset the camera position to match the player's new position
+                    camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+                    camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor))
+                    camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+                    camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+
+        # Update the player and enemy positions
+        player_group.update(block_group, camera_x, SCREEN_WIDTH, level_map, enemy_group, object_group, food_group, water_group)
+
+        for player in player_group: 
+            enemy_group.update(block_group, SCREEN_WIDTH, player, camera_x, player_group)
+        
+        # Update the food, water, and objects
+        food_group.update(dt)
+        water_group.update(dt)
+        object_group.update(dt)
+
+        # Check if the player is dead and the death animation is complete
+        if player.is_dead and player.death_animation_complete:
+            # Update high score and best time
+            time_alive = pygame.time.get_ticks() // 1000
+            if player.score > high_score:
+                high_score = player.score
+            if time_alive < best_time:
+                best_time = time_alive
+            save_stats(high_score, best_time)  # Save the updated stats
+            end_menu(player.score, time_alive)
+
+        # Check for collisions with objects (e.g., helicopter)
+        for player in player_group:
+            object_collisions = pygame.sprite.spritecollide(player, object_group, False)
+            
+            if object_collisions:
+                time_alive = pygame.time.get_ticks() // 1000
+                if player.score > high_score:
+                    high_score = player.score
+                if time_alive < best_time:
+                    best_time = time_alive
+                save_stats(high_score, best_time)  # Save the updated stats
+                you_survived_menu(player.score, time_alive)
+                """next_level()
+                for player in player_group:
+                    player.rect.x = player_spawn_x
+                    player.rect.y = player_spawn_y
+
+                    # Reset the camera position to match the player's new position
+                    camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+                    camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom factor))
+                    camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom factor)
+                    camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom factor)
+            else:
+                pass"""
+
+        # Smooth camera movement to follow the player
+        for player in player_group:
+            target_camera_x = player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor)
+            target_camera_y = player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor)
+            target_camera_x = max(0, target_camera_x)
+            target_camera_y = max(0, target_camera_y)
+            target_camera_x = min(target_camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+            target_camera_y = min(target_camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+            camera_x += (target_camera_x - camera_x) * CAMERA_LERP_SPEED
+            camera_y += (target_camera_y - camera_y) * CAMERA_LERP_SPEED
+
+        screen.fill(BACKGROUND_COLOR)  # Clear the screen with the background color
+        draw_world()  # Draw the game world
+
+        # Display the FPS on the screen
+        fps_text = font.render(f"FPS: {int(fps)}", True, WHITE)
+        screen.blit(fps_text, (SCREEN_WIDTH - 100, 10))
+
+        pygame.display.update()  # Update the display
+        clock.tick(60)  # Limit the frame rate to 60 FPS
+
+    pygame.quit()  # Quit Pygame when the loop ends
+    sys.exit()  # Exit the program
+
+    game_loop()
+
+# Run the game if this script is executed directly
+if __name__ == "__main__":
+    load_level(1)  # Load the first level
+    game_loop()  # Start the game loop
+
+`,
+    'main_menu.py': `import pygame  # Import the Pygame library for handling graphics and events
+import sys  # Import the sys library for system-specific parameters and functions
+import os  # Import the os library for interacting with the operating system
+import json  # Import the json library for handling JSON data
+
+# Function to initialize Pygame components (to be reused)
+def init_pygame():
+    pygame.init()  # Initialize all Pygame modules
+    global screen  # Declare the screen variable as global
+    screen = pygame.display.set_mode((1280, 736), pygame.NOFRAME)  # Create a Pygame window with a resolution of 1280x736 and no window frame
+    pygame.display.set_caption("Atomic Dawn")  # Set the window title to "Atomic Dawn"
+
+# Initialize Pygame
+init_pygame()  # Call the function to initialize Pygame
+
+# Colors
+WHITE = (255, 255, 255)  # Define the color white
+GRAY = (50, 50, 50)  # Define a shade of gray
+BLACK = (0, 0, 0)  # Define the color black
+BUTTON_COLOR = (100, 100, 100)  # Define the default button color
+HOVER_COLOR = (150, 150, 150)  # Define the button color when hovered
+
+# Load and scale background image
+background_image = pygame.image.load("textures/background/backgroundfrfr.jpg").convert_alpha()  # Load the background image and convert it to include an alpha channel
+background_image = pygame.transform.scale(background_image, (1280, 736))  # Scale the background image to fit the screen
+
+# Function to draw text on the screen
+def draw_text(text, font, color, surface, x, y):
+    text_obj = font.render(text, True, color)  # Render the text with the specified font and color
+    text_rect = text_obj.get_rect(center=(x, y))  # Get the rectangle surrounding the text and center it at (x, y)
+    surface.blit(text_obj, text_rect)  # Draw the text on the specified surface at the calculated position
+
+# Function to display the main menu
+def main_menu():
+    if not pygame.get_init():  # Check if Pygame is initialized
+        init_pygame()  # Reinitialize Pygame if not already initialized
+    init_pygame()  # Reinitialize Pygame components
+    title_font = pygame.font.Font(None, 100)  # Set the font for the title text
+    small_font = pygame.font.Font(None, 50)  # Set the font for the button text
+    running = True  # Set a flag to keep the menu running
+    
+    while running:  # Main menu loop
+        screen.blit(background_image, (0, 0))  # Draw the background image on the screen
+        overlay = pygame.Surface((1280, 736))  # Create an overlay surface
+        overlay.set_alpha(180)  # Set the overlay's transparency (alpha value)
+        overlay.fill(BLACK)  # Fill the overlay with black color
+        screen.blit(overlay, (0, 0))  # Draw the overlay on top of the background
+
+        # Draw the title at the top third of the screen
+        draw_text('Atomic Dawn', title_font, WHITE, screen, 1280 // 2, 736 // 6 * 1.3)  # Draw the game title text centered at the specified position
+        
+        # Define button positions and sizes
+        button_width, button_height = 300, 100  # Set the width and height of the buttons
+        button_spacing = 50  # Set the space between buttons
+        total_height = 3 * button_height + 2 * button_spacing  # Calculate the total height occupied by the buttons
+        start_y = ((736 * 2 // 3 - total_height) // 2 + 736 // 3) - 40  # Calculate the starting Y position for the first button
+        
+        # Create rectangles for each button
+        play_button = pygame.Rect(1280 // 2 - button_width // 2, start_y, button_width, button_height)  # Play button
+        level_editor_button = pygame.Rect(1280 // 2 - button_width // 2, start_y + button_height + button_spacing, button_width, button_height)  # Level editor button
+        quit_button = pygame.Rect(1280 // 2 - button_width // 2, start_y + 2 * (button_height + button_spacing), button_width, button_height)  # Quit button
+        
+        # Handle hover effect
+        mouse_pos = pygame.mouse.get_pos()  # Get the current mouse position
+
+        # Iterate over each button and its corresponding text
+        for button, text in [(play_button, 'Play'), (level_editor_button, 'Level Editor'), (quit_button, 'Quit')]:
+            if button.collidepoint(mouse_pos):  # Check if the mouse is hovering over the button
+                color = HOVER_COLOR  # Change the button color if hovered
+            else:
+                color = BUTTON_COLOR  # Use the default button color
+            pygame.draw.rect(screen, color, button, border_radius=20)  # Draw the button with rounded corners
+            draw_text(text, small_font, WHITE, screen, button.centerx, button.centery)  # Draw the button text centered on the button
+        
+        # Handle events
+        for event in pygame.event.get():  # Iterate over all Pygame events
+            if event.type == pygame.QUIT:  # Check if the quit event is triggered
+                running = False  # Stop the menu loop
+                pygame.quit()  # Quit Pygame
+                sys.exit()  # Exit the program
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # Check if a mouse button is pressed
+                if play_button.collidepoint(event.pos):  # If the play button is clicked
+                    running = False  # Exit the menu loop and start the game
+                    reset_to_level_1()  # Reset the game to start from level 1
+                elif level_editor_button.collidepoint(event.pos):  # If the level editor button is clicked
+                    running = False  # Exit the menu loop and start the level editor
+                    level_editor_loop()  # Call the level editor loop
+                elif quit_button.collidepoint(event.pos):  # If the quit button is clicked
+                    running = False  # Stop the menu loop
+                    pygame.quit()  # Quit Pygame
+                    sys.exit()  # Exit the program
+        
+        pygame.display.flip()  # Update the display with the latest changes
+
+# Function to reset the game to start from level 1
+def reset_to_level_1():
+    """Reset the game to start from level 1."""
+    from main2 import load_level, game_loop  # Import the functions from main2
+    load_level(1)  # Load level 1
+    game_loop()  # Start the game loop
+
+# Function to display the game over menu
+def end_menu(score, time_alive):
+    font = pygame.font.Font(None, 74)  # Set the font for the title text
+    small_font = pygame.font.Font(None, 50)  # Set the font for the score and time text
+    running = True  # Set a flag to keep the menu running
+
+    # Capture the current screen to apply blur
+    end_screen = pygame.Surface((1280, 736))  # Create a surface for capturing the screen
+    pygame.display.flip()  # Update the display to ensure everything is rendered
+    pygame.time.wait(100)  # Wait for 100 milliseconds to ensure the screen is updated before capturing
+    end_screen.blit(screen, (0, 0))  # Capture the current screen content
+    blurred_screen = pygame.transform.smoothscale(end_screen, (320, 184))  # Downscale the captured screen for blurring
+    blurred_screen = pygame.transform.smoothscale(blurred_screen, (1280, 736))  # Upscale back to original size to create a blur effect
+    
+    while running:  # Game over menu loop
+        screen.blit(blurred_screen, (0, 0))  # Draw the blurred screen
+        overlay = pygame.Surface((1280, 736))  # Create an overlay surface
+        overlay.set_alpha(128)  # Set the overlay's transparency (alpha value)
+        overlay.fill(BLACK)  # Fill the overlay with black color
+        screen.blit(overlay, (0, 0))  # Draw the overlay on top of the blurred screen
+
+        # Draw the game over text and score/time
+        draw_text('Game Over', font, WHITE, screen, 1280 // 2, 736 // 4)  # Draw the "Game Over" text at the top
+        draw_text(f'Score: {int(score)}', small_font, WHITE, screen, 1280 // 2, 736 // 2 - 50)  # Draw the score text below the title
+        draw_text(f'Time Alive: {int(time_alive)}s', small_font, WHITE, screen, 1280 // 2, 736 // 2 + 50)  # Draw the time alive text below the score
+        
+        main_menu_button = pygame.Rect(1280 // 2 - 150, 736 // 2 + 150, 300, 100)  # Create a rectangle for the main menu button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, main_menu_button, border_radius=20)  # Draw the main menu button
+        draw_text('Main Menu', small_font, WHITE, screen, main_menu_button.centerx, main_menu_button.centery)  # Draw the "Main Menu" text on the button
+        
+        for event in pygame.event.get():  # Iterate over all Pygame events
+            if event.type == pygame.QUIT:  # Check if the quit event is triggered
+                running = False  # Stop the menu loop
+                pygame.quit()  # Quit Pygame
+                sys.exit()  # Exit the program
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # Check if a mouse button is pressed
+                if main_menu_button.collidepoint(event.pos):  # If the main menu button is clicked
+                    running = False  # Stop the menu loop
+                    main_menu()  # Go back to the main menu
+                    return  # Exit the function
+        
+        pygame.display.flip()  # Update the display with the latest changes
+
+# Function to display the level complete menu
+def next_level_menu():
+    font = pygame.font.Font(None, 74)  # Set the font for the title text
+    small_font = pygame.font.Font(None, 50)  # Set the font for the button text
+    running = True  # Set a flag to keep the menu running
+
+    # Capture the current screen to apply blur
+    next_screen = pygame.Surface((1280, 736))  # Create a surface for capturing the screen
+    pygame.display.flip()  # Update the display to ensure everything is rendered
+    pygame.time.wait(100)  # Wait for 100 milliseconds to ensure the screen is updated before capturing
+    next_screen.blit(screen, (0, 0))  # Capture the current screen content
+    blurred_screen = pygame.transform.smoothscale(next_screen, (320, 184))  # Downscale the captured screen for blurring
+    blurred_screen = pygame.transform.smoothscale(blurred_screen, (1280, 736))  # Upscale back to original size to create a blur effect
+    
+    while running:  # Level complete menu loop
+        screen.blit(blurred_screen, (0, 0))  # Draw the blurred screen
+        overlay = pygame.Surface((1280, 736))  # Create an overlay surface
+        overlay.set_alpha(128)  # Set the overlay's transparency (alpha value)
+        overlay.fill(BLACK)  # Fill the overlay with black color
+        screen.blit(overlay, (0, 0))  # Draw the overlay on top of the blurred screen
+
+        draw_text('Level Complete', font, WHITE, screen, 1280 // 2, 736 // 4)  # Draw the "Level Complete" text at the top
+        
+        next_level_button = pygame.Rect(1280 // 2 - 150, 736 // 2 - 50, 300, 100)  # Create a rectangle for the next level button
+        main_menu_button = pygame.Rect(1280 // 2 - 150, 736 // 2 + 100, 300, 100)  # Create a rectangle for the main menu button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, next_level_button, border_radius=20)  # Draw the next level button
+        draw_text('Next Level', small_font, WHITE, screen, next_level_button.centerx, next_level_button.centery)  # Draw the "Next Level" text on the button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, main_menu_button, border_radius=20)  # Draw the main menu button
+        draw_text('Main Menu', small_font, WHITE, screen, main_menu_button.centerx, main_menu_button.centery)  # Draw the "Main Menu" text on the button
+        
+        for event in pygame.event.get():  # Iterate over all Pygame events
+            if event.type == pygame.QUIT:  # Check if the quit event is triggered
+                running = False  # Stop the menu loop
+                pygame.quit()  # Quit Pygame
+                sys.exit()  # Exit the program
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # Check if a mouse button is pressed
+                if next_level_button.collidepoint(event.pos):  # If the next level button is clicked
+                    running = False  # Stop the menu loop
+                    from main2 import load_level  # Import the load_level function from main2
+                    load_level(2)  # Load the second level
+                elif main_menu_button.collidepoint(event.pos):  # If the main menu button is clicked
+                    running = False  # Stop the menu loop
+                    main_menu()  # Go back to the main menu
+                    return  # Exit the function
+        
+        pygame.display.flip()  # Update the display with the latest changes
+
+# Function to display the "You Survived" menu
+def you_survived_menu(score, time_alive):
+    font = pygame.font.Font(None, 74)  # Set the font for the title text
+    small_font = pygame.font.Font(None, 50)  # Set the font for the score and time text
+    running = True  # Set a flag to keep the menu running
+
+    # Capture the current screen to apply blur
+    survived_screen = pygame.Surface((1280, 736))  # Create a surface for capturing the screen
+    pygame.display.flip()  # Update the display to ensure everything is rendered
+    pygame.time.wait(100)  # Wait for 100 milliseconds to ensure the screen is updated before capturing
+    survived_screen.blit(screen, (0, 0))  # Capture the current screen content
+    blurred_screen = pygame.transform.smoothscale(survived_screen, (320, 184))  # Downscale the captured screen for blurring
+    blurred_screen = pygame.transform.smoothscale(blurred_screen, (1280, 736))  # Upscale back to original size to create a blur effect
+    
+    while running:  # "You Survived" menu loop
+        screen.blit(blurred_screen, (0, 0))  # Draw the blurred screen
+        overlay = pygame.Surface((1280, 736))  # Create an overlay surface
+        overlay.set_alpha(128)  # Set the overlay's transparency (alpha value)
+        overlay.fill(BLACK)  # Fill the overlay with black color
+        screen.blit(overlay, (0, 0))  # Draw the overlay on top of the blurred screen
+
+        draw_text('YOU SURVIVED', font, WHITE, screen, 1280 // 2, 736 // 4)  # Draw the "YOU SURVIVED" text at the top
+        draw_text(f'Score: {int(score)}', small_font, WHITE, screen, 1280 // 2, 736 // 2 - 50)  # Draw the score text below the title
+        draw_text(f'Time Taken: {int(time_alive)}s', small_font, WHITE, screen, 1280 // 2, 736 // 2 + 50)  # Draw the time alive text below the score
+        
+        main_menu_button = pygame.Rect(1280 // 2 - 150, 736 // 2 + 150, 300, 100)  # Create a rectangle for the main menu button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, main_menu_button, border_radius=20)  # Draw the main menu button
+        draw_text('Main Menu', small_font, WHITE, screen, main_menu_button.centerx, main_menu_button.centery)  # Draw the "Main Menu" text on the button
+        
+        for event in pygame.event.get():  # Iterate over all Pygame events
+            if event.type == pygame.QUIT:  # Check if the quit event is triggered
+                running = False  # Stop the menu loop
+                pygame.quit()  # Quit Pygame
+                sys.exit()  # Exit the program
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # Check if a mouse button is pressed
+                if main_menu_button.collidepoint(event.pos):  # If the main menu button is clicked
+                    running = False  # Stop the menu loop
+                    main_menu()  # Go back to the main menu
+                    return  # Exit the function
+        
+        pygame.display.flip()  # Update the display with the latest changes
+
+# Function to initialize level 2 and start the game loop
+def initialize_level2():
+    """Load the second level and start the game loop."""
+    from main import load_level_from_json, initialize_map, game_loop  # Import the necessary functions from main
+
+    level_file = 'level2.json'  # Specify the filename of the second level's JSON file
+    try:
+        level_map, textures = load_level_from_json(level_file)  # Try to load the level map and textures from the JSON file
+        initialize_map(level_map, textures)  # Initialize the map with the loaded data
+    except FileNotFoundError as e:  # If the file is not found
+        print(e)  # Print the error message
+        level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}  # Use default textures if file not found
+        initialize_map(level_map, textures)  # Initialize the map with default data
+
+    game_loop()  # Start the game loop for level 2
+
+# Function to start the game from level 1
+def start_game():
+    """Load the level and start the game loop."""
+    from main2 import game_loop, load_level_from_json, initialize_map  # Import the necessary functions from main2
+
+    level_file = 'level1.json'  # Specify the filename of the first level's JSON file
+    try:
+        level_map, textures = load_level_from_json(level_file)  # Try to load the level map and textures from the JSON file
+        initialize_map(level_map, textures)  # Initialize the map with the loaded data
+    except FileNotFoundError as e:  # If the file is not found
+        print(e)  # Print the error message
+        level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}  # Use default textures if file not found
+        initialize_map(level_map, textures)  # Initialize the map with default data
+
+    game_loop()  # Start the game loop for level 1
+
+# Function to load level data from a JSON file
+def load_level_from_json(filename):
+    if os.path.exists(filename):  # Check if the file exists
+        print(f"Loading level from {filename}")  # Print a message indicating that the level is being loaded
+        with open(filename, 'r') as file:  # Open the file in read mode
+            data = json.load(file)  # Load the JSON data from the file
+        return data['level'], data['textures']  # Return the level map and textures
+    else:
+        print(f"No saved level found at {filename}")  # Print a message if the file is not found
+        raise FileNotFoundError(f"No saved level found at {filename}")  # Raise a FileNotFoundError
+
+# Function to start the level editor
+def level_editor_loop():
+    import LevelEditor  # Import the LevelEditor module
+    from main2 import game_loop, load_level_from_json, initialize_map  # Import necessary functions from main2
+    
+    level_file = 'level1.json'  # Specify the filename of the first level's JSON file
+    try:
+        level_map, textures = load_level_from_json(level_file)  # Try to load the level map and textures from the JSON file
+        initialize_map(level_map, textures)  # Initialize the map with the loaded data
+    except FileNotFoundError as e:  # If the file is not found
+        print(e)  # Print the error message
+        textures = {"X": ["textures/blocks/stone_texture.png"]}  # Use default textures if file not found
+
+    LevelEditor.main(textures)  # Pass textures to the LevelEditor main function
+
+# Function to display the pause menu
+def pause_menu():
+    font = pygame.font.Font(None, 74)  # Set the font for the title text
+    small_font = pygame.font.Font(None, 50)  # Set the font for the button text
+    paused = True  # Set a flag to keep the pause menu running
+    
+    # Capture the current screen to apply blur
+    paused_screen = pygame.Surface((1280, 736))  # Create a surface for capturing the screen
+    pygame.display.flip()  # Update the display to ensure everything is rendered
+    pygame.time.wait(100)  # Wait for 100 milliseconds to ensure the screen is updated before capturing
+    paused_screen.blit(screen, (0, 0))  # Capture the current screen content
+    blurred_screen = pygame.transform.smoothscale(paused_screen, (320, 184))  # Downscale the captured screen for blurring
+    blurred_screen = pygame.transform.smoothscale(blurred_screen, (1280, 736))  # Upscale back to original size to create a blur effect
+    
+    while paused:  # Pause menu loop
+        screen.blit(blurred_screen, (0, 0))  # Draw the blurred screen
+        overlay = pygame.Surface((1280, 736))  # Create an overlay surface
+        overlay.set_alpha(128)  # Set the overlay's transparency (alpha value)
+        overlay.fill(BLACK)  # Fill the overlay with black color
+        screen.blit(overlay, (0, 0))  # Draw the overlay on top of the blurred screen
+
+        draw_text('Paused', font, WHITE, screen, 1280 // 2, 736 // 4)  # Draw the "Paused" text at the top
+        
+        resume_button = pygame.Rect(1280 // 2 - 150, 736 // 2 - 50, 300, 100)  # Create a rectangle for the resume button
+        main_menu_button = pygame.Rect(1280 // 2 - 150, 736 // 2 + 100, 300, 100)  # Create a rectangle for the main menu button
+        quit_button = pygame.Rect(1280 // 2 - 150, 736 // 2 + 250, 300, 100)  # Create a rectangle for the quit button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, resume_button, border_radius=20)  # Draw the resume button
+        draw_text('Resume', small_font, WHITE, screen, resume_button.centerx, resume_button.centery)  # Draw the "Resume" text on the button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, main_menu_button, border_radius=20)  # Draw the main menu button
+        draw_text('Main Menu', small_font, WHITE, screen, main_menu_button.centerx, main_menu_button.centery)  # Draw the "Main Menu" text on the button
+        
+        pygame.draw.rect(screen, BUTTON_COLOR, quit_button, border_radius=20)  # Draw the quit button
+        draw_text('Quit', small_font, WHITE, screen, quit_button.centerx, quit_button.centery)  # Draw the "Quit" text on the button
+        
+        for event in pygame.event.get():  # Iterate over all Pygame events
+            if event.type == pygame.QUIT:  # Check if the quit event is triggered
+                paused = False  # Exit the pause menu loop
+                pygame.quit()  # Quit Pygame
+                sys.exit()  # Exit the program
+            elif event.type == pygame.KEYDOWN:  # Check if a key is pressed
+                if event.key == pygame.K_ESCAPE:  # If the escape key is pressed
+                    paused = False  # Unpause the game
+            elif event.type == pygame.MOUSEBUTTONDOWN:  # Check if a mouse button is pressed
+                if resume_button.collidepoint(event.pos):  # If the resume button is clicked
+                    paused = False  # Resume the game
+                elif main_menu_button.collidepoint(event.pos):  # If the main menu button is clicked
+                    paused = False  # Exit the pause menu loop
+                    main_menu()  # Go back to the main menu
+                    return  # Exit the function
+                elif quit_button.collidepoint(event.pos):  # If the quit button is clicked
+                    paused = False  # Exit the pause menu loop
+                    pygame.quit()  # Quit Pygame
+                    sys.exit()  # Exit the program
+        
+        pygame.display.flip()  # Update the display with the latest changes
+
+# Start the main menu when the script is executed directly
+if __name__ == "__main__":
+    main_menu()  # Call the main menu function
+`,
+    'main2.py': `import pygame
+import sys
+import json
+import shutil
+import os
+from player import Player
+from enemy import Enemy
+from items import Food, Water
+from hud import draw_hud
+from block import Block
+from object import Object
+from config import *
+from main_menu import pause_menu
+from main_menu import end_menu, next_level_menu, you_survived_menu
+
+STATS_FILE = 'stats.txt'
+
+# Function to copy the current script to main2.py if running as main.py
+def copy_to_main2():
+    current_file = os.path.basename(__file__)  # Get the current file name
+    if current_file == 'main.py':  # Check if the file is named main.py
+        shutil.copy(__file__, 'main2.py')  # Copy this file to main2.py
+
+# Copy main.py to main2.py when this script is run, if named main.py
+copy_to_main2()
+
+# Initialize Pygame
+pygame.init()
+
+# Load stats from the stats.txt file
+def load_stats():
+    if os.path.exists(STATS_FILE):
+        with open(STATS_FILE, 'r') as file:
+            stats = json.load(file)
+            return stats['high_score'], stats['best_time']
+    return 0, float('inf')  # Default values if the file does not exist
+
+# Save stats to the stats.txt file
+def save_stats(high_score, best_time):
+    stats = {'high_score': high_score, 'best_time': best_time}
+    with open(STATS_FILE, 'w') as file:
+        json.dump(stats, file)
+
+# Variables to store the high score and best time
+high_score, best_time = load_stats()
+
+# Initialize high_score and best_time with default values
+high_score, best_time = load_stats()  # Load from file or set defaults
+if best_time == float('inf'):
+    best_time = 9999  # Set a large but finite default time if no best time has been recorded
+
+# Variables for the current level and level file
+current_level = 1
+level_file = 'level1.json'
+
+
+# Function to load a specific level based on level number
+def load_level(level_num):
+    global current_level, level_file, level_map, textures
+
+    current_level = level_num  # Set the current level number
+    level_file = f'level{level_num}.json'  # Determine the level file name
+
+    try:
+        # Try to load the level map and textures from the JSON file
+        level_map, textures = load_level_from_json(level_file)
+        initialize_map(level_map, textures)
+    except FileNotFoundError as e:
+        print(e)
+        # If the level file is not found, initialize with default data
+        level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}
+        initialize_map(level_map, textures)
+
+# Function to load the next level or end the game if the last level is completed
+def next_level():
+    global current_level
+    if current_level == 2:
+        # If the current level is 2, show the "You Survived" menu
+        you_survived_menu(player.score, pygame.time.get_ticks() // 1000)
+    else:
+        # Otherwise, increment the level and load the next one
+        current_level += 1
+        load_level(current_level)  # Load the next level
+        game_loop()  # Start the game loop for the new level
+
+# Camera settings
+camera_x = 0
+camera_y = 0
+CAMERA_LERP_SPEED = 0.06  # Speed at which the camera follows the player
+
+# Colors used in the game
+WHITE = (255, 255, 255)
+BACKGROUND_COLOR = (131, 235, 255)
+
+# Screen dimensions and zoom factor
+SCREEN_WIDTH, SCREEN_HEIGHT = 1280, 736
+zoom_factor = 3  # Fixed 3x zoom
+
+# Paths to the player textures
+player_texture_paths = {
+    'idle': 'textures/dude/Dude_Monster_Idle_4.png',
+    'jump': 'textures/dude/Dude_Monster_Jump_8.png',
+    'run': 'textures/dude/Dude_Monster_Run_6.png',
+    'death': 'textures/dude/Dude_Monster_Death_8.png'
+}
+
+# Paths to the enemy textures
+enemy_texture_paths = {
+    'idle': 'textures/enemy/Owlet_Monster_Idle_4.png',
+    'jump': 'textures/enemy/Owlet_Monster_Jump_8.png',
+    'run': 'textures/enemy/Owlet_Monster_Run_6.png',
+    'attack': 'textures/enemy/Owlet_Monster_Walk+Attack_6.png'
+}
+
+# Dictionary holding various textures used in the game
+textures = {
+    "X": [
+        "textures/blocks/stone_texture.png",
+        "textures/blocks/grass_texture.png",
+        "textures/blocks/dirt_texture.png"
+    ],
+    "F": [
+        "textures/food/food_texture_frame_1.png",
+    ],
+    "W": [
+        "textures/water/water_texture.png"
+    ],
+    "P": [
+        "textures/dude/Dude_Monster_Idle_4.png",
+        "textures/dude/Dude_Monster_Jump_8.png",
+        "textures/dude/Dude_Monster_Run_6.png",
+        "textures/dude/Dude_Monster_Death_8.png"
+    ],
+    "E": {
+        'idle': 'textures/enemy/Owlet_Monster_Idle_4.png',
+        'jump': 'textures/enemy/Owlet_Monster_Jump_8.png',
+        'run': 'textures/enemy/Owlet_Monster_Run_6.png',
+        'attack': 'textures/enemy/Owlet_Monster_Walk+Attack_6.png'
+    },
+    "O": [
+        "textures/heli/heli_texture1.png",
+        "textures/heli/heli_texture2.png",
+    ]
+}
+
+# Create the game window with a fixed size
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), pygame.NOFRAME)
+pygame.display.set_caption("Survival Game")
+
+# Create sprite groups for different types of game entities
+player_group = pygame.sprite.Group()
+enemy_group = pygame.sprite.Group()
+food_group = pygame.sprite.Group()
+water_group = pygame.sprite.Group()
+block_group = pygame.sprite.Group()
+object_group = pygame.sprite.Group()  # Group for objects like the helicopter
+
+# Font for displaying FPS (Frames Per Second)
+font = pygame.font.Font(None, 36)
+
+# Function to load the level data from a JSON file
+def load_level_from_json(filename):
+    if os.path.exists(filename):
+        with open(filename, 'r') as file:
+            data = json.load(file)  # Load the JSON data
+        return data['level'], data['textures']  # Return the level map and textures
+    else:
+        raise FileNotFoundError(f"No saved level found at {filename}")
+
+# Initialize variables to store the player's spawn position
+player_spawn_x = 0
+player_spawn_y = 0
+
+# Function to initialize the game map based on the loaded level data
+def initialize_map(level_map, textures):
+    global player_spawn_x, player_spawn_y
+    
+    # Clear all sprite groups to prepare for loading the new map
+    block_group.empty()
+    food_group.empty()
+    water_group.empty()
+    player_group.empty()
+    enemy_group.empty()
+    object_group.empty()
+
+    # Loop through each block in the level map and create the corresponding game objects
+    for block_data in level_map:
+        x = block_data['x'] * GRID_SIZE
+        y = block_data['y'] * GRID_SIZE
+        texture_index = block_data['texture_index']
+        block_type = block_data['type']
+        
+        if block_type == 'X':  # If the block type is 'X', create a Block
+            block = Block(x, y, textures['X'], texture_index)
+            block_group.add(block)
+        elif block_type == 'F':  # If the block type is 'F', create Food
+            food = Food(x, y, textures['F'], texture_index)
+            food_group.add(food)
+        elif block_type == 'W':  # If the block type is 'W', create Water
+            water = Water(x, y, textures['W'], texture_index)
+            water_group.add(water)
+        elif block_type == 'P':  # If the block type is 'P', create a Player
+            player = Player(x, y, player_texture_paths, level_map, GRID_SIZE, texture_index)
+            player_group.add(player)
+            player_spawn_x = x  # Store the player's spawn position
+            player_spawn_y = y
+        elif block_type == 'E':  # If the block type is 'E', create an Enemy
+            enemy = Enemy(x, y, enemy_texture_paths, level_map, GRID_SIZE, texture_index)
+            enemy_group.add(enemy)
+        elif block_type == 'O':  # If the block type is 'O', create an Object (e.g., helicopter)
+            object = Object(x, y, textures['O'], texture_index)
+            object_group.add(object)
+
+# Function to draw the game world, scaling it according to the zoom factor
+def draw_world():
+    # Define the visible area of the screen based on the camera position and zoom factor
+    visible_rect = pygame.Rect(camera_x, camera_y, SCREEN_WIDTH + 30 / zoom_factor, SCREEN_HEIGHT + 30 / zoom_factor)
+
+    # Draw all blocks within the visible area
+    for block in block_group:
+        if visible_rect.colliderect(block.rect):
+            scaled_image = pygame.transform.scale(block.image, (int(block.rect.width * zoom_factor), int(block.rect.height * zoom_factor)))
+            screen.blit(scaled_image, (round((block.rect.x - camera_x) * zoom_factor), round((block.rect.y - camera_y) * zoom_factor)))
+        
+    # Draw all objects within the visible area
+    for object in object_group:
+        if visible_rect.colliderect(object.rect):
+            scaled_image = pygame.transform.scale(object.image, (int(object.rect.width * zoom_factor), int(object.rect.height * zoom_factor)))
+            screen.blit(scaled_image, (round((object.rect.x - camera_x) * zoom_factor), round((object.rect.y - camera_y) * zoom_factor)))
+
+    # Draw all sprites within the visible area
+    for sprite_group in [block_group, food_group, water_group, player_group, enemy_group, object_group]:
+        for sprite in sprite_group:
+            if visible_rect.colliderect(sprite.rect):
+                scaled_image = pygame.transform.scale(sprite.image, (int(sprite.rect.width * zoom_factor), int(sprite.rect.height * zoom_factor)))
+                screen.blit(scaled_image, (round((sprite.rect.x - camera_x) * zoom_factor), round((sprite.rect.y - camera_y) * zoom_factor)))
+
+    # Draw the player's HUD (Health, score, etc.)
+    for player in player_group:
+        draw_hud(screen, player, high_score, best_time)
+
+# Load the initial level
+try:
+    load_level(1)
+except FileNotFoundError as e:
+    print(e)
+    # If the level file is not found, initialize with default data
+    level_map, textures = [], {"X": ["textures/blocks/stone_texture.png"]}
+    initialize_map(level_map, textures)
+
+# Initialize the camera position based on the player's position
+if player_group:
+    player = player_group.sprites()[0]
+    camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+    camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor))
+else:
+    camera_x = camera_y = 0
+
+# Calculate the level dimensions in pixels
+level_width_in_pixels = max(block.rect.right for block in block_group) if block_group else SCREEN_WIDTH
+level_height_in_pixels = max(block.rect.bottom for block in block_group) if block_group else SCREEN_HEIGHT
+camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+
+# Main game loop variables
+running = True
+clock = pygame.time.Clock()
+
+# Main game loop
+def game_loop():
+    global running, camera_x, camera_y, high_score, best_time
+    running = True
+
+    # Ensure the player is correctly assigned
+    if player_group:
+        player = player_group.sprites()[0]
+        player.rect.x = player_spawn_x
+        player.rect.y = player_spawn_y
+
+        # Reset the camera position to match the player's new position
+        camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+        camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor))
+        camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+        camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+    else:
+        # Handle the case where no player is found in the group
+        print("Error: No player found in the player group.")
+        return
+    
+    while running:
+        dt = clock.tick(60) / 1000  # Time since the last frame in seconds
+        fps = clock.get_fps()  # Current frames per second
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    pause_menu()  # Call the pause menu
+                elif event.key == pygame.K_PERIOD:  # Check if the '.' key is pressed
+                    print(f"Player X: {player.rect.x}")
+                    print(f"Camera X: {camera_x}, Camera Y: {camera_y}")
+                    print(f"Zoom Factor: {zoom_factor}")
+                    print(f"Target Camera X: {target_camera_x}, Target Camera Y: {target_camera_y}")
+                    you_survived_menu(player.score, pygame.time.get_ticks() // 1000)
+                    # Teleport player to spawn position
+                    for player in player_group:
+                        player.rect.x = player_spawn_x
+                        player.rect.y = player_spawn_y
+
+                    # Reset the camera position to match the player's new position
+                    camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+                    camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor))
+                    camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+                    camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+
+        # Update the player and enemy positions
+        player_group.update(block_group, camera_x, SCREEN_WIDTH, level_map, enemy_group, object_group, food_group, water_group)
+
+        for player in player_group: 
+            enemy_group.update(block_group, SCREEN_WIDTH, player, camera_x, player_group)
+        
+        # Update the food, water, and objects
+        food_group.update(dt)
+        water_group.update(dt)
+        object_group.update(dt)
+
+        # Check if the player is dead and the death animation is complete
+        if player.is_dead and player.death_animation_complete:
+            # Update high score and best time
+            time_alive = pygame.time.get_ticks() // 1000
+            if player.score > high_score:
+                high_score = player.score
+            if time_alive < best_time:
+                best_time = time_alive
+            save_stats(high_score, best_time)  # Save the updated stats
+            end_menu(player.score, time_alive)
+
+        # Check for collisions with objects (e.g., helicopter)
+        for player in player_group:
+            object_collisions = pygame.sprite.spritecollide(player, object_group, False)
+            
+            if object_collisions:
+                time_alive = pygame.time.get_ticks() // 1000
+                if player.score > high_score:
+                    high_score = player.score
+                if time_alive < best_time:
+                    best_time = time_alive
+                save_stats(high_score, best_time)  # Save the updated stats
+                you_survived_menu(player.score, time_alive)
+                """next_level()
+                for player in player_group:
+                    player.rect.x = player_spawn_x
+                    player.rect.y = player_spawn_y
+
+                    # Reset the camera position to match the player's new position
+                    camera_x = max(0, player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor))
+                    camera_y = max(0, player.rect.centery - SCREEN_HEIGHT // (2 * zoom factor))
+                    camera_x = min(camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom factor)
+                    camera_y = min(camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom factor)
+            else:
+                pass"""
+
+        # Smooth camera movement to follow the player
+        for player in player_group:
+            target_camera_x = player.rect.centerx - SCREEN_WIDTH // (2 * zoom_factor)
+            target_camera_y = player.rect.centery - SCREEN_HEIGHT // (2 * zoom_factor)
+            target_camera_x = max(0, target_camera_x)
+            target_camera_y = max(0, target_camera_y)
+            target_camera_x = min(target_camera_x, level_width_in_pixels - SCREEN_WIDTH // zoom_factor)
+            target_camera_y = min(target_camera_y, level_height_in_pixels - SCREEN_HEIGHT // zoom_factor)
+            camera_x += (target_camera_x - camera_x) * CAMERA_LERP_SPEED
+            camera_y += (target_camera_y - camera_y) * CAMERA_LERP_SPEED
+
+        screen.fill(BACKGROUND_COLOR)  # Clear the screen with the background color
+        draw_world()  # Draw the game world
+
+        # Display the FPS on the screen
+        fps_text = font.render(f"FPS: {int(fps)}", True, WHITE)
+        screen.blit(fps_text, (SCREEN_WIDTH - 100, 10))
+
+        pygame.display.update()  # Update the display
+        clock.tick(60)  # Limit the frame rate to 60 FPS
+
+    pygame.quit()  # Quit Pygame when the loop ends
+    sys.exit()  # Exit the program
+
+    game_loop()
+
+# Run the game if this script is executed directly
+if __name__ == "__main__":
+    load_level(1)  # Load the first level
+    game_loop()  # Start the game loop
+
+`,
+    'object.py': `import pygame
+import math
+
+# Class representing an animated object in the game (e.g., a helicopter)
+class Object(pygame.sprite.Sprite):
+    def __init__(self, x, y, texture_paths, initial_texture_index=0, animation_speed=0.4, sine_wave_amplitude=3, tilt_amplitude=5):
+        super().__init__()
+        self.texture_paths = texture_paths  # List of texture paths for the object's animation
+        self.current_texture_index = initial_texture_index  # Initial texture index
+        self.current_frame = self.current_texture_index  # Current animation frame
+        self.animation_speed = animation_speed  # Speed of the animation
+        self.frame_count = len(texture_paths)  # Total number of frames in the animation
+        
+        # Store the original grid-aligned position
+        self.original_x = x
+        self.original_y = y
+        
+        # Load the initial texture
+        self.image = pygame.image.load(self.texture_paths[self.current_frame]).convert_alpha()
+        self.rect = self.image.get_rect(topleft=(x, y))
+        
+        self.sine_wave_amplitude = sine_wave_amplitude  # Amplitude of the sine wave for vertical movement
+        self.tilt_amplitude = tilt_amplitude  # Amplitude of the tilt angle
+        self.time_elapsed = 0  # Track time for sine wave movement
+
+    def update(self, dt):
+        # Update the animation frame
+        self.current_frame = (self.current_frame + self.animation_speed) % self.frame_count
+        self.image = pygame.image.load(self.texture_paths[int(self.current_frame)]).convert_alpha()
+        
+        # Apply sine wave movement based on the original position
+        self.time_elapsed += dt
+        sine_wave_offset = math.sin(self.time_elapsed * 2 * math.pi) * self.sine_wave_amplitude
+        self.rect.y = self.original_y + int(sine_wave_offset)
+        
+        # Link the tilt to the sine wave for vertical movement
+        tilt_angle = math.sin(self.time_elapsed * 2 * math.pi) * self.tilt_amplitude
+        
+        # Apply the tilt by rotating the image
+        self.image = pygame.transform.rotate(self.image, tilt_angle)
+        
+        # Recalculate the rect after rotation to center the sprite correctly
+        self.rect = self.image.get_rect(center=self.rect.center)
+
+    def change_texture(self):
+        # Cycle through available textures
+        self.current_texture_index = (self.current_texture_index + 1) % len(self.texture_paths)
+        self.image = pygame.image.load(self.texture_paths[self.current_texture_index]).convert_alpha()
+
+    def get_current_texture_index(self):
+        return self.current_texture_index  # Return the current texture index
+`,
+    'player.py': `import pygame
+from config import GRID_SIZE
+
+# Class representing the player character in the game
+class Player(pygame.sprite.Sprite):
+    def __init__(self, x, y, texture_paths, level_map, grid_size, initial_texture_index=0):
+        super().__init__()
+        self.level_map = level_map  # The level map data
+        self.grid_size = grid_size  # The size of each grid cell
+        self.texture_paths = texture_paths  # Dictionary of texture paths for different animations
+        self.current_texture_index = initial_texture_index  # Initial texture index
+        
+        self.PLAYER_SIZE = 32  # Player sprite size (32x32)
+        self.animation_frames = {
+            'idle': self.load_frames(texture_paths['idle'], 4),  # Load idle animation frames
+            'jump': self.load_frames(texture_paths['jump'], 8),  # Load jump animation frames
+            'run': self.load_frames(texture_paths['run'], 6),    # Load run animation frames
+            'death': self.load_frames(texture_paths['death'], 8) # Load death animation frames
+        }
+        self.current_animation = 'idle'  # Start with the idle animation
+        self.current_frame = 0  # Current frame index for the animation
+        self.animation_speed = 0.3  # Speed of the animation
+        self.animation_timer = 0  # Timer to control frame updates
+        self.facing_right = True  # Track the direction the player is facing
+        self.last_damage = 0  # Time since the player last took damage
+        
+        # Player movement and physics parameters
+        self.PLAYER_SPEED = 4  # Movement speed
+        self.GRAVITY = 1  # Gravity applied to the player
+        self.JUMP_STRENGTH = -12  # Strength of the player's jump
+        self.vertical_velocity = 0  # Vertical velocity of the player
+        self.on_ground = False  # Whether the player is on the ground
+        self.time_since_hit = 0  # Time since the player was last hit
+
+        # Create the player's rect and image based on the initial animation frame
+        self.rect = self.animation_frames[self.current_animation][self.current_frame].get_rect(topleft=(x, y))
+        self.image = self.animation_frames[self.current_animation][self.current_frame]
+
+        # Create a smaller collision rectangle for more precise collision detection
+        self.collision_rect = pygame.Rect(self.rect.x, self.rect.y, 20, 26)
+        
+        # Player stats
+        self.MAX_STAT = 100
+        self.FOOD_VALUE = 20
+        self.WATER_VALUE = 20
+        self.health = self.MAX_STAT  # Start with full health
+        self.hunger = self.MAX_STAT  # Start with full hunger
+        self.thirst = self.MAX_STAT  # Start with full thirst
+        self.inventory = {'food': 0, 'water': 0}  # Inventory for collected items
+        self.score = 0  # Player's score
+        self.is_dead = False  # Whether the player is dead
+        self.death_animation_complete = False  # Whether the death animation is complete
+    
+    def load_frames(self, texture_path, num_frames):
+        # Load the animation frames from a sprite sheet
+        sheet = pygame.image.load(texture_path).convert_alpha()
+        frames = []
+        frame_width = sheet.get_width() // num_frames
+        for i in range(num_frames):
+            frame = sheet.subsurface(pygame.Rect(i * frame_width, 0, frame_width, self.PLAYER_SIZE))
+            frame = pygame.transform.scale(frame, (self.PLAYER_SIZE, self.PLAYER_SIZE))  # Ensure the frame is 32x32
+            frames.append(frame)
+        return frames
+
+    def update(self, block_group, camera_x, SCREEN_WIDTH, level_map, enemy_group, object_group=None, food_group=None, water_group=None):
+        # Update the collision rect position based on the player's current position
+        self.collision_rect.topleft = (self.rect.x + (self.PLAYER_SIZE - 20) // 2, self.rect.y + (self.PLAYER_SIZE - 26) // 2)
+
+        if self.health <= 0:
+            # If the player's health drops to 0 or below
+            if not self.is_dead:
+                self.is_dead = True
+                self.current_animation = 'death'
+                self.current_frame = 0  # Reset to the start of the death animation
+
+            if not self.death_animation_complete:
+                self.animate()
+                if self.current_frame == len(self.animation_frames['death']) - 1:
+                    self.death_animation_complete = True
+            else:
+                print("death")
+                return
+        else:
+            # Handle player input and movement
+            keys = pygame.key.get_pressed()
+            previous_animation = self.current_animation
+
+            if keys[pygame.K_LEFT] or keys[pygame.K_a]:
+                # Move left
+                self.rect.x -= self.PLAYER_SPEED
+                self.current_animation = 'run'
+                self.facing_right = False
+            elif keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+                # Move right
+                self.rect.x += self.PLAYER_SPEED
+                self.current_animation = 'run'
+                self.facing_right = True
+            else:
+                self.current_animation = 'idle'
+
+            if not self.on_ground:
+                self.current_animation = 'jump'
+
+            if self.current_animation != previous_animation:
+                self.current_frame = 0  # Reset the frame index when the animation changes
+
+            self.animate()
+
+            # Constrain the player's position within the camera's visible area
+            self.rect.x = max(camera_x, min(self.rect.x, camera_x + SCREEN_WIDTH - self.PLAYER_SIZE))
+
+            # Horizontal collision detection with blocks
+            collided_blocks = pygame.sprite.spritecollide(self, block_group, False)
+            for block in collided_blocks:
+                if self.rect.right > block.rect.left and self.rect.left < block.rect.left:
+                    self.rect.right = block.rect.left
+                elif self.rect.left < block.rect.right and self.rect.right > block.rect.right:
+                    self.rect.left = block.rect.right
+
+            # Apply gravity
+            self.vertical_velocity += self.GRAVITY
+
+            # Jumping logic
+            if (keys[pygame.K_UP] and self.on_ground) or (keys[pygame.K_SPACE] and self.on_ground) or (keys[pygame.K_w] and self.on_ground):
+                self.vertical_velocity = self.JUMP_STRENGTH
+                self.on_ground = False
+
+            # Vertical movement
+            self.rect.y += self.vertical_velocity
+
+            # Vertical collision detection with blocks
+            collided_blocks = pygame.sprite.spritecollide(self, block_group, False)
+            self.on_ground = False  # Reset on_ground flag before checking collisions
+            for block in collided_blocks:
+                if self.rect.bottom > block.rect.top and self.rect.top < block.rect.top:
+                    self.rect.bottom = block.rect.top
+                    self.vertical_velocity = 0
+                    self.on_ground = True  # Player is on the ground after landing
+                elif self.rect.top < block.rect.bottom and self.rect.bottom > block.rect.bottom:
+                    self.rect.top = block.rect.bottom
+                    self.vertical_velocity = 0
+
+            # Check for collision with objects (e.g., helicopter)
+            """object_collisions = pygame.sprite.spritecollide(self, object_group, False)
+            if object_collisions:
+                from main_menu import next_level_menu
+                next_level_menu()"""
+
+            # Proximity-based damage from enemies
+            for enemy in enemy_group:
+                if self.last_damage >= 20:
+                    if (abs(self.rect.centerx - enemy.rect.centerx) <= 50 and
+                        abs(self.rect.centery - enemy.rect.centery) <= 50):
+                        self.health -= 20  # Reduce health by 20
+                        if self.health <= 0:
+                            self.is_dead = True
+                            self.current_animation = 'death'
+                    self.last_damage = 0
+                else:
+                    self.last_damage += 1
+
+            # Collect food
+            food_collisions = pygame.sprite.spritecollide(self, food_group, True)
+            if food_collisions:
+                for food in food_collisions:
+                    self.collect_food()
+            
+            # Collect water
+            water_collisions = pygame.sprite.spritecollide(self, water_group, True)
+            if water_collisions:
+                for water in water_collisions:
+                    self.collect_water()
+
+            # Decrease hunger and thirst over time
+            self.hunger -= 0.2
+            self.thirst -= 0.25
+            if self.hunger <= 0 or self.thirst <= 0:
+                self.health -= 0.25
+
+            # Clamp values to a minimum of 0
+            self.hunger = max(self.hunger, 0)
+            self.thirst = max(self.thirst, 0)
+            self.health = max(self.health, 0)
+
+            # Increase score over time
+            self.score += 0.1
+
+    def animate(self):
+        # Handle animation timing and frame updates
+        self.animation_timer += self.animation_speed
+        if self.animation_timer >= 1:
+            self.animation_timer = 0
+            self.current_frame = (self.current_frame + 1) % len(self.animation_frames[self.current_animation])
+        
+        frame = self.animation_frames[self.current_animation][self.current_frame]
+        if not self.facing_right:
+            frame = pygame.transform.flip(frame, True, False)  # Flip the frame if the player is facing left
+        
+        self.image = frame
+
+    def get_current_texture_index(self):
+        return self.current_texture_index  # Return the current texture index
+
+    def collect_food(self):
+        """Increase the player's hunger stat when collecting food."""
+        self.hunger = min(self.hunger + self.FOOD_VALUE, self.MAX_STAT)
+        self.health = min(self.health + (self.FOOD_VALUE)/2, self.MAX_STAT)
+        self.score += 10
+
+    def collect_water(self):
+        """Increase the player's thirst stat when collecting water."""
+        self.thirst = min(self.thirst + self.WATER_VALUE, self.MAX_STAT)
+        self.health = min(self.health + (self.WATER_VALUE)/2, self.MAX_STAT)
+        self.score += 10
+`,
+    'stats.txt': `{"high_score": 0, "best_time": 999}`,
+
+    // Root level image
+    'eraser.png': 'images/eraser.png',
+
+    // textures folder
+    'textures/background.png': 'images/background.png',
+    'textures/dirt_texture.png': 'images/dirt_texture.png',
+    'textures/stone_texture.png': 'images/stone_texture.png',
+    'textures/grass_texture.png': 'images/grass_texture.png',
+    'textures/dude_monster.png': 'images/dude_monster.png',
+    'textures/enemy_texture.png': 'images/enemy_texture.png',
+    'textures/food_texture.png': 'images/food.png',
+    'textures/heli_texture1.png': 'images/heli_texture1.png',
+    'textures/water_texture.png': 'images/water_texture.png'
+};
+
     
         function showCode(filename) {
             const codeBlock = document.getElementById('code-block');

@@ -158,6 +158,14 @@ pre code {
     background-color: #3e8e41;
 }
 
+/* The container for tabs, allowing wrapping */
+.tab-bar {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping of buttons */
+    gap: 5px; /* Add space between buttons */
+}
+
+
 /* Copy Button Styles */
 .copy-code-btn {
     background-color: #4CAF50;
@@ -350,62 +358,53 @@ table {
 }
 
 /* Avatar Section Styling */
-.avatar-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-/* Avatar Container Flexbox */
 .avatar-container {
     display: flex;
     align-items: flex-start;
-    gap: 30px; /* Increase gap between image and text */
+    gap: 20px; /* Space between image and text */
     width: 100%;
 }
 
-/* Avatar Image Styling */
+/* Avatar Image */
 .avatar-image {
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly increased shadow for pop */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
 }
 
-/* Avatar Info List Styling */
+/* Avatar Info */
 .avatar-info {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex: 1;
     font-size: 1rem;
     color: #333;
-    line-height: 1.8; /* Add more spacing between lines for better readability */
-}
-
-.avatar-info li {
-    margin-bottom: 10px;
+    line-height: 1.8;
 }
 
 .avatar-info li strong {
     color: #4CAF50;
-    font-weight: bold; /* Slightly increase the font weight for labels */
-    font-size: 1.1rem; /* Increase the font size of the labels */
+    font-weight: bold;
+    font-size: 1.1rem;
 }
 
-/* Ensuring responsiveness */
+/* Review Section specific changes */
+#review-existing-game p {
+    text-align: justify;
+}
+
+/* Responsive Layout */
 @media (max-width: 768px) {
-    .avatar-container {
-        flex-direction: column;
-        align-items: center;
+    .flex-sections {
+        flex-direction: column; /* Stack sections on smaller screens */
+        max-width: 100%; /* Let sections take full width on small screens */
+    }
+
+    .flex-section {
+        min-width: 100%; /* Take full width on smaller screens */
+        max-width: 100%;
     }
 
     .avatar-image {
@@ -413,21 +412,24 @@ table {
     }
 }
 
-
-
 /* Flexbox layout for paired sections */
 .flex-sections {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Adjust gap between sections */
-    justify-content: space-between;
-    align-items: stretch; /* Ensures both sections have equal height */
+    gap: 10px; /* Reduce gap between sections */
+    justify-content: flex-start; /* Align sections to the left */
+    align-items: flex-start; /* Align sections at the top */
+    width: 100%;
+    max-width: 100%; /* Allow sections to use full width */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    margin-left: auto;
+    margin-right: auto;
 }
 
+/* Flex Section (For both avatar and review sections) */
 .flex-section {
     flex: 1;
     min-width: 48%; /* Ensures two sections fit side by side on larger screens */
-    max-width: 48%;
+    max-width: 48%; /* Keep the sections balanced */
     box-sizing: border-box;
     background-color: white; /* Ensure background remains white */
     padding: 20px;
@@ -477,12 +479,7 @@ table {
 
 /* Responsive fallback: stack sections on smaller screens */
 /* Media query for responsiveness */
-@media (max-width: 768px) {
-    .flex-section {
-        min-width: 100%;
-        max-width: 100%;
-    }
-}
+
 
 /* Improving the overall readability */
 p {
@@ -491,23 +488,86 @@ p {
     color: #444;
 }
 
-/* Adding some space between the images and the text in the UI Design section */
-#ui-design ul li {
+#ui-design {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#ui-design {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#ui-design h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#ui-design p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* UI components list styling using CSS Grid */
+.ui-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    grid-gap: 20px; /* Space between grid items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ui-list li {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: auto; /* Let the height adjust based on the content */
 }
 
-#ui-design ul img {
-    width: 50px;
-    height: auto;
+.ui-list li:hover {
+    transform: translateY(-5px);
+}
+
+.ui-list img {
+    max-width: 100%;  /* Ensures images are responsive */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    object-fit: contain; /* Make sure image fits within the boundaries */
 }
 
-#ui-design ul li:hover img {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+.ui-list span {
+    font-size: 1rem;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
 }
+
+@media (max-width: 768px) {
+    .ui-list {
+        grid-template-columns: 1fr; /* Stacks items on smaller screens */
+    }
+
+    .ui-list img {
+        max-width: 100%; /* Make images responsive on small screens */
+    }
+}
+
 
 /* Section Styles */
 section {
@@ -543,7 +603,135 @@ section ul li {
 
 /* Class to center the entire section/container horizontally with top margin */
 .centered-section {
-    width: fit-content; /* Ensures the container takes only as much space as needed */
-    margin: 40px auto 0 auto; /* Centers the container horizontally and adds a 40px top margin */
-    text-align: left; /* Ensures the text remains aligned to the left inside */
+    margin-top: 40px;
+    text-align: left;
+}
+
+
+#object-asset-design {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#object-asset-design h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#object-asset-design table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+#object-asset-design th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+#object-asset-design th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+#object-asset-design img {
+    max-width: 100px; /* Adjust the width of the images */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    #object-asset-design table {
+        font-size: 0.9rem;
+    }
+
+    #object-asset-design img {
+        max-width: 80px;
+    }
+}
+
+#student-review {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#student-review h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#student-review table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+#student-review th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#student-review th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+#student-review td {
+    vertical-align: top;
+}
+
+#usability-principles {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#usability-principles h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#usability-principles table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #555;
+}
+
+#usability-principles th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: top;
+}
+
+#usability-principles th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+}
+
+#usability-principles td {
+    vertical-align: top;
 }
