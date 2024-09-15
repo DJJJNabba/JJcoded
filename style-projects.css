@@ -735,3 +735,43 @@ section ul li {
 #usability-principles td {
     vertical-align: top;
 }
+
+/* Instruction Styles */
+.instructions {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+    color: #555;
+    line-height: 1.8;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+}
+
+/* Code Block Styles */
+.code-container.full-width {
+    width: 100%; /* Code block takes full width */
+    max-width: 100%; /* Ensures no overflow */
+    margin-bottom: 20px; /* Spacing between code block and instructions */
+}
+
+/* Adjust code block padding */
+.code-container pre {
+    padding: 20px;
+}
+
+/* Other styles from before, unchanged */
+

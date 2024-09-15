@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1: Python Game</title>
+    <title>JJcoded Certificate Installer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css">
-    <link rel="stylesheet" href="style-projects.css">
+    <link rel="stylesheet" href="style-projects.css"> <!-- Link to external CSS -->
 </head>
 <body>
     <header>
-        <h1>Project 1: Python Game</h1>
+        <h1>JJcoded Certificate</h1>
         <nav>
             <a href="index.html" class="nav-link">Back to Projects</a>
         </nav>
@@ -18,169 +18,107 @@
 
     <section class="project-detail">
         <h2>Project Description</h2>
-        <p>This Python game is a simple adventure game...</p>
+        <p>This project provides a certificate that allows people to download and run my projects without them being flagged as suspicious by their operating system. The code ensures that the certificate is installed safely so that users can trust and run my projects without encountering warnings.</p>
 
-        <!-- Two-Column Layout -->
-        <div class="content-container">
-            <!-- Left Column: Source Code Block with Tabs -->
-            <div class="code-container">
-                <div class="code-header">
-                    <!-- Folder and Tab buttons -->
-                    <div class="tab-bar">
-                        <!-- Folders and Tabs inline -->
-                        <div class="folder-group">
-                            <div class="folder-wrapper">
-                                <button class="folder-button" onclick="toggleFolder('src-folder')">src/</button>
-                                <div id="src-folder" class="file-tabs" style="display: none;">
-                                    <button class="tab-button" onclick="showCode('game.py')">game.py</button>
-                                    <button class="tab-button" onclick="showCode('level.py')">level.py</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="folder-group">
-                            <div class="folder-wrapper">
-                                <button class="folder-button" onclick="toggleFolder('assets-folder')">assets/</button>
-                                <div id="assets-folder" class="file-tabs" style="display: none;">
-                                    <button class="tab-button" onclick="showCode('sprite.png')">sprite.png</button>
-                                    <button class="tab-button" onclick="showCode('background.png')">background.png</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Files outside folders -->
-                        <button class="tab-button" onclick="showCode('main.py')">main.py</button>
-                        <button class="tab-button" onclick="showCode('config.py')">config.py</button>
-                    </div>
+        <!-- Full-width Code Block -->
+        <div class="code-container full-width">
+            <div class="code-header">
+                <div class="tab-bar">
+                    <button class="tab-button active">install_certificate.py</button>
                     <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
                 </div>
-                
-                <!-- Code blocks for different files -->
-                <pre class="line-numbers"><code id="code-block" class="language-python">
-# Example Python code
-def game():
-    print("This is a game!")
-                </code></pre>
             </div>
-
-            <!-- Right Column: Carousel for Images/Videos -->
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="slides">
-                        <img src="images/screenshot1.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
-                        <img src="images/screenshot2.png" class="carousel-item" alt="Screenshot 2" style="display: none;">
-                        <img src="images/screenshot3.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
-                        <video controls class="carousel-item" style="display: none;">
-                            <source src="videos/video1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
-                    <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
-                </div>
+            <div class="code-display">
+                <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
             </div>
         </div>
 
-        <!-- Download Link -->
-        <div class="download-links">
-            <a href="path_to_project1.zip" download>Download Project Files</a>
+        <!-- Instructions -->
+        <div class="instructions">
+            <h2>Installation Instructions</h2>
+            <ol>
+                <li>Download the certificate and Python file using the link below.</li>
+                <li>Extract the contents of the ZIP file to a folder.</li>
+                <li>Right-click the Python file and select <strong>"Run as administrator"</strong>.</li>
+                <li>Follow the on-screen prompts to install the certificate.</li>
+            </ol>
+            <div class="download-links">
+                <a href="projects/MyCertificate.zip" download>Download My Certificate</a>
+            </div>
         </div>
     </section>
 
     <!-- Prism JS for syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <!-- Python syntax highlighting -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
 
-    <!-- Carousel and Code Tab Script -->
+    <!-- Script to handle code display and copying -->
     <script>
-        let slideIndex = 0;
-        let slideInterval;
-
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            clearInterval(slideInterval); // Reset the interval when manually navigating
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("carousel-item");
-            if (n >= slides.length) { slideIndex = 0; }
-            if (n < 0) { slideIndex = slides.length - 1; }
-
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                if (slides[i].tagName === "VIDEO") {
-                    slides[i].pause();
-                    slides[i].currentTime = 0;
-                }
-            }
-
-            let currentSlide = slides[slideIndex];
-            currentSlide.style.display = "block";
-
-            if (currentSlide.tagName === "VIDEO") {
-                currentSlide.play();
-                currentSlide.onended = () => {
-                    plusSlides(1);
-                };
-            } else {
-                slideInterval = setTimeout(() => plusSlides(1), 4000);
-            }
-        }
-
         const codeFiles = {
-            'main.py': `import pygame
-print("hello world")`,
+            'install_certificate.py': `import os
+import sys
+import ctypes
+import subprocess
 
-            'config.py': `# Config file
-SETTINGS = {
-    'fullscreen': True,
-    'resolution': (1920, 1080)
-}`,
+def is_admin():
+    """Check if the script is being run as an administrator."""
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin() == 1
+    except:
+        return False
 
-            'game.py': `# Game logic
-def run_game():
-    print("Running the game")`,
+def run_as_admin():
+    """Re-run the script with administrator privileges."""
+    script = os.path.abspath(sys.argv[0])
+    params = ' '.join([f'"{arg}"' for arg in sys.argv[1:]])
 
-            'level.py': `# Level loading
-def load_level():
-    print("Loading level")`
+    try {
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, f'"{script}" {params}', None, 1);
+        sys.exit(0);
+    } catch (e) {
+        console.error("Failed to re-launch script as administrator:", e);
+        alert("Press Enter to exit...");
+        sys.exit(1);
+    }
+
+def install_certificate(cert_path):
+    """Install the certificate to the Trusted Root Certification Authorities store."""
+    try:
+        subprocess.run(["certutil", "-addstore", "Root", cert_path], check=True);
+        alert("Successfully installed the certificate: " + cert_path);
+    } catch (e) {
+        console.error("Failed to install the certificate:", e);
+        alert("Press Enter to exit...");
+        sys.exit(1);
+    }
+
+if __name__ == "__main__":
+    if not is_admin():
+        alert("This script must be run as an administrator!");
+        run_as_admin();
+
+    cert_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "JJcodedCert.cer");
+
+    if not os.path.exists(cert_path):
+        alert("Certificate file not found: " + cert_path);
+        sys.exit(1);
+
+    install_certificate(cert_path);
+    alert("Press Enter to close...");`
         };
 
-        function showCode(filename) {
+        window.onload = function() {
             const codeBlock = document.getElementById('code-block');
-            codeBlock.textContent = codeFiles[filename];
+            codeBlock.textContent = codeFiles['install_certificate.py'];
             Prism.highlightAll();
-            setActiveTab(filename);
-        }
+        };
 
-        function setActiveTab(activeFilename) {
-            const buttons = document.getElementsByClassName('tab-button');
-            for (let button of buttons) {
-                button.classList.remove('active');
-                if (button.textContent === activeFilename) {
-                    button.classList.add('active');
-                }
-            }
-        }
-
-        function toggleFolder(folderId) {
-            const folder = document.getElementById(folderId);
-            folder.style.display = folder.style.display === "inline-flex" ? "none" : "inline-flex";
-        }
-
-        document.getElementById('copy-code-btn').addEventListener('click', function() {
+        document.getElementById('copy-code-btn').addEventListener('click', function () {
             const code = document.getElementById('code-block').textContent;
-            navigator.clipboard.writeText(code).then(function() {
+            navigator.clipboard.writeText(code).then(function () {
                 alert('Code copied to clipboard!');
             });
         });
-
-        window.onload = function() {
-            showCode('main.py'); // Display the main.py content by default
-        };
     </script>
 </body>
-</html>
