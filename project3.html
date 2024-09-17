@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Keyboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.css">
+    <link rel="stylesheet" href="style-projects.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <header>
+        <h1>AI Keyboard</h1>
+        <nav>
+            <a href="index.html" class="nav-link">Back to Projects</a>
+        </nav>
+    </header>
+
+    <section class="project-detail">
+        <h2>AIKeyboard: A Seamless Keyboard-Based AI Assistant</h2>
+        <p>AIKeyboard is an innovative Python-based application designed to provide seamless, real-time AI-powered interactions directly from your keyboard. Whether you're working on a project, brainstorming ideas, or just need quick assistance, AIKeyboard integrates OpenAI’s advanced models into your daily workflow, enabling you to type prompts, receive AI-generated responses instantly, and even have those responses read aloud with customizable text-to-speech functionality—all while keeping your workspace clean and distraction-free, without the need for an intrusive terminal window.</p>
+    
+    <div class="content-container">
+        <!-- Left Column: Source Code Block with Tabs -->
+        <div class="code-container">
+            <div class="code-header">
+                <div class="tab-bar">
+                        
+                        <!-- textures/ folder -->
+                        <div class="folder-group">
+                            <div class="folder-wrapper">
+                                <button class="folder-button" onclick="toggleFolder('textures-folder')">brain/</button>
+                                <div id="textures-folder" class="file-tabs" style="display: none;">
+                                    <button class="tab-button" onclick="showCode('setup.py')">setup.py</button>
+                                    <button class="tab-button" onclick="showCode('backgroundai.py')">backgroundai.py</button>
+                                    <button class="tab-button" onclick="showCode('menu.py')">menu.py</button>
+                                    <button class="tab-button" onclick="showCode('write.png')">write.png</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Python Files in the root -->
+                        <button class="tab-button" onclick="showCode('RUN.py')">RUN.py</button>
+                        <button class="tab-button" onclick="showCode('instructions.txt')">instructions.txt</button>
+
+                    </div>
+            
+                    <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i>Copy</button>
+                </div>
+            
+                <!-- Code blocks or image display -->
+                <div class="code-display">
+                    <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
+                </div>
+            </div>
+
+            <!-- Right Column: Carousel for Images/Videos -->
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="images/websitescreenshots/Screenshot 2024-09-14 170746.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
+                        <img src="images/websitescreenshots/Screenshot 2024-09-14 170823.png" class="carousel-item" alt="Screenshot 2" style="display: none;">
+                        <img src="images/websitescreenshots/Screenshot 2024-09-14 170908.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171146.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171216.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171705.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171737.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171803.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171852.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 171945.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <img src="images\websitescreenshots\Screenshot 2024-09-14 172016.png" class="carousel-item" alt="Screenshot 3" style="display: none;">
+                        <video controls class="carousel-item" style="display: none;">
+                            <source src="videos/pygamevid.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h2>Installation Instructions</h2>
+            <ol>
+                <li>Download the AIKeyboard program using the link below.</li>
+                <li>Extract the contents of the ZIP file to a folder on your computer.</li>
+                <li>Navigate to the extracted folder and locate <strong>run.py</strong>.</li>
+                <li>Double-click <strong>run.py</strong> to start the program. If you do not have Python installed, follow the on-screen prompts to install it.</li>
+                <li>After Python and the necessary modules are installed, the AIKeyboard system tray icon will appear.</li>
+                <li>Right-click the icon in the system tray and open the settings to enter your OpenAI API key and customize your experience.</li>
+            </ol>
+            <div class="download-links">
+                <a href="projects/AIKeyboard.zip" download>Download AIKeyboard</a>
+            </div>
+        </div>
+        
+
+        <!-- New sections start here -->
+        <section>
+            <h3>What Sets AIKeyboard Apart?</h3>
+            <ul>
+                <li><strong>Streamlined Workflow Integration:</strong> AIKeyboard integrates into your existing workflow without interrupting your tasks. It operates in the background and can be summoned with simple key combinations, allowing you to maintain focus while getting AI assistance as needed.</li>
+                <li><strong>Customizable and Flexible:</strong> Tailored to suit your preferences, AIKeyboard offers a fully customizable experience. With adjustable keybinds, typing speed, AI model selection, and temperature settings, you have full control over how the AI behaves, ensuring it complements your working style.</li>
+                <li><strong>Text-to-Speech (TTS):</strong> In addition to receiving text-based responses, AIKeyboard includes a text-to-speech feature that can read back the AI's output aloud. You can adjust the speech rate to your liking, making it useful for multitasking, accessibility, or just adding a personal touch to your interactions.</li>
+                <li><strong>Supports Long-Form Content Generation:</strong> Whether you're drafting emails, writing essays, or generating code, AIKeyboard is capable of handling long-form content. It offers the ability to start and continue writing, providing suggestions or completing text seamlessly as you type.</li>
+                <li><strong>Lightweight and Non-Intrusive:</strong> With its discreet system tray operation, AIKeyboard stays out of your way until you need it. Unlike traditional AI tools that require you to switch to a separate interface or window, this tool works directly in any text field you're using.</li>
+            </ul>
+            
+            <h3>Key Features:</h3>
+            <ul>
+                <li><strong>Real-Time AI Responses:</strong> Generate real-time responses to any text prompt using OpenAI’s powerful models, including GPT-4, helping you quickly get information, ideas, or solutions.</li>
+                <li><strong>Text-to-Speech (TTS):</strong> Hear AI-generated responses aloud with fully customizable TTS settings, providing added accessibility and convenience.</li>
+                <li><strong>Customizable Keybinds:</strong> Configure hotkeys to activate AI interactions, capture input, and generate responses without having to switch windows or touch your mouse.</li>
+                <li><strong>Auto-Typing:</strong> Automatically type out the AI-generated responses at a customizable speed, simulating a natural typing experience and keeping your hands free.</li>
+                <li><strong>Comprehensive Settings:</strong> Easily adjust settings such as temperature, maximum token length, response speed, and more to get precise control over how the AI responds to your queries.</li>
+                <li><strong>Seamless System Tray Integration:</strong> AIKeyboard runs quietly in the background and integrates into the system tray, allowing for easy access without taking up screen space.</li>
+                <li><strong>Effortless Setup:</strong> Installation is straightforward, with a built-in setup process that ensures all dependencies are installed automatically, making it accessible for both technical and non-technical users.</li>
+            </ul>
+            
+            <h3>Use Cases for AIKeyboard:</h3>
+            <ul>
+                <li><strong>Creative Writing and Content Generation:</strong> Use AIKeyboard to generate ideas, write blog posts, or draft essays and reports. The ability to continue and refine your writing makes it a perfect companion for authors and content creators.</li>
+                <li><strong>Productivity Enhancement:</strong> From email drafting to technical writing, AIKeyboard can help automate and speed up repetitive tasks by generating text or providing suggestions, allowing you to work more efficiently.</li>
+                <li><strong>Coding Assistance:</strong> Developers can use AIKeyboard to generate code snippets, explain functions, or debug issues. The flexibility to switch between natural language and code makes it ideal for any programming environment.</li>
+                <li><strong>Accessibility Support:</strong> With customizable text-to-speech, AIKeyboard enhances accessibility for users with visual impairments or those who prefer to listen rather than read.</li>
+            </ul>
+            
+            <h3>Installation and Usage:</h3>
+            <p>AIKeyboard is designed to be beginner-friendly, with a simple setup process that automatically installs necessary dependencies. The application ensures that both technical and non-technical users can easily configure and use it. Once set up, AIKeyboard can be activated and controlled using custom keybinds, providing fast, hands-free AI support when you need it.</p>
+            
+            <h3>Conclusion:</h3>
+            <p>Whether you're a developer looking to streamline your workflow, a writer seeking creative input, or a professional needing quick assistance in real-time, AIKeyboard brings the power of AI directly to your fingertips. It’s more than just a tool—it's a productivity-enhancing assistant that adapts to your needs, making your tasks faster, smarter, and more efficient.</p>
+        </section>
+        
+        
+
+    <!-- Prism JS for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+
+    <!-- Carousel and Code Tab Script -->
+    <script>
+        let slideIndex = 0;
+        let autoSlideInterval; // Store the auto-slide interval
+        const slideDuration = 4000; // 4 seconds for each image
+        let slides; // Declare slides here to initialize later
+    
+        function initCarousel() {
+            slides = document.querySelectorAll(".carousel-item"); // Get all slides after DOM is loaded
+            showSlides(slideIndex);
+            autoSlideInterval = setInterval(autoShowSlides, slideDuration); // Start auto slide for images
+        }
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            resetAutoSlide(); // Reset the auto-slide when manually navigating
+        }
+    
+        function autoShowSlides() {
+            const currentSlide = slides[slideIndex];
+            
+            // If the current slide is not a video, auto-show the next slide after 4 seconds
+            if (currentSlide.tagName !== "VIDEO") {
+                slideIndex++;
+                showSlides(slideIndex);
+            }
+        }
+    
+        function showSlides(n) {
+            if (n >= slides.length) {
+                slideIndex = 0;  // Go back to the first slide
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;  // Go to the last slide
+            }
+    
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.style.display = "none";
+                if (slide.tagName === "VIDEO") {
+                    slide.pause(); // Pause any videos if they are playing
+                    slide.currentTime = 0; // Reset video to start
+                }
+            });
+    
+            // Show the current slide
+            const currentSlide = slides[slideIndex];
+            currentSlide.style.display = "block";
+    
+            // If the current slide is a video, play it and only advance after it's done
+            if (currentSlide.tagName === "VIDEO") {
+                currentSlide.play();
+                currentSlide.onended = function () {
+                    plusSlides(1);  // Move to the next slide when the video finishes
+                };
+                clearInterval(autoSlideInterval); // Stop auto-slide during video playback
+            } else {
+                resetAutoSlide(); // Restart auto-slide if an image is displayed
+            }
+        }
+    
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval); // Clear the current interval
+            autoSlideInterval = setInterval(autoShowSlides, slideDuration); // Restart auto-slide after 4 seconds
+        }
+    
+        window.onload = function () {
+            initCarousel(); // Initialize the carousel on page load
+            showCode('RUN.py');  // Display main.py content by default
+        };
+    
+    const codeFiles = {
+    // Root level Python files
+    'RUN.py': `import subprocess
+import sys
+import os
+
+# Path to the first run indicator file in the 'brain' folder
+brain_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'brain')
+first_run_file = os.path.join(brain_folder, "first_run.txt")
+
+def get_pythonw_path():
+    """Find pythonw.exe in the current Python installation directory."""
+    python_dir = os.path.dirname(sys.executable)  # Get the directory of the current Python interpreter
+    pythonw_path = os.path.join(python_dir, 'pythonw.exe')  # Path to pythonw.exe
+    if os.path.exists(pythonw_path):
+        return pythonw_path
+    else:
+        return None  # Return None if pythonw.exe is not found
+# this is not a comment
+def relaunch_with_pythonw():
+    """Relaunch the script using pythonw.exe to avoid showing the terminal window."""
+    pythonw_executable = get_pythonw_path()
+    if pythonw_executable:
+        # Relaunch using pythonw.exe
+        subprocess.Popen([pythonw_executable, __file__], close_fds=True)
+        sys.exit(0)  # Exit the current instance to prevent double execution
+
+def run_script(script_name, use_pythonw=True):
+    """Run the given Python script located in the 'brain' folder."""
+    try:
+        script_path = os.path.join(brain_folder, script_name)
+        python_executable = get_pythonw_path() if use_pythonw else sys.executable
+        result = subprocess.run([python_executable, script_path], check=True)
+        return result.returncode == 0
+    except subprocess.CalledProcessError:
+        return False
+
+def main():
+    # Check if the script is already being run by pythonw.exe
+    if "pythonw" not in sys.executable:
+        relaunch_with_pythonw()  # Relaunch using pythonw.exe if it is not already running with it
+
+    if not os.path.exists(first_run_file):
+        # First time running the script
+        print("First run detected. Running setup.py...")
+
+        # Run setup.py and retry if it fails
+        if not run_script('setup.py', use_pythonw=False):  # Use python.exe for setup
+            print("setup.py failed. Retrying...")
+            if not run_script('setup.py', use_pythonw=False):
+                print("setup.py failed twice. Exiting.")
+                return
+
+        # Setup completed, create first_run_file in 'brain' folder
+        with open(first_run_file, 'w') as f:
+            f.write("Setup completed")
+
+        # Now run backgroundai.py using pythonw.exe
+        print("Running backgroundai.py...")
+        run_script('backgroundai.py', use_pythonw=True)
+
+    else:
+        # Not the first run, just run backgroundai.py using pythonw.exe
+        print("Not the first run. Running backgroundai.py...")
+        run_script('backgroundai.py', use_pythonw=True)
+
+if __name__ == "__main__":
+    main()
+`,
+    'instructions.txt': `Instructions for AIKeyboard
+
+Thank you for using AIKeyboard! This application allows you to interact with OpenAI's language models directly from your keyboard.
+
+---
+
+Getting Started
+
+1. Ensure Python 3 is Installed
+
+   - Check if Python is installed:
+     - Open Command Prompt (Windows) or Terminal (Mac/Linux).
+     - Type python --version and press Enter.
+     - If Python 3 is installed, it will display the version number (e.g., Python 3.8.5).
+   
+   - If Python is not installed:
+     - Download Python 3 from https://www.python.org/downloads/.
+     - Install Python by following the instructions on the website.
+
+2. Run the Application
+
+   - First Run:
+     - Navigate to the folder containing run.py.
+     - Double-click run.py to run it.
+     - Alternatively, you can run it from the command line:
+       - Open Command Prompt or Terminal.
+       - Navigate to your project folder using cd commands.
+       - Run python run.py.
+   
+   - First Time Setup:
+     - On the first run, the application will automatically install all the necessary Python modules.
+     - Please be patient as this may take a few minutes.
+     - A file named first_run.txt will be created inside the brain folder after setup is complete.
+
+3. Provide Your OpenAI API Key
+
+   - After running the application, you'll find an AIKeyboard icon in your system tray (near the clock on your taskbar).
+   
+   - For Windows Users:
+     - Look for a small icon resembling a keyboard or AI assistant.
+     - You might need to click on the "Show hidden icons" arrow to see it.
+   
+   - Access Settings:
+     - Right-click the AIKeyboard icon and select "Open Settings".
+   
+   - Enter API Key:
+     - In the settings window, enter your OpenAI API key in the "API Key" field.
+     - Click "Save API Key" to save your key.
+   
+   - Note: You need a valid OpenAI API key to use this application. Sign up at https://platform.openai.com/signup/ if you don't have one.
+
+4. Configure Settings (Optional)
+
+   - Model Selection:
+     - Choose which OpenAI model to use from the dropdown menu.
+   
+   - Custom Instructions:
+     - Add any custom instructions for the AI in the provided text area.
+   
+   - Keybinds:
+     - Set the keys you use to activate the AI.
+     - Prompt Keybind: Starts a new AI prompt.
+     - Completion Keybind: Asks the AI to continue your text.
+   
+   - Additional Settings:
+     - Temperature: Controls the randomness of the AI's responses.
+     - Max Tokens: Limits the length of the AI's responses.
+     - Auto-Type: Enable or disable automatic typing of AI responses.
+     - Typing Speed: Adjust how fast the AI types back.
+     - Letter by Letter Typing: Choose whether the AI types letter by letter or in chunks.
+     - Play TTS: Enable text-to-speech to have the AI speak responses.
+     - TTS Rate: Adjust the speaking rate of the AI.
+   
+   - Save Settings:
+     - Don't forget to click "Save Settings" after making changes.
+
+5. Using AIKeyboard
+
+   - Activate Prompt Mode:
+     - Press the "Prompt Keybind" (default is right shift) to start capturing your input.
+     - Type your prompt, and press the keybind again to stop capturing.
+     - The AI will process your input and type out the response automatically.
+   
+   - Activate Completion Mode:
+     - Press the "Completion Keybind" (default is right ctrl) to start capturing text to be completed.
+     - Type the text you want the AI to continue, and press the keybind again to stop capturing.
+     - The AI will generate a continuation of your text.
+   
+   - Stopping the AI Typing or TTS:
+     - To stop the AI from typing or speaking, press any key on your keyboard.
+
+6. Exiting the Application
+
+   - To exit AIKeyboard, right-click the system tray icon and select "Quit".
+
+---
+
+Additional Notes
+
+- Python Version:
+  - Ensure you have Python 3 installed. The application may not work correctly with older versions.
+  
+- Dependencies:
+  - The application will automatically install necessary Python modules on the first run. Although you may need to restart the program for changes to take effect.
+  
+- Privacy:
+  - Your OpenAI API key is stored locally in your user directory in a folder named privateVariables.
+  
+- Support:
+  - If you encounter any issues, please reach out my discord - @djjj.
+
+---
+
+Troubleshooting
+
+- Application Doesn't Start:
+  - Make sure you have Python 3 installed and added to your system's PATH.
+  - Ensure all files are in the correct folders as specified in the folder structure.
+
+- Cannot Find AIKeyboard Icon:
+  - It might be hidden in the system tray. Click on the arrow to show hidden icons.
+
+- Modules Not Installed:
+  - If the necessary Python modules are not installed, you can manually install them by running:
+    pip install -r requirements.txt
+    Note: You may need to create a requirements.txt file listing all dependencies.
+
+- Permission Issues:
+  - Run the application as an administrator if you encounter permission errors.
+
+---
+
+Uninstallation
+
+- To Uninstall the Application:
+  - Delete the project folder.
+  - Remove any shortcuts or startup entries if you enabled them in settings.
+  - Delete the privateVariables folder located in your user directory to remove saved settings and API keys.
+
+---
+
+Thank You for Using AIKeyboard!
+`,
+    // brain folder
+    'setup.py': `import os
+import shutil
+import sys
+import subprocess
+import importlib.util
+import ctypes
+from ctypes import wintypes
+
+# Define required modules for backgroundai.py
+required_modules = [
+    "keyboard",
+    "openai",
+    "pystray",
+    "Pillow",   # for handling images
+    "PyQt5",    # for GUI (Qt-based settings menu)
+    "pywin32",  # Includes win32com.client and pythoncom for Windows API usage
+]
+
+# Install required modules if they are not already installed
+def install_missing_modules():
+    for module in required_modules:
+        if importlib.util.find_spec(module) is None:
+            print(f"Module '{module}' is not installed. Installing...")
+            subprocess.check_call([sys.executable, "-m", "pip", "install", module])
+        else:
+            print(f"Module '{module}' is already installed.")
+
+# Function to run the pywin32_postinstall script manually
+def run_pywin32_postinstall():
+    try:
+        pywin32_postinstall_path = os.path.join(os.path.dirname(sys.executable), 'Scripts', 'pywin32_postinstall.py')
+        if os.path.exists(pywin32_postinstall_path):
+            print("Running pywin32 post-install script...")
+            subprocess.check_call([sys.executable, pywin32_postinstall_path, "-install"])
+            print("pywin32 post-install completed.")
+        else:
+            print("Could not find pywin32_postinstall script.")
+    except Exception as e:
+        print(f"Error running pywin32_postinstall: {e}")
+
+# Run post-install for pywin32 if required
+def ensure_pywin32_postinstall():
+    try:
+        # Import win32com.client and pythoncom to ensure they are set up
+        import win32com.client
+        import pythoncom
+        print("win32com and pythoncom are correctly set up.")
+    except ImportError:
+        # If the imports fail, run the pywin32 post-install
+        run_pywin32_postinstall()
+
+# Ensure that pywin32 is set up before proceeding
+install_missing_modules()
+ensure_pywin32_postinstall()
+
+# Now, import win32com.client after ensuring it is installed
+from win32com.client import Dispatch
+
+# Get the directory where the current setup script is located
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Define paths dynamically
+user_profile = os.getenv('USERPROFILE')  # Dynamically get user's home directory
+appdata_folder = os.getenv('APPDATA')
+startup_folder = os.path.join(appdata_folder, r'Microsoft\Windows\Start Menu\Programs\Startup')
+
+# Function to find the user's desktop folder path using Windows API
+def get_desktop_path():
+    CSIDL_DESKTOP = 0  # CSIDL_DESKTOP is the constant for desktop
+    SHGFP_TYPE_CURRENT = 0  # Constant for getting the current path
+
+    buf = ctypes.create_unicode_buffer(wintypes.MAX_PATH)
+    ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_DESKTOP, None, SHGFP_TYPE_CURRENT, buf)
+    return buf.value
+
+# Use Windows API to find the desktop path
+desktop_folder = get_desktop_path()
+
+# Define shortcut details
+shortcut_name = "AIKeyboard.lnk"
+background_script_path = os.path.join(script_directory, "backgroundai.py")  # Path to backgroundai.py
+start_in_directory = script_directory  # Start in the directory where the script is located
+icon_path = os.path.join(script_directory, "write.ico")  # Using write.ico for the icon
+
+# Function to find pythonw.exe based on the current Python interpreter location
+def find_pythonw():
+    python_dir = os.path.dirname(sys.executable)  # Get the directory of the current Python interpreter
+    pythonw_path = os.path.join(python_dir, 'pythonw.exe')  # pythonw.exe is usually in the same directory
+    if os.path.exists(pythonw_path):
+        return pythonw_path
+    else:
+        return None
+
+# Create a shortcut at the specified path
+def create_shortcut(shortcut_path, target, start_in, icon):
+    shell = Dispatch('WScript.Shell')
+    shortcut = shell.CreateShortCut(shortcut_path)
+    shortcut.Targetpath = target
+    shortcut.Arguments = f'"{background_script_path}"'  # Script to run
+    shortcut.WorkingDirectory = start_in
+    shortcut.IconLocation = f"{icon}, 0"  # Set icon with index 0 for the .ico file
+    shortcut.save()
+
+# Check for pythonw.exe and ensure it's found
+pythonw_executable = find_pythonw()
+if pythonw_executable is None:
+    print("Could not find pythonw.exe. Please ensure Python is installed.")
+    sys.exit(1)
+
+# Full paths for shortcuts in the startup folder and on the desktop
+startup_shortcut = os.path.join(startup_folder, shortcut_name)
+desktop_shortcut = os.path.join(desktop_folder, shortcut_name)
+
+# Check if the shortcut already exists in the startup folder
+if not os.path.exists(startup_shortcut):
+    create_shortcut(startup_shortcut, pythonw_executable, start_in_directory, icon_path)
+    print(f"Shortcut created in Startup folder: {startup_shortcut}")
+else:
+    print(f"Shortcut already exists in Startup folder: {startup_shortcut}")
+
+# Create a shortcut on the desktop if it doesn't exist
+if not os.path.exists(desktop_shortcut):
+    create_shortcut(desktop_shortcut, pythonw_executable, start_in_directory, icon_path)
+    print(f"Shortcut created on Desktop: {desktop_shortcut}")
+else:
+    print(f"Shortcut already exists on Desktop: {desktop_shortcut}")
+
+# ------------------ Added Code to Ensure Files Exist ------------------
+
+# Define the paths for the private variables and files
+PRIVATE_FOLDER = os.path.join(os.path.expanduser("~"), "privateVariables")
+API_KEY_FILE = os.path.join(PRIVATE_FOLDER, "apikey.txt")
+KEYBINDS_FILE = os.path.join(PRIVATE_FOLDER, "keybinds.txt")
+MODEL_FILE = os.path.join(PRIVATE_FOLDER, "model.txt")
+SETTINGS_FILE = os.path.join(PRIVATE_FOLDER, "settings.txt")
+CUSTOM_INSTRUCTIONS_FILE = os.path.join(PRIVATE_FOLDER, "custom_instructions.txt")
+
+# Default values
+DEFAULT_KEYBINDS = {
+    "prompt": "right shift",
+    "completion": "right ctrl"
+}
+
+DEFAULT_MODEL = "gpt-3.5-turbo"
+
+DEFAULT_SETTINGS = {
+    "temperature": 1.0,
+    "max_tokens": 256,
+    "auto_type": True,
+    "typing_speed_wpm": 350,
+    "letter_by_letter": True,
+    "play_tts": True,
+    "tts_rate": 4
+}
+
+# Ensure the private variables folder exists
+if not os.path.exists(PRIVATE_FOLDER):
+    os.makedirs(PRIVATE_FOLDER)
+    print(f"Created private variables folder at {PRIVATE_FOLDER}")
+
+# Ensure API_KEY_FILE exists
+if not os.path.exists(API_KEY_FILE):
+    with open(API_KEY_FILE, 'w') as f:
+        f.write('')
+    print(f"Created API key file at {API_KEY_FILE}")
+
+# Ensure KEYBINDS_FILE exists
+if not os.path.exists(KEYBINDS_FILE):
+    with open(KEYBINDS_FILE, 'w') as f:
+        for action, key in DEFAULT_KEYBINDS.items():
+            f.write(f"{action}: {key}\n")
+    print(f"Created keybinds file at {KEYBINDS_FILE}")
+
+# Ensure MODEL_FILE exists
+if not os.path.exists(MODEL_FILE):
+    with open(MODEL_FILE, 'w') as f:
+        f.write(DEFAULT_MODEL)
+    print(f"Created model file at {MODEL_FILE}")
+
+# Ensure SETTINGS_FILE exists
+if not os.path.exists(SETTINGS_FILE):
+    with open(SETTINGS_FILE, 'w') as f:
+        for key, value in DEFAULT_SETTINGS.items():
+            f.write(f"{key}:{value}\n")
+    print(f"Created settings file at {SETTINGS_FILE}")
+
+# Ensure CUSTOM_INSTRUCTIONS_FILE exists
+if not os.path.exists(CUSTOM_INSTRUCTIONS_FILE):
+    with open(CUSTOM_INSTRUCTIONS_FILE, 'w', encoding='utf-8') as f:
+        f.write('')
+    print(f"Created custom instructions file at {CUSTOM_INSTRUCTIONS_FILE}")
+
+# ----------------------------------------------------------------------
+
+# Run the background script with pythonw.exe
+print("Running backgroundai.py with pythonw.exe...")
+subprocess.Popen([pythonw_executable, background_script_path])
+`,
+    'menu.py': `import os
+import shutil
+import sys
+import ctypes
+import keyboard
+from ctypes import wintypes
+from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QLineEdit, QTextEdit, QPushButton,
+                             QVBoxLayout, QHBoxLayout, QSlider, QCheckBox, QComboBox, QMessageBox,
+                             QScrollArea, QDialog)
+from PyQt5.QtCore import Qt
+from win32com.client import Dispatch
+
+# File paths for saving settings
+PRIVATE_FOLDER = os.path.join(os.path.expanduser("~"), "privateVariables")
+API_KEY_FILE = os.path.join(PRIVATE_FOLDER, "apikey.txt")
+KEYBINDS_FILE = os.path.join(PRIVATE_FOLDER, "keybinds.txt")
+MODEL_FILE = os.path.join(PRIVATE_FOLDER, "model.txt")
+SETTINGS_FILE = os.path.join(PRIVATE_FOLDER, "settings.txt")
+CUSTOM_INSTRUCTIONS_FILE = os.path.join(PRIVATE_FOLDER, "custom_instructions.txt")
+
+# Default keybinds and settings
+DEFAULT_KEYBINDS = {
+    "prompt": "right shift",
+    "completion": "right ctrl"
+}
+DEFAULT_MODEL = "gpt-4o-mini-2024-07-18"
+DEFAULT_SETTINGS = {
+    "temperature": 1.0,
+    "max_tokens": 256,
+    "auto_type": True,
+    "typing_speed_wpm": 200,
+    "letter_by_letter": True,  # Default to letter-by-letter typing
+    "play_tts": False,         # Default to not playing TTS
+    "tts_rate": 0              # Default TTS rate
+}
+
+# Startup shortcut paths
+APPDATA_FOLDER = os.getenv('APPDATA')
+STARTUP_SHORTCUT_PATH = os.path.join(APPDATA_FOLDER, r'Microsoft\Windows\Start Menu\Programs\Startup', 'AIKeyboard.lnk')
+
+def load_or_create_api_key():
+    """Load or create an API key."""
+    if not os.path.exists(PRIVATE_FOLDER):
+        os.makedirs(PRIVATE_FOLDER)
+
+    if os.path.exists(API_KEY_FILE):
+        with open(API_KEY_FILE, "r") as file:
+            api_key = file.read().strip()
+        if api_key:
+            return api_key
+    return ""
+
+
+def load_or_create_keybinds():
+    """Load or create keybinds."""
+    if not os.path.exists(PRIVATE_FOLDER):
+        os.makedirs(PRIVATE_FOLDER)
+
+    if os.path.exists(KEYBINDS_FILE):
+        with open(KEYBINDS_FILE, "r") as file:
+            lines = file.readlines()
+            keybinds = {line.split(":")[0]: line.split(":")[1].strip() for line in lines}
+            return keybinds
+
+    return DEFAULT_KEYBINDS.copy()
+
+
+def save_keybinds(keybinds):
+    """Save keybinds to a file."""
+    with open(KEYBINDS_FILE, "w") as file:
+        for action, key in keybinds.items():
+            file.write(f"{action}: {key}\n")
+
+
+def load_selected_model():
+    """Load the selected model from file."""
+    if os.path.exists(MODEL_FILE):
+        with open(MODEL_FILE, "r") as file:
+            model_id = file.read().strip()
+        return model_id
+    return DEFAULT_MODEL
+
+
+def save_selected_model(model_id):
+    """Save the selected model to file."""
+    with open(MODEL_FILE, "w") as file:
+        file.write(model_id)
+
+
+def enable_startup():
+    """Enable the app to run on startup by creating a shortcut."""
+    script_directory = os.path.dirname(os.path.abspath(__file__))
+    shortcut_target = os.path.join(script_directory, "backgroundai.py")
+    pythonw_executable = shutil.which("pythonw")
+
+    if not pythonw_executable:
+        pythonw_executable = sys.executable  # Fallback to current Python executable if pythonw.exe is not found
+
+    icon_path = os.path.join(script_directory, "write.ico")
+
+    shell = Dispatch('WScript.Shell')
+    shortcut = shell.CreateShortCut(STARTUP_SHORTCUT_PATH)
+    shortcut.Targetpath = pythonw_executable
+    shortcut.Arguments = f'"{shortcut_target}"'
+    shortcut.WorkingDirectory = script_directory
+    shortcut.IconLocation = f"{icon_path}, 0"  # Set the icon location
+    shortcut.save()
+
+    QMessageBox.information(None, "Startup Enabled", "The application is now set to run at startup.")
+
+
+def disable_startup():
+    """Disable the app from running on startup by removing the shortcut."""
+    if os.path.exists(STARTUP_SHORTCUT_PATH):
+        os.remove(STARTUP_SHORTCUT_PATH)
+        QMessageBox.information(None, "Startup Disabled", "The application is no longer set to run at startup.")
+    else:
+        QMessageBox.warning(None, "Already Disabled", "The application is not set to run at startup.")
+
+
+def load_custom_instructions():
+    """Load custom instructions from file."""
+    if os.path.exists(CUSTOM_INSTRUCTIONS_FILE):
+        with open(CUSTOM_INSTRUCTIONS_FILE, "r", encoding='utf-8') as file:
+            instructions = file.read()
+            return instructions
+    else:
+        return ""
+
+
+def save_custom_instructions(instructions):
+    """Save custom instructions to file."""
+    with open(CUSTOM_INSTRUCTIONS_FILE, "w", encoding='utf-8') as file:
+        file.write(instructions)
+
+
+def load_settings():
+    """Load settings from file or use default settings."""
+    settings = DEFAULT_SETTINGS.copy()
+    if os.path.exists(SETTINGS_FILE):
+        with open(SETTINGS_FILE, "r") as file:
+            lines = file.readlines()
+            for line in lines:
+                if ":" not in line:
+                    continue  # Skip malformed lines
+                key, value = line.strip().split(":", 1)
+                if key == "temperature":
+                    settings["temperature"] = float(value)
+                elif key == "max_tokens":
+                    settings["max_tokens"] = int(value)
+                elif key == "auto_type":
+                    settings["auto_type"] = value.lower() == 'true'
+                elif key == "typing_speed_wpm":
+                    settings["typing_speed_wpm"] = int(value)
+                elif key == "letter_by_letter":
+                    settings["letter_by_letter"] = value.lower() == 'true'
+                elif key == "play_tts":
+                    settings["play_tts"] = value.lower() == 'true'
+                elif key == "tts_rate":
+                    try:
+                        settings["tts_rate"] = int(value)
+                    except ValueError:
+                        settings["tts_rate"] = DEFAULT_SETTINGS["tts_rate"]
+    return settings
+
+
+def save_settings(settings):
+    """Save settings to a file."""
+    with open(SETTINGS_FILE, "w") as file:
+        for key, value in settings.items():
+            file.write(f"{key}:{value}\n")
+
+
+class SettingsWindow(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Settings Menu")
+        self.setGeometry(100, 100, 500, 600)
+
+        self.init_ui()
+        self.current_action = None  # Track which keybind is being set
+        self.api_key_visible = False  # Track visibility of the API key
+
+    def init_ui(self):
+        main_layout = QVBoxLayout(self)
+        
+        # Create a scroll area
+        self.scroll_area = QScrollArea()
+        self.scroll_area.setWidgetResizable(True)
+        
+        # Create a widget to contain all the settings
+        self.content_widget = QWidget()
+        content_layout = QVBoxLayout(self.content_widget)
+        
+        # 1. API Key Section
+        api_key_layout = QHBoxLayout()  # Create a horizontal layout for the API Key section
+
+        self.api_key_label = QLabel("API Key:")
+        content_layout.addWidget(self.api_key_label)
+
+        self.api_key_input = QLineEdit()
+        self.api_key_input.setEchoMode(QLineEdit.Password)  # Hide API key by default
+        api_key_layout.addWidget(self.api_key_input)
+
+        # Show/Hide button next to the API key input
+        self.toggle_api_key_button = QPushButton("Show")
+        self.toggle_api_key_button.setFixedWidth(100)  # Set a fixed width for the button
+        self.toggle_api_key_button.clicked.connect(self.toggle_api_key_visibility)
+        api_key_layout.addWidget(self.toggle_api_key_button)
+
+        # Add the horizontal layout for API Key and Show/Hide button to the main content layout
+        content_layout.addLayout(api_key_layout)
+
+        # Save button for API key (this stays on a new line)
+        self.save_api_button = QPushButton("Save API Key")
+        self.save_api_button.clicked.connect(self.save_api_key)
+        content_layout.addWidget(self.save_api_button)
+
+        # Load the API key after creating the layout
+        self.load_api_key()
+        
+        # 2. Model Selection Section
+        self.model_label = QLabel("Model Selection:")
+        content_layout.addWidget(self.model_label)
+        
+        self.model_combo_box = QComboBox()
+        model_ids = [
+            # Chat models
+            'gpt-4',
+            'gpt-4-0613',
+            'gpt-4-1106-preview',
+            'gpt-4-turbo',
+            'gpt-4-turbo-2024-04-09',
+            'gpt-4-turbo-preview',
+            'gpt-4o',
+            'gpt-4o-2024-05-13',
+            'gpt-4o-mini',
+            'gpt-4o-mini-2024-07-18',
+            'gpt4o-0806-loco-vm',
+            'gpt-3.5-turbo',
+            'gpt-3.5-turbo-16k',
+            'gpt-3.5-turbo-0125',
+            'gpt-3.5-turbo-1106',
+            'gpt-3.5-turbo-instruct',  # Legacy completion model
+            'gpt-3.5-turbo-instruct-0914',  # Legacy completion model
+            # Legacy completion models
+            'davinci-002',
+            'babbage-002',
+            'text-davinci-003',
+            'text-curie-001',
+            'text-babbage-001',
+            'text-ada-001',
+        ]
+        self.model_combo_box.addItems(model_ids)
+        content_layout.addWidget(self.model_combo_box)
+        
+        selected_model = load_selected_model()
+        if selected_model in model_ids:
+            index = model_ids.index(selected_model)
+            self.model_combo_box.setCurrentIndex(index)
+        else:
+            self.model_combo_box.setCurrentIndex(0)
+        
+        self.model_combo_box.currentIndexChanged.connect(self.on_model_selection_changed)
+        
+        # 3. Custom Instructions Section
+        self.custom_instructions_label = QLabel("Custom Instructions:")
+        content_layout.addWidget(self.custom_instructions_label)
+        
+        self.custom_instructions_text = QTextEdit()
+        self.custom_instructions_text.setPlaceholderText("Enter custom instructions for the AI here...")
+        self.custom_instructions_text.setPlainText(load_custom_instructions())
+        content_layout.addWidget(self.custom_instructions_text)
+        
+        self.save_instructions_button = QPushButton("Save Instructions")
+        self.save_instructions_button.clicked.connect(self.save_custom_instructions)
+        content_layout.addWidget(self.save_instructions_button)
+        
+        # 4. Keybinds Section
+        self.keybinds_label = QLabel("Keybinds:")
+        content_layout.addWidget(self.keybinds_label)
+
+        # Prompt Keybind Layout (Text field and button on the same line)
+        prompt_keybind_layout = QHBoxLayout()
+        self.prompt_keybind_label = QLabel("Prompt Keybind:")
+        prompt_keybind_layout.addWidget(self.prompt_keybind_label)
+
+        self.prompt_keybind_input = QLineEdit()
+        self.prompt_keybind_input.setReadOnly(True)
+        prompt_keybind_layout.addWidget(self.prompt_keybind_input)
+
+        self.prompt_keybind_button = QPushButton("Set")
+        self.prompt_keybind_button.setFixedWidth(100)  # Set a fixed width to make the button smaller
+        self.prompt_keybind_button.clicked.connect(lambda: self.select_keybind("prompt", self.prompt_keybind_button))
+        prompt_keybind_layout.addWidget(self.prompt_keybind_button)
+
+        content_layout.addLayout(prompt_keybind_layout)
+
+        # Completion Keybind Layout (Text field and button on the same line)
+        completion_keybind_layout = QHBoxLayout()
+        self.completion_keybind_label = QLabel("Completion Keybind:")
+        completion_keybind_layout.addWidget(self.completion_keybind_label)
+
+        self.completion_keybind_input = QLineEdit()
+        self.completion_keybind_input.setReadOnly(True)
+        completion_keybind_layout.addWidget(self.completion_keybind_input)
+
+        self.completion_keybind_button = QPushButton("Set")
+        self.completion_keybind_button.setFixedWidth(100)  # Set a fixed width to make the button smaller
+        self.completion_keybind_button.clicked.connect(lambda: self.select_keybind("completion", self.completion_keybind_button))
+        completion_keybind_layout.addWidget(self.completion_keybind_button)
+
+        content_layout.addLayout(completion_keybind_layout)
+
+        
+        self.load_keybinds()
+        
+        self.revert_keybinds_button = QPushButton("Revert to Default Keybinds")
+        self.revert_keybinds_button.clicked.connect(self.revert_to_default_keybinds)
+        content_layout.addWidget(self.revert_keybinds_button)
+        
+        # 5. Additional Settings (Temperature, Max Tokens, Typing, TTS)
+        self.settings_label = QLabel("Additional Settings:")
+        content_layout.addWidget(self.settings_label)
+        
+        self.settings = load_settings()
+        
+        # Temperature Slider
+        temp_layout = QHBoxLayout()
+        self.temperature_label = QLabel(f"Temperature: {self.settings['temperature']}")
+        temp_layout.addWidget(self.temperature_label)
+        
+        self.temperature_slider = QSlider(Qt.Horizontal)
+        self.temperature_slider.setMinimum(0)
+        self.temperature_slider.setMaximum(20)  # Slider steps from 0 to 20 representing 0.0 to 2.0
+        self.temperature_slider.setValue(int(self.settings['temperature'] * 10))
+        self.temperature_slider.valueChanged.connect(self.on_temperature_changed)
+        temp_layout.addWidget(self.temperature_slider)
+        content_layout.addLayout(temp_layout)
+        
+        # Max Tokens Input
+        max_tokens_layout = QHBoxLayout()
+        self.max_tokens_label = QLabel("Max Completion Tokens:")
+        max_tokens_layout.addWidget(self.max_tokens_label)
+        
+        self.max_tokens_input = QLineEdit(str(self.settings['max_tokens']))
+        max_tokens_layout.addWidget(self.max_tokens_input)
+        content_layout.addLayout(max_tokens_layout)
+        
+        # Auto-Type Checkbox
+        self.auto_type_checkbox = QCheckBox("Auto-Type")
+        self.auto_type_checkbox.setChecked(self.settings.get('auto_type', True))
+        self.auto_type_checkbox.stateChanged.connect(self.on_auto_type_changed)
+        content_layout.addWidget(self.auto_type_checkbox)
+        
+        # Typing Speed Slider
+        self.typing_speed_layout = QHBoxLayout()
+        self.typing_speed_label = QLabel(f"Typing Speed: {self.settings['typing_speed_wpm']} WPM")
+        self.typing_speed_layout.addWidget(self.typing_speed_label)
+        
+        self.typing_speed_slider = QSlider(Qt.Horizontal)
+        self.typing_speed_slider.setMinimum(10)
+        self.typing_speed_slider.setMaximum(1000)
+        self.typing_speed_slider.setValue(self.settings['typing_speed_wpm'])
+        self.typing_speed_slider.valueChanged.connect(self.on_typing_speed_changed)
+        self.typing_speed_layout.addWidget(self.typing_speed_slider)
+        content_layout.addLayout(self.typing_speed_layout)
+        
+        # Letter by Letter Checkbox (only visible if Auto-Type is enabled)
+        self.letter_by_letter_checkbox = QCheckBox("Letter by Letter Typing")
+        self.letter_by_letter_checkbox.setChecked(self.settings.get('letter_by_letter', True))
+        self.letter_by_letter_checkbox.stateChanged.connect(self.on_letter_by_letter_changed)
+        content_layout.addWidget(self.letter_by_letter_checkbox)
+        
+        # Play TTS Checkbox
+        self.play_tts_checkbox = QCheckBox("Play TTS")
+        self.play_tts_checkbox.setChecked(self.settings.get('play_tts', False))
+        self.play_tts_checkbox.stateChanged.connect(self.on_play_tts_changed)
+        content_layout.addWidget(self.play_tts_checkbox)
+        
+        # TTS Rate Slider (initially hidden)
+        self.tts_rate_layout = QHBoxLayout()
+        self.tts_rate_label = QLabel(f"TTS Rate: {self.settings.get('tts_rate', 0)}")
+        self.tts_rate_layout.addWidget(self.tts_rate_label)
+        
+        self.tts_rate_slider = QSlider(Qt.Horizontal)
+        self.tts_rate_slider.setMinimum(-10)
+        self.tts_rate_slider.setMaximum(10)
+        self.tts_rate_slider.setValue(self.settings.get('tts_rate', 0))
+        self.tts_rate_slider.valueChanged.connect(self.on_tts_rate_changed)
+        self.tts_rate_layout.addWidget(self.tts_rate_slider)
+        content_layout.addLayout(self.tts_rate_layout)
+        
+        self.tts_rate_slider.setVisible(self.play_tts_checkbox.isChecked())
+        self.tts_rate_label.setVisible(self.play_tts_checkbox.isChecked())
+        
+        # 6. Startup Buttons
+        startup_buttons_layout = QHBoxLayout()
+        
+        self.enable_startup_button = QPushButton("Enable from Startup")
+        self.enable_startup_button.clicked.connect(enable_startup)
+        startup_buttons_layout.addWidget(self.enable_startup_button)
+        
+        self.disable_startup_button = QPushButton("Disable from Startup")
+        self.disable_startup_button.clicked.connect(disable_startup)
+        startup_buttons_layout.addWidget(self.disable_startup_button)
+        
+        content_layout.addLayout(startup_buttons_layout)
+        
+        # 7. Save and Revert Buttons
+        self.save_settings_button = QPushButton("Save Settings")
+        self.save_settings_button.clicked.connect(self.save_additional_settings)
+        content_layout.addWidget(self.save_settings_button)
+        
+        self.revert_settings_button = QPushButton("Revert to Default Settings")
+        self.revert_settings_button.clicked.connect(self.revert_to_default_settings)
+        content_layout.addWidget(self.revert_settings_button)
+        
+        # Finalize the layout with the scroll area
+        self.scroll_area.setWidget(self.content_widget)
+        main_layout.addWidget(self.scroll_area)
+
+
+    def load_api_key(self):
+        api_key = load_or_create_api_key()
+        if api_key:
+            self.api_key_input.setText(api_key)
+
+    def save_api_key(self):
+        api_key = self.api_key_input.text().strip()
+        if api_key:
+            with open(API_KEY_FILE, "w") as file:
+                file.write(api_key)
+            QMessageBox.information(self, "Success", "API key saved successfully!")
+        else:
+            QMessageBox.warning(self, "Error", "No API key provided!")
+
+    def toggle_api_key_visibility(self):
+        """Toggle the visibility of the API key."""
+        if self.api_key_visible:
+            self.api_key_input.setEchoMode(QLineEdit.Password)
+            self.toggle_api_key_button.setText("Show")
+        else:
+            self.api_key_input.setEchoMode(QLineEdit.Normal)
+            self.toggle_api_key_button.setText("Hide")
+        self.api_key_visible = not self.api_key_visible
+
+    def load_keybinds(self):
+        self.keybinds = load_or_create_keybinds()
+        self.prompt_keybind_input.setText(self.keybinds["prompt"])
+        self.completion_keybind_input.setText(self.keybinds["completion"])
+
+    def save_keybinds_to_file(self):
+        save_keybinds(self.keybinds)
+
+    def select_keybind(self, action, button):
+        """Change the button color and wait for key input."""
+        if self.current_action:
+            return  # Prevent setting multiple keybinds at once
+
+        self.current_action = action
+        button.setStyleSheet("background-color: yellow")
+
+        # Use keyboard.hook to detect the key press in the background
+        def on_key_event(event):
+            if event.event_type == "down":  # Only capture key down events
+                key = event.name
+                if action == "prompt":
+                    self.keybinds["prompt"] = key
+                    self.prompt_keybind_input.setText(key)
+                elif action == "completion":
+                    self.keybinds["completion"] = key
+                    self.completion_keybind_input.setText(key)
+
+                self.save_keybinds_to_file()  # Save keybinds after setting
+
+                # Reset the button color
+                button.setStyleSheet("")
+                keyboard.unhook_all()  # Stop listening for keyboard events
+                self.current_action = None
+
+        keyboard.hook(on_key_event)  # Hook keyboard events for key detection
+
+    def revert_to_default_keybinds(self):
+        """Revert to default keybinds and update UI."""
+        self.keybinds = DEFAULT_KEYBINDS.copy()
+        self.prompt_keybind_input.setText(self.keybinds["prompt"])
+        self.completion_keybind_input.setText(self.keybinds["completion"])
+        self.save_keybinds_to_file()
+        QMessageBox.information(self, "Info", "Keybinds reverted to default!")
+
+    def on_model_selection_changed(self):
+        """Save the selected model when the selection changes."""
+        model_id = self.model_combo_box.currentText()
+        save_selected_model(model_id)
+
+    def on_temperature_changed(self):
+        """Update temperature label when the slider value changes."""
+        temperature = self.temperature_slider.value() / 10.0
+        self.temperature_label.setText(f"Temperature: {temperature}")
+        self.settings['temperature'] = temperature
+
+    def on_auto_type_changed(self):
+        """Show or hide typing speed and letter-by-letter checkbox based on auto-type checkbox."""
+        auto_type_enabled = self.auto_type_checkbox.isChecked()
+        self.settings['auto_type'] = auto_type_enabled
+        self.typing_speed_slider.setVisible(auto_type_enabled)
+        self.typing_speed_label.setVisible(auto_type_enabled)
+        self.letter_by_letter_checkbox.setVisible(auto_type_enabled)
+
+    def on_typing_speed_changed(self):
+        """Update typing speed label when the slider value changes."""
+        typing_speed_wpm = self.typing_speed_slider.value()
+        self.typing_speed_label.setText(f"Typing Speed: {typing_speed_wpm} WPM")
+        self.settings['typing_speed_wpm'] = typing_speed_wpm
+
+    def on_letter_by_letter_changed(self):
+        """Update the letter-by-letter setting when the checkbox is toggled."""
+        self.settings['letter_by_letter'] = self.letter_by_letter_checkbox.isChecked()
+
+    def on_tts_rate_changed(self):
+        """Update TTS rate label and settings when the slider value changes."""
+        rate = self.tts_rate_slider.value()
+        self.tts_rate_label.setText(f"TTS Rate: {rate}")
+        self.settings['tts_rate'] = rate
+        
+    def on_play_tts_changed(self):
+        """Show or hide TTS rate settings based on the 'Play TTS' checkbox."""
+        play_tts_enabled = self.play_tts_checkbox.isChecked()
+        self.tts_rate_slider.setVisible(play_tts_enabled)
+        self.tts_rate_label.setVisible(play_tts_enabled)
+        self.settings['play_tts'] = play_tts_enabled
+
+
+    def revert_to_default_settings(self):
+        """Revert all settings to default values."""
+        self.settings = DEFAULT_SETTINGS.copy()
+        self.temperature_slider.setValue(int(self.settings['temperature'] * 10))
+        self.temperature_label.setText(f"Temperature: {self.settings['temperature']}")
+        self.max_tokens_input.setText(str(self.settings['max_tokens']))
+        self.auto_type_checkbox.setChecked(self.settings['auto_type'])
+        self.letter_by_letter_checkbox.setChecked(self.settings['letter_by_letter'])
+        self.typing_speed_slider.setValue(self.settings['typing_speed_wpm'])
+        self.typing_speed_label.setText(f"Typing Speed: {self.settings['typing_speed_wpm']} WPM")
+        self.play_tts_checkbox.setChecked(self.settings['play_tts'])
+        self.tts_rate_slider.setValue(self.settings['tts_rate'])
+        self.tts_rate_label.setText(f"TTS Rate: {self.settings['tts_rate']}")
+        QMessageBox.information(self, "Info", "Settings reverted to default!")
+
+    def save_additional_settings(self):
+        """Save temperature, max_tokens, auto-type, letter by letter, typing speed, and TTS settings."""
+        try:
+            self.settings['max_tokens'] = int(self.max_tokens_input.text())
+            self.settings['play_tts'] = self.play_tts_checkbox.isChecked()
+            # TTS rate is already updated via on_tts_rate_changed
+            save_settings(self.settings)
+            QMessageBox.information(self, "Success", "Settings saved successfully!")
+        except ValueError:
+            QMessageBox.warning(self, "Error", "Max tokens must be an integer!")
+
+
+    def save_custom_instructions(self):
+        """Save the custom instructions entered by the user."""
+        instructions = self.custom_instructions_text.toPlainText()
+        save_custom_instructions(instructions)
+        QMessageBox.information(self, "Success", "Custom instructions saved successfully!")
+`,
+    'backgroundai.py': `import keyboard
+from openai import OpenAI
+import os
+import time
+import threading
+from PyQt5.QtWidgets import QApplication, QSystemTrayIcon, QMenu, QAction
+from PyQt5.QtGui import QIcon
+from menu import (SettingsWindow, load_or_create_api_key, load_or_create_keybinds,
+                  load_selected_model, load_settings, load_custom_instructions)
+import sys
+import ctypes
+from ctypes import wintypes
+from win32com.client import Dispatch
+import pythoncom
+
+from queue import Queue, Empty
+
+
+class SystemTrayIcon(QSystemTrayIcon):
+    def __init__(self, app):
+        super().__init__(app)
+        script_directory = os.path.dirname(os.path.abspath(__file__))
+        image_path = os.path.join(script_directory, "write.png")
+        icon = QIcon(image_path) if os.path.exists(image_path) else app.style().standardIcon(QSystemTrayIcon.SP_ComputerIcon)
+        self.setIcon(icon)
+        self.setToolTip("OpenAI App")
+
+        # Create the menu
+        self.menu = QMenu()
+        self.open_settings_action = QAction("Open Settings")
+        self.open_settings_action.triggered.connect(open_menu)
+        self.menu.addAction(self.open_settings_action)
+
+        self.quit_action = QAction("Quit")
+        self.quit_action.triggered.connect(app.quit)
+        self.menu.addAction(self.quit_action)
+
+        self.setContextMenu(self.menu)
+        self.show()
+
+
+# Default keybinds
+DEFAULT_OPTIONS = {
+    "prompt": "right shift",
+    "completion": "right ctrl",
+}
+
+# Load or prompt for the API key (now using the function from PyQt5 menu)
+api_key = load_or_create_api_key()
+
+if not api_key:
+    print("API key not found. Please set it in the settings.")
+    #sys.exit(1)
+
+# Initialize the OpenAI client with your API key
+client = OpenAI(api_key=api_key)
+
+# Event to control background task pause/resume
+pause_event = threading.Event()
+
+# Events to control stopping of typing and TTS
+typing_stop_event = threading.Event()
+tts_stop_event = threading.Event()
+
+# Global variables to hold settings
+keybinds = load_or_create_keybinds()
+settings = load_settings()
+custom_instructions = load_custom_instructions()
+
+# Define constants for mutex
+CREATE_MUTEX = 0x00000001
+ERROR_ALREADY_EXISTS = 183
+
+
+def check_single_instance():
+    """Check if an instance of the program is already running."""
+    mutex = ctypes.windll.kernel32.CreateMutexW(None, False, "Global\\AIKeyboardMutex")
+    if ctypes.GetLastError() == ERROR_ALREADY_EXISTS:
+        print("Another instance of the program is already running. Exiting.")
+        sys.exit(0)  # Exit the program if another instance is found
+
+
+def is_chat_model(model_id):
+    """Determine if the model is a chat model or a legacy completion model."""
+    # List of known chat models
+    chat_models = [
+        'gpt-3.5-turbo',
+        'gpt-3.5-turbo-16k',
+        'gpt-3.5-turbo-0125',
+        'gpt-3.5-turbo-1106',
+        'gpt-4',
+        'gpt-4-0613',
+        'gpt-4-1106-preview',
+        'gpt-4-turbo',
+        'gpt-4-turbo-2024-04-09',
+        'gpt-4-turbo-preview',
+        'gpt-4o',
+        'gpt-4o-2024-05-13',
+        'gpt-4o-mini',
+        'gpt-4o-mini-2024-07-18',
+        'gpt4o-0806-loco-vm',
+    ]
+    return model_id in chat_models
+
+
+def wait_for_keypress():
+    print(f"Press {keybinds['prompt']} or {keybinds['completion']} to start typing.")
+
+    # Continuously wait for either the prompt or completion keybind
+    while True:
+        pause_event.wait()  # Wait if the event is paused
+        event = keyboard.read_event()
+        if event.event_type == keyboard.KEY_DOWN and event.name in [keybinds['prompt'], keybinds['completion']]:
+            return event.name  # Return the key that was pressed to start the input capture
+
+
+def capture_input():
+    print("Started capturing text. Type now... (Press the same key to stop)")
+
+    captured_text = []
+    while True:
+        pause_event.wait()  # Wait if the event is paused
+        event = keyboard.read_event()
+        if event.event_type == keyboard.KEY_DOWN:
+            key = event.name
+
+            # Stop capturing input when either keybind is pressed again
+            if key in [keybinds['prompt'], keybinds['completion']]:
+                break
+
+            if key == 'backspace':
+                if captured_text:
+                    captured_text.pop()  # Remove last character on backspace
+            elif key == 'space':
+                captured_text.append(' ')  # Append space
+            elif key == 'enter':
+                captured_text.append('\n')  # Append newline on enter
+            elif len(key) == 1:  # Only add single character keys
+                captured_text.append(key)
+
+    # Join the list of captured text into a single string
+    captured_string = ''.join(captured_text)
+    print("\nCaptured text:\n" + captured_string)
+
+    return captured_string
+
+
+def stream_openai_completion(prompt):
+    try:
+        # Load the selected model
+        model_id = load_selected_model()
+        # Load settings
+        current_settings = load_settings()
+        temperature = current_settings.get('temperature', 1.0)
+        max_tokens = current_settings.get('max_tokens', 256)
+        # Load custom instructions
+        custom_instructions = load_custom_instructions()
+
+        # Prepare the prompt or messages
+        if is_chat_model(model_id):
+            # Use the Chat Completion API
+            messages = []
+            if custom_instructions.strip():
+                messages.append({"role": "system", "content": custom_instructions})
+            messages.append({"role": "user", "content": prompt})
+
+            response = client.chat.completions.create(
+                model=model_id,
+                messages=messages,
+                stream=True,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+        else:
+            # Use the Legacy Completion API
+            # Combine custom instructions and prompt
+            combined_prompt = f"{custom_instructions}\n{prompt}" if custom_instructions.strip() else prompt
+
+            response = client.completions.create(
+                model=model_id,
+                prompt=combined_prompt,
+                stream=True,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                top_p=1,
+                frequency_penalty=0,
+                presence_penalty=0
+            )
+        return response
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return None
+
+
+def clean_text(text):
+    """Clean the text by removing newlines and non-printable characters."""
+    # Remove newlines
+    text = text.replace('\n', ' ').replace('\r', ' ')
+    # Remove non-printable or unwanted characters
+    text = ''.join(c for c in text if c.isprintable())
+    return text.strip()
+
+
+def type_out_text_fast_streamed(response):
+    print("\nTyping out the text as it's received...")
+
+    if response is None:
+        return
+
+    # Load settings
+    current_settings = load_settings()
+    auto_type = current_settings.get('auto_type', True)
+    typing_speed_wpm = current_settings.get('typing_speed_wpm', 200)
+    letter_by_letter = current_settings.get('letter_by_letter', True)
+    play_tts = current_settings.get('play_tts', False)
+    tts_rate = current_settings.get('tts_rate', 0)
+
+    # Initialize queues and threads
+    typing_queue = Queue()
+    tts_queue = Queue()
+
+    # Clear stop events
+    typing_stop_event.clear()
+    tts_stop_event.clear()
+
+    if auto_type:
+        typing_thread = threading.Thread(target=typing_worker, args=(typing_queue, typing_speed_wpm, letter_by_letter, typing_stop_event))
+        typing_thread.daemon = True
+        typing_thread.start()
+
+    if play_tts:
+        tts_thread = threading.Thread(target=tts_worker, args=(tts_queue, tts_rate, tts_stop_event))
+        tts_thread.daemon = True
+        tts_thread.start()
+
+    # Start the stop listener
+    stop_listener = threading.Thread(target=stop_listener_worker)
+    stop_listener.daemon = True
+    stop_listener.start()
+
+    # Iterate over each streamed chunk as it comes in
+    for chunk in response:
+        pause_event.wait()  # Wait if the event is paused
+        if typing_stop_event.is_set() or tts_stop_event.is_set():
+            break  # Stop processing if stop event is set
+
+        if hasattr(chunk, 'choices') and len(chunk.choices) > 0:
+            choice = chunk.choices[0]
+            token = None
+            if hasattr(choice, 'delta') and hasattr(choice.delta, 'content'):
+                # Chat completion response
+                token = choice.delta.content
+            elif hasattr(choice, 'text'):
+                # Legacy completion response
+                token = choice.text
+            else:
+                continue  # Skip if no content
+
+            if token:
+                # Put token into queues
+                if auto_type:
+                    typing_queue.put(token)
+                if play_tts:
+                    tts_queue.put(token)
+
+    # Signal the workers to stop
+    if auto_type:
+        typing_queue.put(None)  # Sentinel value
+        typing_thread.join()
+    if play_tts:
+        tts_queue.put(None)
+        tts_thread.join()
+
+    # Stop the stop listener
+    keyboard.unhook_all()
+
+
+def typing_worker(typing_queue, typing_speed_wpm, letter_by_letter, stop_event):
+    # Calculate delay between characters based on typing speed (WPM)
+    chars_per_minute = typing_speed_wpm * 5  # Approximate words per minute to characters per minute
+    delay_per_char = 60 / chars_per_minute  # Time per character in seconds
+
+    while True:
+        if stop_event.is_set():
+            break  # Exit the loop
+
+        try:
+            token = typing_queue.get(timeout=0.1)
+        except Empty:
+            continue
+
+        if token is None:
+            break  # Exit the loop
+
+        if letter_by_letter:
+            for char in token:
+                if stop_event.is_set():
+                    break  # Exit the loop
+                keyboard.write(char)
+                time.sleep(delay_per_char)
+        else:
+            keyboard.write(token)
+            time.sleep(len(token) * delay_per_char)
+        typing_queue.task_done()
+
+
+def tts_worker(tts_queue, tts_rate, stop_event):
+    pythoncom.CoInitialize()
+    try:
+        speaker = Dispatch("SAPI.SpVoice")
+        SVSFlagsAsync = 1  # Manually define SVSFlagsAsync
+
+        # Set the TTS rate
+        speaker.Rate = tts_rate
+
+        sentence_buffer = ""
+        sentence_terminators = {'.', '!', '?'}
+
+        while True:
+            if stop_event.is_set():
+                speaker.Speak("", 3)  # SVSFPurgeBeforeSpeak to stop speaking immediately
+                break  # Exit the loop
+
+            try:
+                token = tts_queue.get(timeout=0.1)
+            except Empty:
+                continue  # Wait for more tokens
+
+            if token is None:
+                # Process any remaining text
+                if sentence_buffer.strip():
+                    clean_sentence = clean_text(sentence_buffer)
+                    if clean_sentence:
+                        speaker.Speak(clean_sentence, SVSFlagsAsync)
+                        speaker.WaitUntilDone(-1)
+                break  # Exit the loop
+            else:
+                # Accumulate tokens into sentences
+                sentence_buffer += token
+
+                # Process any complete sentences in the buffer
+                while True:
+                    # Find the earliest occurrence of a sentence terminator
+                    indices = [sentence_buffer.find(t) for t in sentence_terminators if sentence_buffer.find(t) != -1]
+                    if indices:
+                        min_index = min(indices)
+                        # Include the terminator
+                        sentence_end = min_index + 1
+                        sentence = sentence_buffer[:sentence_end]
+                        # Clean and speak the sentence
+                        clean_sentence = clean_text(sentence)
+                        if clean_sentence:
+                            speaker.Speak(clean_sentence, SVSFlagsAsync)
+                            speaker.WaitUntilDone(-1)
+                        # Remove the sentence from the buffer
+                        sentence_buffer = sentence_buffer[sentence_end:]
+                    else:
+                        break  # No complete sentences left in the buffer
+
+            tts_queue.task_done()
+    finally:
+        pythoncom.CoUninitialize()
+
+
+def stop_listener_worker():
+    def on_key_event(event):
+        if event.event_type == 'down':
+            # Set the stop events to stop typing and TTS
+            typing_stop_event.set()
+            tts_stop_event.set()
+            # Unhook the listener
+            keyboard.unhook_all()
+
+    # Hook the keyboard to listen for any key press
+    keyboard.hook(on_key_event)
+
+
+def background_task():
+    # Continuous loop to keep the program running indefinitely
+    while True:
+        pause_event.wait()  # Wait if the event is paused
+        # Wait for prompt or completion keybind to start
+        key_pressed = wait_for_keypress()
+
+        # Capture the input from the user
+        captured_text = capture_input()
+
+        # Determine the prompt based on the key pressed
+        if key_pressed == keybinds['prompt']:
+            prompt = captured_text  # Use the captured text as is
+        elif key_pressed == keybinds['completion']:
+            prompt = f"Continue the following text: {captured_text}"
+
+        # Send the captured text to OpenAI for streaming completion
+        print("\nSending captured text to OpenAI for real-time completion...\n")
+        response_stream = stream_openai_completion(prompt)
+
+        # Type out the completion text fast as it's received
+        type_out_text_fast_streamed(response_stream)
+
+
+def on_quit(icon, item):
+    icon.stop()
+    # No need to call sys.exit() here; the main thread will exit after icon.stop()
+
+
+def reload_settings():
+    """Reload keybinds, settings, and custom instructions after settings are updated."""
+    global keybinds, settings, custom_instructions
+    keybinds = load_or_create_keybinds()
+    settings = load_settings()
+    custom_instructions = load_custom_instructions()
+    print("Settings reloaded:", keybinds, settings)
+
+
+def open_menu():
+    """Function to open the PyQt5 menu and pause the background task."""
+    pause_event.clear()  # Pause the background task
+    window = SettingsWindow()
+    window.exec_()  # This will block execution until the menu is closed
+    reload_settings()  # Reload keybinds, settings, and custom instructions after the menu is closed
+    pause_event.set()  # Resume the background task after the menu is closed
+
+
+def setup_system_tray(app):
+    # Provide the path to your icon image (e.g., "write.png")
+    script_directory = os.path.dirname(os.path.abspath(__file__))
+    image_path = os.path.join(script_directory, "write.png")
+    icon = QIcon(image_path) if os.path.exists(image_path) else app.style().standardIcon(QSystemTrayIcon.SP_ComputerIcon)
+
+    tray_icon = QSystemTrayIcon(icon, app)
+    tray_icon.setToolTip("OpenAI App")
+
+    # Create the menu
+    menu = QMenu()
+
+    open_settings_action = QAction("Open Settings")
+    open_settings_action.triggered.connect(open_menu)
+    menu.addAction(open_settings_action)
+
+    quit_action = QAction("Quit")
+    quit_action.triggered.connect(app.quit)
+    menu.addAction(quit_action)
+
+    tray_icon.setContextMenu(menu)
+    tray_icon.show()
+
+
+
+if __name__ == "__main__":
+    # Ensure only one instance of the program is running
+    check_single_instance()
+
+    # Set the event to 'set' (background task can run)
+    pause_event.set()
+
+    # Initialize QApplication
+    app = QApplication(sys.argv)
+
+    # Run the background task in a separate thread
+    task_thread = threading.Thread(target=background_task)
+    task_thread.daemon = True
+    task_thread.start()
+
+    # Setup the system tray icon
+    tray_icon = SystemTrayIcon(app)
+
+    # Start the event loop
+    sys.exit(app.exec_())
+`,
+    'write.png': 'images/write.png',
+    'write.ico': 'images/write.png'
+};
+
+    
+        function showCode(filename) {
+            const codeBlock = document.getElementById('code-block');
+            const codeContainer = document.querySelector('.code-display');
+            const isImage = /\.(png|jpg|jpeg|gif)$/i.test(filename);
+    
+            if (isImage) {
+                codeBlock.innerHTML = '';
+                codeContainer.style.backgroundColor = '#f0f0f0';
+    
+                const image = document.createElement('img');
+                image.src = codeFiles[filename];
+                image.alt = filename;
+                image.style.maxWidth = '100%';
+                image.style.borderRadius = '8px';
+                image.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                codeBlock.appendChild(image);
+            } else {
+                codeBlock.textContent = codeFiles[filename];
+                codeContainer.style.backgroundColor = '#2d2d2d';
+                Prism.highlightAll();
+            }
+            setActiveTab(filename);
+        }
+    
+        function setActiveTab(activeFilename) {
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let button of buttons) {
+                button.classList.remove('active');
+                if (button.textContent === activeFilename) {
+                    button.classList.add('active');
+                }
+            }
+        }
+    
+        function toggleFolder(folderId) {
+            const folder = document.getElementById(folderId);
+            folder.style.display = folder.style.display === "inline-flex" ? "none" : "inline-flex";
+        }
+    
+        document.getElementById('copy-code-btn').addEventListener('click', function () {
+            const code = document.getElementById('code-block').textContent;
+            navigator.clipboard.writeText(code).then(function () {
+                alert('Code copied to clipboard!');
+            });
+        });
+    </script>
+    
+</body>
+</html>
