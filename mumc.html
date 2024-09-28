@@ -71,7 +71,32 @@
         <div class="code-container">
             <div class="code-header">
                 <div class="tab-bar">
-                    <button class="tab-button active">install_certificate.py</button>
+
+                    <!-- textures/ folder -->
+                    <div class="folder-group">
+                        <div class="folder-wrapper">
+                            <button class="folder-button" onclick="toggleFolder('textures-folder')">images/</button>
+                            <div id="textures-folder" class="file-tabs" style="display: none;">
+                                <button class="tab-button" onclick="showCode('bomlogo.png')">bomlogo.png</button>
+                                <button class="tab-button" onclick="showCode('bogonglogo.png')">bogonglogo.png</button>
+                                <button class="tab-button" onclick="showCode('bannervid.gif')">bannervid.gif</button>
+                                <button class="tab-button" onclick="showCode('LogoAssesHTML.png')">LogoAssesHTML.png</button>
+                                <button class="tab-button" onclick="showCode('Approach.jpg')">Approach.jpg</button>
+                                <button class="tab-button" onclick="showCode('Climb.jpg')">Climb.jpg</button>
+                                <button class="tab-button" onclick="showCode('Heaven.jpg')">Heaven.jpg</button>
+                                <button class="tab-button" onclick="showCode('Highland.jpg')">Highland.jpg</button>
+                                <button class="tab-button" onclick="showCode('Munro Walker.jpg')">Munro Walker.jpg</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="tab-button" onclick="showCode('index.html')">index.html</button>
+                    <button class="tab-button" onclick="showCode('sjadoia.html')">sjadoia.html</button>
+                    <button class="tab-button" onclick="showCode('trips.html')">trips.html</button>
+                    <button class="tab-button" onclick="showCode('script.js')">script.js</button>
+                    <button class="tab-button" onclick="showCode('gallery.html')">gallery.html</button>
+                    <button class="tab-button" onclick="showCode('styles.css')">styles.css</button>
+                    <button class="tab-button" onclick="showCode('links.html')">links.html</button>
                     <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
                 </div>
             </div>
@@ -169,56 +194,22 @@
     <!-- Script to handle code display and copying -->
     <script>
         const codeFiles = {
-            'install_certificate.py': `import os
-import sys
-import ctypes
-import subprocess
-
-def is_admin():
-    """Check if the script is being run as an administrator."""
-    try:
-        return ctypes.windll.shell32.IsUserAnAdmin() == 1
-    except:
-        return False
-
-def run_as_admin():
-    """Re-run the script with administrator privileges."""
-    script = os.path.abspath(sys.argv[0])
-    params = ' '.join([f'"{arg}"' for arg in sys.argv[1:]])
-
-    try {
-        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, f'"{script}" {params}', None, 1);
-        sys.exit(0);
-    } catch (e) {
-        console.error("Failed to re-launch script as administrator:", e);
-        alert("Press Enter to exit...");
-        sys.exit(1);
-    }
-
-def install_certificate(cert_path):
-    """Install the certificate to the Trusted Root Certification Authorities store."""
-    try:
-        subprocess.run(["certutil", "-addstore", "Root", cert_path], check=True);
-        alert("Successfully installed the certificate: " + cert_path);
-    } catch (e) {
-        console.error("Failed to install the certificate:", e);
-        alert("Press Enter to exit...");
-        sys.exit(1);
-    }
-
-if __name__ == "__main__":
-    if not is_admin():
-        alert("This script must be run as an administrator!");
-        run_as_admin();
-
-    cert_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "JJcodedCert.cer");
-
-    if not os.path.exists(cert_path):
-        alert("Certificate file not found: " + cert_path);
-        sys.exit(1);
-
-    install_certificate(cert_path);
-    alert("Press Enter to close...");`
+            'index.html': ``,
+            'sjadoia.html': ``,
+            'trips.html': ``,
+            'script.js': ``,
+            'gallery.html': ``,
+            'styles.css': ``,
+            'links.html': ``,
+            'bomlogo.png': 'mumc/images/bomlogo.png',
+            'Approach.jpg': 'mumc/images/Approach.jpg',
+            'Bannervid.gif': 'mumc/images/Bannervid.gif',
+            'Bogonglogo.png': 'mumc/images/Bogonglogo.png',
+            'Climb.jpg': 'mumc/images/Climb.jpg',
+            'Heaven.jpg': 'mumc/images/Heaven.jpg',
+            'Highland.jpg': 'mumc/images/Highland.jpg',
+            'LogoAssesHTML.png': 'mumc/images/Logo Asses HTML.png',
+            'Munro Walker.jpg': 'mumc/images/Munro Walker.jpg'
         };
 
         window.onload = function() {
