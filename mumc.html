@@ -194,13 +194,13 @@
     <!-- Script to handle code display and copying -->
     <script>
         const codeFiles = {
-            'index.html': ``,
-            'sjadoia.html': ``,
-            'trips.html': ``,
-            'script.js': ``,
-            'gallery.html': ``,
-            'styles.css': ``,
-            'links.html': ``,
+            'index.html': '',
+            'sjadoia.html': '',
+            'trips.html': '',
+            'script.js': '',
+            'gallery.html': '',
+            'styles.css': '',
+            'links.html': '',
             'bomlogo.png': 'mumc/images/bomlogo.png',
             'Approach.jpg': 'mumc/images/Approach.jpg',
             'Bannervid.gif': 'mumc/images/Bannervid.gif',
@@ -211,13 +211,84 @@
             'LogoAssesHTML.png': 'mumc/images/Logo Asses HTML.png',
             'Munro Walker.jpg': 'mumc/images/Munro Walker.jpg'
         };
-
-        window.onload = function() {
-            const codeBlock = document.getElementById('code-block');
-            codeBlock.textContent = codeFiles['install_certificate.py'];
-            Prism.highlightAll();
+        
+        // Function to fetch file content and store it in codeFiles
+        async function fetchFiles() {
+            const fileNames = Object.keys(codeFiles);
+            for (const fileName of fileNames) {
+                try {
+                    let response;
+                    let filePath = '';
+        
+                    // For image files, store the path directly
+                    if (/\.(png|jpg|jpeg|gif)$/i.test(fileName)) {
+                        // Images are already stored with correct paths
+                        continue;
+                    } else {
+                        // For other files, fetch their content
+                        filePath = 'mumc/' + fileName;
+                        response = await fetch(filePath);
+        
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+        
+                        // Get the text content
+                        const content = await response.text();
+                        codeFiles[fileName] = content;
+                    }
+                } catch (error) {
+                    console.error(`Failed to fetch ${fileName}: ${error}`);
+                }
+            }
+        }
+        
+        // Call fetchFiles when the window loads
+        window.onload = async function () {
+            await fetchFiles();
+            // Now you can proceed to initialize your code display or other functionalities
+            showCode('index.html');
         };
 
+        function showCode(filename) {
+            const codeBlock = document.getElementById('code-block');
+            const codeContainer = document.querySelector('.code-display');
+            const isImage = /\.(png|jpg|jpeg|gif)$/i.test(filename);
+    
+            if (isImage) {
+                codeBlock.innerHTML = '';
+                codeContainer.style.backgroundColor = '#f0f0f0';
+    
+                const image = document.createElement('img');
+                image.src = codeFiles[filename];
+                image.alt = filename;
+                image.style.maxWidth = '100%';
+                image.style.borderRadius = '8px';
+                image.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                codeBlock.appendChild(image);
+            } else {
+                codeBlock.textContent = codeFiles[filename];
+                codeContainer.style.backgroundColor = '#2d2d2d';
+                Prism.highlightAll();
+            }
+            setActiveTab(filename);
+        }
+    
+        function setActiveTab(activeFilename) {
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let button of buttons) {
+                button.classList.remove('active');
+                if (button.textContent === activeFilename) {
+                    button.classList.add('active');
+                }
+            }
+        }
+    
+        function toggleFolder(folderId) {
+            const folder = document.getElementById(folderId);
+            folder.style.display = folder.style.display === "inline-flex" ? "none" : "inline-flex";
+        }
+    
         document.getElementById('copy-code-btn').addEventListener('click', function () {
             const code = document.getElementById('code-block').textContent;
             navigator.clipboard.writeText(code).then(function () {
