@@ -189,13 +189,37 @@ pre code {
     width: 48%;
     position: relative;
     overflow: hidden;
+    background: rgba(134, 134, 134, 0.1); /* Semi-transparent dark background */
+    border-radius: 10px; /* Soft round edges */
+    box-shadow: 0 4px 15px rgba(149, 149, 149, 0.5); /* Feathered shadow for a soft effect */
+    padding: 20px; /* Add padding to give some space between images and the box */
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-item {
-    display: none;
-    width: 100%;
+    max-height: 25vw;
+    width: auto;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Keeps a subtle shadow on images */
+    object-fit: contain;
+}
+
+.carousel-item img {
+    height: 100%; /* Forces the image to fill the container's height */
+    width: auto; /* Maintains the aspect ratio */
 }
 
 .carousel-prev, .carousel-next {
@@ -210,6 +234,7 @@ pre code {
     border-radius: 50%;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
 .carousel:hover .carousel-prev,
@@ -783,3 +808,51 @@ section ul li {
 
 /* Other styles from before, unchanged */
 
+/* Scoped styles for the Table of Contents */
+#table-of-contents-wrapper {
+    font-family: Arial, sans-serif;
+}
+
+#table-of-contents {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* List styling scoped only to the table of contents */
+#table-of-contents-wrapper ul {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Style for individual list items */
+#table-of-contents-wrapper ul li {
+    margin-bottom: 10px;
+}
+
+/* Styling for nested lists */
+#table-of-contents-wrapper ul ul {
+    list-style-type: circle;
+    margin-left: 20px;
+}
+
+/* Link styling */
+#table-of-contents-wrapper ul li a {
+    text-decoration: none;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+/* Link hover effect */
+#table-of-contents-wrapper ul li a:hover {
+    color: #0056b3;
+}
+
+/* Additional styles for hover if needed */
+#table-of-contents-wrapper ul li ul li a:hover {
+    color: #003f7f;
+}
