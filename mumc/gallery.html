@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!--Links the webpage to the cascading style sheet-->
+    <title>MUMC Home</title> <!--Titles the tab-->
+</head>
+<body>
+    <div id="wrap"> <!--Wraps the whole project into a 1000px width-->
+
+        <div id="top"></div> <!--Places a 50px spacer at the top of the webpage-->
+
+        <header id="banner" alt="MUMC Banner with logo"> <!--Animated banner with text and logo-->
+            <h1>Melbourne University Mountaineering Club</h1>
+            <img src="images/Logo Asses HTML.png" height="130px" width="130" id="logo" alt="test do later">
+        </header>
+
+        <nav id="navbar"> <!--Places the navbar below the banner-->
+            <!--These buttons link to different pages of the site-->
+                <a href="index.html">HOME</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="links.html">LINKS</a>
+                <a href="trips.html">TRIPS</a>
+        </nav>
+
+        <table class="gallery"> <!--Creates a gallery with a table of images-->
+            <!--When clicked, the images will enlarge to fullscreen-->
+            <tr>
+            <td> <img src="images/Approach.jpg" alt="Mountain Approach" onclick="openModal(this)"></a></td>
+            <td> <img src="images/Climb.jpg" alt="Mountain Climb" onclick="openModal(this)"></a></td>
+            </tr>
+            <tr>
+            <td> <img src="images/Heaven.jpg" alt="Mountain Peek" onclick="openModal(this)"></a></td>
+            <td> <img src="images/Highland.jpg" alt="Mountain Highlands" onclick="openModal(this)"></a></td>
+            </tr>
+        </table>
+
+        <div id="modal" onclick="closeModal()"> <!--When clicked off, the images will return to normal-->
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modalImage" src="">
+        </div>
+
+        <div id="galleryvid"> <!--Places a video underneath the images-->
+            <video src="images/MUMC.mp4" alt="Mountain Skiing" type="video/mp4" controls id="video" width="1000" height="auto"></video>
+            <div id="spacer"></div> <!--Spacer for gap underneath video-->
+        </div>
+
+        <footer> <!--Sticky footer at the bottom of the page with club location-->
+            <h3>&copy; The Club House, nevis View Road, Fort William IV10 3st</h3>
+        </footer>
+
+    </div>
+    <script src="script.js"></script> <!--Links the page to a java script-->
+</body>
+</html>

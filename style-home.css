@@ -56,8 +56,10 @@ nav a:hover {
 .project-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
     justify-content: center;
+    width: 90%; /* Set the desired width */
+    margin: 0 auto; /* This centers the project list */
 }
 
 #projects-heading {
@@ -65,13 +67,13 @@ nav a:hover {
 }
 
 .project-card {
-    background-color: white;
-    padding: 20px;
+    position: relative;
+    width: 300px; /* Uniform width for all cards */
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    position: relative; /* Ensures button is positioned relative to the card */
+    text-align: center; /* Center align the text in the card */
 }
 
 .project-card img {
@@ -90,21 +92,39 @@ nav a:hover {
 }
 
 
-.project-card .view-project {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
+.project-button-container {
     position: absolute;
-    bottom: 20px;
+    bottom: 20px; /* Ensure container is placed at the bottom */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Center the button container */
+    display: flex; /* Flexbox to align buttons horizontally */
+    gap: 10px; /* Space between the buttons */
+    width: 100%; /* Let it take the full width of the card */
+    justify-content: center; /* Center the buttons horizontally */
 }
 
-.project-card .view-project:hover {
+/* Individual Button Styling */
+.project-button-container a {
+    padding: 10px 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1; /* Make both buttons take equal space */
+    max-width: 45%; /* Prevent buttons from becoming too wide */
+}
+
+#projectlinkbutton {
+    max-width: 20%;
+}
+
+
+.project-button-container a:hover {
     background-color: #45a049;
 }
+
+
 
 /* About Me Section */
 

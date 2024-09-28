@@ -874,3 +874,110 @@ section ul li {
 .discord-button:hover {
     background-color: #5b6eae;
 }
+
+/* Folio Page Specific Styles */
+/* Folio Page Specific Styles */
+.folio-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
+.folio-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.folio-nav {
+    margin-top: 10px;
+}
+
+.folio-nav-link {
+    text-decoration: none;
+    color: #0073e6;
+    font-size: 16px;
+}
+
+.folio-overview,
+.folio-contents,
+.folio-task {
+    padding: 20px;
+}
+
+.folio-section-heading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+.folio-task-heading {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+.folio-subtask-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    margin-top: 15px;
+}
+
+.folio-paragraph {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.folio-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.folio-list-item {
+    font-size: 14px;
+    color: #555;
+}
+
+.folio-footer {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* MUMC Specific Styles */
+.mumc .split-container {
+    display: flex;
+    width: 100%;
+}
+
+/* Left Side: Introduction Container */
+.mumc .intro-container {
+    flex: 1; /* Take half the width */
+    padding: 20px;
+    background-color: #f8f8f8; /* Optional background color */
+}
+
+/* Right Side: Code Container */
+.mumc .code-container {
+    flex: 1; /* Take half the width */
+    padding: 20px;
+    background-color: #ffffff; /* Optional background color */
+}
+
+/* Additional Styles */
+.mumc .download-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #0073e6;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
