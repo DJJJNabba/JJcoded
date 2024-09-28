@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!--Links the webpage to the cascading style sheet-->
+    <title>Links</title> <!--Titles the tab-->
+</head>
+<body>
+    <div id="wrap"> <!--Wraps the whole project into a 1000px width-->
+
+        <div id="top"></div> <!--Places a 50px spacer at the top of the webpage-->
+
+        <header id="banner" alt="MUMC Banner with logo"> <!--Animated banner with text and logo-->
+            <h1>Melbourne University Mountaineering Club</h1>
+            <img src="images/Logo Asses HTML.png" height="130px" width="130" id="logo" alt="test do later">
+        </header>
+
+        <nav id="navbar"> <!--Places the navbar below the banner-->
+            <!--These buttons link to different pages of the site-->
+                <a href="index.html">HOME</a>
+                <a href="gallery.html">GALLERY</a>
+                <a href="links.html">LINKS</a>
+                <a href="trips.html">TRIPS</a>
+        </nav>
+
+        <table class="gallery2" id="links"> <!--Creates a table with a list of links as images-->
+            <!--When each image is clicked, it will send the user to the corresponding link in a new tab-->
+            <tr>
+            <td><a href="https://www.bogong.com.au/" target="_blank"><img src="images/bogonglogo.png" alt="Bogong mountaineering supplies website" width="500px" height="500px"> Bogong Supplies </a></td> 
+            <td><a href="http://www.bom.gov.au/" target="_blank"><img src="images/bomlogo.png" alt="BOM weather website" width="500px" height="500px"> BOM Weather </a></td>
+            </tr>
+        </table>
+        <!--adds google maps embbed of mountaineering club-->
+            <div id="mapsloc">
+            <p align="center"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65259247.60029999!2d142.23177999267793!3d3.3233912830285055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d2d81b09195%3A0x7787421ec6aa237e!2sMelbourne%20University%20Mountaineering%20Club%20(MUMC)!5e0!3m2!1sen!2sau!4v1684901968416!5m2!1sen!2sau" alt="Google maps mountaineering club location" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+            </div>
+            <div id="spacer"></div> <!--spacer below google maps-->
+
+        <footer> <!--Sticky footer at the bottom of the page with club location-->
+            <h3>&copy; The Club House, nevis View Road, Fort William IV10 3st</h3>
+        </footer>
+
+    </div>
+</body>
+</html>
