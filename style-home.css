@@ -178,13 +178,11 @@ nav a:hover {
 
 
 
-
-/* Contact Section Styles */
 #contact {
     background-color: #f4f7fa; /* Light background to contrast the text */
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 .contact-container {
@@ -211,7 +209,6 @@ nav a:hover {
 
 .contact-details p {
     font-size: 1.1rem;
-    text-align: center;
 }
 
 .contact-details a {
@@ -229,11 +226,21 @@ nav a:hover {
     flex-direction: column;
     gap: 15px;
     margin-top: 20px;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 .contact-form label {
     font-size: 1rem;
     color: #555;
+    margin-bottom: 5px;
 }
 
 .contact-form input,
@@ -242,18 +249,20 @@ nav a:hover {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-form button {
     background-color: #45a049;
     color: #fff;
-    padding: 12px;
+    padding: 12px 30px;
     font-size: 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .contact-form button:hover {
@@ -273,9 +282,15 @@ nav a:hover {
     #contact p {
         font-size: 1rem;
     }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
 }
-
-
 
 
 #biglogo {
