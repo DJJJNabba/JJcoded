@@ -20,19 +20,35 @@ header h1 {
 nav {
     margin-top: 10px;
     text-align: center;
+    background-color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    border-radius: 4px;
-    display: inline-block;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #45a049;
+    border-bottom: 2px solid #4CAF50; /* Underline effect on hover */
 }
 
 /* Project Page Specific */
