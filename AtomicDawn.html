@@ -9,6 +9,7 @@
         <meta name="author" content="JJcoded">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="canonical" href="https://www.jjcoded.com/AtomicDawn.html">
         <link rel="icon" href="images/favicon.png" type="image/png">
         <title>Atomic Dawn - JJcoded</title>
@@ -109,16 +110,18 @@
                         </div>
                     </div>
             
-                    <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
                 </div>
-            
+
                 <!-- Code blocks or image display -->
                 <div class="code-display">
                     <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
                 </div>
+                <button class="copy-code-btn" id="copy-code-btn" aria-label="Copy Code">
+                    <i class="fas fa-copy"></i>
+                    <span class="tooltip-text">Copy Code</span>
+                </button>
             </div>
             
-
             <!-- Right Column: Carousel for Images/Videos -->
             <div class="carousel-container">
                 <div class="carousel">
@@ -210,7 +213,7 @@ The gaming industry has seen tremendous growth over the past few decades, evolvi
             </tr>
         </table>
     </section>
-        <section id="survey-results" class="centered-section max-width-very-large">
+        <section id="survey-results" class="centered-section survey-results">
             <h2>Survey Results</h2>
             <p>
                 I decided to give survey participants the opportunity to construct ideas for their ideal game, incorporating all features they enjoy in gaming into one. These are the survey responses, simplified for analysis purposes.
@@ -261,7 +264,7 @@ The gaming industry has seen tremendous growth over the past few decades, evolvi
             <p>According to the survey results, it is clear that the preferred gameplay/combat mechanic is real time fighting, displaying a preferability for dynamic, fast paced gameplay. Next, most responses wanted to play a game with pixel-art visuals. Specifically, all the people who preferred front-on games chose to have a pixel art style. Front on camera was selected twice, often used in platformer games or sandboxes where it might provide a more engaging experience. The environments provided by surveyors indicates two general themes: High tech, and grounded dystopian. The choices futuristic and space are more speculative and higher tech whereas planet earth and post-apocalyptic are more dystopian. It is clear in the table that elements of a game that extent its longevity and challenge are enjoyed. “Achievements” and Replayability” illustrates how players want to be able to return to a game and still enjoy it. “On the clock” indicates time-based challenges or speed-running, and “Bosses” are a feature that adds excitement and milestones to a game. </p>
         </section>
 
-            <section id="avatar" class="avatar-section max-width-medium">
+            <section id="avatar" class="avatar-section">
                 <h2>Avatar</h2>
                 <div class="avatar-container">
                     <img src="images/Picture1.png" alt="Avatar Image" class="avatar-image">
@@ -2789,6 +2792,39 @@ class Player(pygame.sprite.Sprite):
             });
         });
     </script>
+    <script>
+        const codeHeader = document.querySelector('.code-header');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        codeHeader.addEventListener('mousedown', (e) => {
+            isDown = true;
+            codeHeader.classList.add('active');
+            startX = e.pageX - codeHeader.offsetLeft;
+            scrollLeft = codeHeader.scrollLeft;
+        });
+    
+        codeHeader.addEventListener('mouseleave', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mouseup', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // stop the function from running if the mouse is not down
+            e.preventDefault();
+            const x = e.pageX - codeHeader.offsetLeft;
+            const walk = (x - startX); // 1:1 scrolling distance
+            codeHeader.scrollLeft = scrollLeft - walk; // Move exactly as far as the mouse moves
+        });
+    </script>
+    
+    
     
 </body>
 </html>

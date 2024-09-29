@@ -9,6 +9,7 @@
         <meta name="author" content="JJcoded">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="canonical" href="https://www.jjcoded.com/Certificate.html">
         <link rel="icon" href="images/favicon.png" type="image/png">
         <title>JJcoded Certificate Installer - JJcoded</title>
@@ -67,29 +68,34 @@
         <p>This project provides a certificate that allows people to download and run my projects without them being flagged as suspicious by their operating system. The code ensures that the certificate is installed safely so that users can trust and run my projects without encountering warnings.</p>
 
         <!-- Full-width Code Block -->
-        <div class="code-container full-width">
-            <div class="code-header">
-                <div class="tab-bar">
-                    <button class="tab-button active">install_certificate.py</button>
-                    <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
+        <div class="code-instructions-cert-container">
+            <div class="code-container-cert">
+                <div class="code-header">
+                    <div class="tab-bar">
+                        <button class="tab-button active">install_certificate.py</button>
+                    </div>
                 </div>
+                <div class="code-display">
+                    <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
+                </div>
+                <button class="copy-code-btn-cert" id="copy-code-btn" aria-label="Copy Code">
+                    <i class="fas fa-copy"></i>
+                    <span class="tooltip-text">Copy Code</span>
+                </button>
             </div>
-            <div class="code-display">
-                <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
-            </div>
-        </div>
 
-        <!-- Instructions -->
-        <div class="instructions">
-            <h2>Installation Instructions</h2>
-            <ol>
-                <li>Download the certificate and Python file using the link below.</li>
-                <li>Extract the contents of the ZIP file to a folder.</li>
-                <li>Right-click the Python file and select <strong>"Run as administrator"</strong>.</li>
-                <li>Follow the on-screen prompts to install the certificate.</li>
-            </ol>
-            <div class="download-links">
-                <a href="projects/MyCertificate.zip" download>Download My Certificate</a>
+            <!-- Instructions -->
+            <div class="instructions-cert">
+                <h2>Installation Instructions</h2>
+                <ol>
+                    <li>Download the certificate and Python file using the link below.</li>
+                    <li>Extract the contents of the ZIP file to a folder.</li>
+                    <li>Right-click the Python file and select <strong>"Run as administrator"</strong>.</li>
+                    <li>Follow the on-screen prompts to install the certificate.</li>
+                </ol>
+                <div class="download-links">
+                    <a href="projects/MyCertificate.zip" download>Download My Certificate</a>
+                </div>
             </div>
         </div>
     </section>
@@ -155,16 +161,50 @@ if __name__ == "__main__":
         };
 
         window.onload = function() {
+            // Code to display the code block
             const codeBlock = document.getElementById('code-block');
             codeBlock.textContent = codeFiles['install_certificate.py'];
             Prism.highlightAll();
-        };
 
-        document.getElementById('copy-code-btn').addEventListener('click', function () {
-            const code = document.getElementById('code-block').textContent;
-            navigator.clipboard.writeText(code).then(function () {
-                alert('Code copied to clipboard!');
+        // Add event listener for the copy button
+            document.getElementById('copy-code-btn').addEventListener('click', function () {
+                const code = document.getElementById('code-block').textContent;
+                navigator.clipboard.writeText(code).then(function () {
+                    alert('Code copied to clipboard!');
+                });
             });
+        };
+    </script>
+    <script>
+        const codeHeader = document.querySelector('.code-header');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        codeHeader.addEventListener('mousedown', (e) => {
+            isDown = true;
+            codeHeader.classList.add('active');
+            startX = e.pageX - codeHeader.offsetLeft;
+            scrollLeft = codeHeader.scrollLeft;
+        });
+    
+        codeHeader.addEventListener('mouseleave', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mouseup', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // stop the function from running if the mouse is not down
+            e.preventDefault();
+            const x = e.pageX - codeHeader.offsetLeft;
+            const walk = (x - startX); // 1:1 scrolling distance
+            codeHeader.scrollLeft = scrollLeft - walk; // Move exactly as far as the mouse moves
         });
     </script>
+    
 </body>

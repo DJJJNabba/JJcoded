@@ -8,6 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="author" content="JJcoded">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
 
         <link rel="canonical" href="https://www.jjcoded.com/mumc.html">
@@ -66,13 +67,10 @@
                 The club requires an interactive brand-building website, which will enable their members to obtain information about new trips, costings, and view images of expeditions. The club has had a backend developer prepare the website files for you. To make the website work, you must ensure you follow the client’s specification exactly!
             </p>
 
-    <div class="flex-sections">
-        <!-- Full-width Code Block -->
+    <div class="content-grid-container">
         <div class="code-container">
             <div class="code-header">
                 <div class="tab-bar">
-
-                    <!-- textures/ folder -->
                     <div class="folder-group">
                         <div class="folder-wrapper">
                             <button class="folder-button" onclick="toggleFolder('textures-folder')">images/</button>
@@ -100,16 +98,24 @@
                     <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i> Copy</button>
                 </div>
             </div>
+
             <div class="code-display">
                 <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
             </div>
+
+            <button class="copy-code-btn" id="copy-code-btn" aria-label="Copy Code">
+                <i class="fas fa-copy"></i>
+                <span class="tooltip-text">Copy Code</span>
+            </button>
         </div>
 
         <!-- Instructions -->
         <div class="instructions">
-            <h2>View Website</h2>
+            <h2>Website</h2>
+            <p>This HTML Website was my first creation as part of my year 9 Digi Tech assignment. Below are the website links and download links.</p>
             <div class="download-links">
-                <a href="https://mumc.jjcoded.com">Melbourne University Mountaineering Club</a>
+                <a href="https://mumc.jjcoded.com">Visit MUMC</a>
+                <a href="projects/MUMCWebsite.zip">Download MUMC</a>
             </div>
         </div>
     </div>
@@ -296,4 +302,36 @@
             });
         });
     </script>
+    <script>
+        const codeHeader = document.querySelector('.code-header');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        codeHeader.addEventListener('mousedown', (e) => {
+            isDown = true;
+            codeHeader.classList.add('active');
+            startX = e.pageX - codeHeader.offsetLeft;
+            scrollLeft = codeHeader.scrollLeft;
+        });
+    
+        codeHeader.addEventListener('mouseleave', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mouseup', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // stop the function from running
+            e.preventDefault();
+            const x = e.pageX - codeHeader.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            codeHeader.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+    
 </body>

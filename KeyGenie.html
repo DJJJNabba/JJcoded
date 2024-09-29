@@ -8,6 +8,7 @@
         <meta name="robots" content="index, follow">
         <meta name="author" content="JJcoded">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
         <link rel="canonical" href="https://www.jjcoded.com/KeyGenie.html">
         <link rel="icon" href="images/favicon.png" type="image/png">
@@ -67,52 +68,49 @@
         <p><em>A productivity-enhancing AI assistant that brings the power of AI directly to your fingertips.</em></p>
         <p>KeyGenie is a powerful AI assistant designed to seamlessly integrate into your existing workflow. By leveraging OpenAI's advanced language models, including GPT-4, KeyGenie provides real-time AI assistance directly from your keyboard, without interrupting your tasks.</p>
     
-    <div class="content-container">
-        <!-- Left Column: Source Code Block with Tabs -->
-        <div class="code-container">
-            <div class="code-header">
-                <div class="tab-bar">
-                        
+        <div class="content-container">
+            <!-- Left Column: Source Code Block with Tabs -->
+            <div class="code-container">
+                <div class="code-header">
+                    <div class="tab-bar">
                         <!-- textures/ folder -->
                         <div class="folder-group">
                             <div class="folder-wrapper">
                                 <button class="folder-button" onclick="toggleFolder('textures-folder')">brain/</button>
                                 <div id="textures-folder" class="file-tabs" style="display: none;">
                                     <button class="tab-button" onclick="showCode('setup.py')">setup.py</button>
-                                    <button class="tab-button" onclick="showCode('backgroundai.py')">backgroundai.py</button>
-                                    <button class="tab-button" onclick="showCode('menu.py')">menu.py</button>
+                                    <button class="tab-button" onclick="showCode('backgroundai.py')">backgroundai.py</button>                                        <button class="tab-button" onclick="showCode('menu.py')">menu.py</button>
                                     <button class="tab-button" onclick="showCode('write.png')">write.png</button>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Python Files in the root -->
                         <button class="tab-button" onclick="showCode('RUN.py')">RUN.py</button>
                         <button class="tab-button" onclick="showCode('instructions.txt')">instructions.txt</button>
-
                     </div>
-            
-                    <button class="copy-code-btn" id="copy-code-btn"><i class="fas fa-copy"></i>Copy</button>
                 </div>
-            
                 <!-- Code blocks or image display -->
                 <div class="code-display">
                     <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
                 </div>
+                <button class="copy-code-btn" id="copy-code-btn" aria-label="Copy Code">
+                    <i class="fas fa-copy"></i>
+                    <span class="tooltip-text">Copy Code</span>
+                </button>
             </div>
 
-            <!-- Right Column: Carousel for Images/Videos -->
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="slides">
-                        <img src="images/write.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
-                        <img src="images/KeyGenieSS.png" class="carousel-item" alt="Screenshot 2" style="display: block;">
+                <!-- Right Column: Carousel for Images/Videos -->
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <div class="slides">
+                            <img src="images/write.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
+                            <img src="images/KeyGenieSS.png" class="carousel-item" alt="Screenshot 2" style="display: block;">
+                        </div>
+                        <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
+                        <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
                     </div>
-                    <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
-                    <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
                 </div>
             </div>
-        </div>
 
         <div class="instructions">
             <h2>Installation Instructions</h2>
@@ -128,7 +126,7 @@
                 <a href="https://github.com/DJJJNabba/KeyGenie/archive/refs/heads/main.zip" download>Download KeyGenie</a>
             </div>
         </div>
-        
+    </section>   
 
         <!-- New sections start here -->
         <section>
@@ -2193,7 +2191,7 @@ if __name__ == "__main__":
 };
 
     
-        function showCode(filename) {
+function showCode(filename) {
             const codeBlock = document.getElementById('code-block');
             const codeContainer = document.querySelector('.code-display');
             const isImage = /\.(png|jpg|jpeg|gif)$/i.test(filename);
@@ -2237,6 +2235,37 @@ if __name__ == "__main__":
             navigator.clipboard.writeText(code).then(function () {
                 alert('Code copied to clipboard!');
             });
+        });
+    </script>
+    <script>
+        const codeHeader = document.querySelector('.code-header');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        codeHeader.addEventListener('mousedown', (e) => {
+            isDown = true;
+            codeHeader.classList.add('active');
+            startX = e.pageX - codeHeader.offsetLeft;
+            scrollLeft = codeHeader.scrollLeft;
+        });
+    
+        codeHeader.addEventListener('mouseleave', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mouseup', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // stop the function from running
+            e.preventDefault();
+            const x = e.pageX - codeHeader.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            codeHeader.scrollLeft = scrollLeft - walk;
         });
     </script>
     

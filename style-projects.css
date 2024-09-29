@@ -44,35 +44,59 @@ section.project-detail {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Two-Column Layout */
+/* Code Block Styles */
 .content-container {
     display: flex;
     justify-content: space-between;
+    align-items: stretch; /* Change from flex-start to stretch */
     gap: 20px;
     max-width: 100%;
     box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
-/* Code Block Styles */
+
+.code-container, .carousel-container {
+    height: 100%; /* Let the height stretch based on content */
+}
+
 .code-container {
+    position: relative;
     display: block;
-    background-color: #2d2d2d;
+    background-color: #f5f2f0;
     color: #fff;
     padding: 0;
     border-radius: 8px;
-    width: 48%;
-    position: relative;
-    max-height: 535px;
-    overflow-y: auto;
-    overflow-x: auto;
+    width: 45%;
+    height: 535px; /* Set a fixed height */
+    overflow: hidden; /* Initially hide the scrollbar */
     border: 1px solid #ccc;
+    margin-top: 0%;
     box-sizing: border-box;
+}
+
+/* For WebKit browsers (Chrome, Safari, etc.) */
+.code-display::-webkit-scrollbar {
+    width: 0; /* Hide vertical scrollbar */
+    height: 0; /* Hide horizontal scrollbar */
+}
+
+/* For Firefox */
+.code-display {
+    scrollbar-width: none; /* Firefox-specific: Hide scrollbar but allow scrolling */
+}
+
+/* Fallback for Internet Explorer or older browsers */
+.code-display {
+    -ms-overflow-style: none; /* IE-specific: Hide scrollbar */
 }
 
 pre[class*=language-] {
     padding: 10px;
     margin: 0;
     white-space: pre;
+    position: relative;
+    z-index: 1; /* Ensure the code block stays behind the button */
 }
 
 pre code {
@@ -86,12 +110,41 @@ pre code {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #444;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    cursor: grab;
+    position: sticky; /* Keeps the header fixed at the top */
+    top: 0; /* Stick the header to the top */
+    z-index: 10; /* Ensure it stays above the code content */
+    background-color: #2d2d2d;
+    border-top-left-radius: 8px; /* Rounded top-left corner */
+    border-top-right-radius: 8px; /* Rounded top-right corner */
+}
+
+.code-header::-webkit-scrollbar {
+    width: 0; /* Hide vertical scrollbar */
+    height: 0; /* Hide horizontal scrollbar */
+}
+
+/* For Firefox */
+.code-header {
+    scrollbar-width: none; /* Firefox-specific: Hide scrollbar but allow scrolling */
+}
+
+/* Fallback for Internet Explorer or older browsers */
+.code-header {
+    -ms-overflow-style: none; /* IE-specific: Hide scrollbar */
 }
 
 .tab-bar {
+    position: relative; /* Ensure it is positioned relative so the button can be positioned absolutely inside it */
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    min-width: 100%;
+    flex-shrink: 0;
+    z-index: 1; /* Ensure the tab bar stays behind the button */
 }
 
 /* Folder and Tab Styles */
@@ -117,10 +170,10 @@ pre code {
     cursor: pointer;
     border-radius: 4px 0 0 4px;
     transition: background-color 0.3s ease;
-    display: inline-flex; /* Align content vertically */
-    align-items: center; /* Vertical alignment */
-    line-height: 1.2; /* Ensure height consistency */
-    height: auto; /* Ensures the button adapts to padding */
+    display: inline-flex;
+    align-items: center;
+    line-height: 1.2;
+    height: auto;
 }
 
 .folder-button:hover {
@@ -129,10 +182,10 @@ pre code {
 
 .file-tabs {
     display: inline-flex;
-    gap: 0px; /* No gap to ensure the background stretches to the last file */
-    padding-right: 15px; /* Padding on the right to match the end of the block */
-    border-radius: 0 8px 8px 0; /* Rounded corners on the right side */
-    background-color: rgba(173, 216, 230, 0.3); /* Extending background for consistency */
+    gap: 0px;
+    padding-right: 15px;
+    border-radius: 0 8px 8px 0;
+    background-color: rgba(173, 216, 230, 0.3);
 }
 
 .tab-button {
@@ -144,10 +197,10 @@ pre code {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border-radius: 4px;
-    line-height: 1.2; /* Ensuring consistent height */
-    height: auto; /* Ensures the button adapts to padding */
-    display: inline-flex; /* Align content vertically */
-    align-items: center; /* Vertical alignment */
+    line-height: 1.2;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
 }
 
 .tab-button.active {
@@ -161,72 +214,115 @@ pre code {
 /* The container for tabs, allowing wrapping */
 .tab-bar {
     display: flex;
-    flex-wrap: wrap; /* Enable wrapping of buttons */
-    gap: 5px; /* Add space between buttons */
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 
-/* Copy Button Styles */
 .copy-code-btn {
-    background-color: #4CAF50;
-    color: #fff;
+    position: absolute;
+    top: calc(100% - 450px); /* Adjust the value based on your header's height */
+    right: 35px; /* Adjust these values for positioning */
+    background-color: transparent;
     border: none;
-    font-size: 0.9rem;
-    padding: 8px 15px;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    z-index: 1000;
+    font-size: 24px;
+    color: #4CAF50;
+    transition: color 0.3s ease;
+    padding: 0;
     display: inline-flex;
     align-items: center;
 }
 
 .copy-code-btn:hover {
-    background-color: #45a049;
+    color: #45a049;
 }
+
+.copy-code-btn .tooltip-text {
+    visibility: hidden;
+    width: 80px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1001;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.copy-code-btn .tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent; /* Triangle pointing down */
+}
+
+.copy-code-btn:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 /* Carousel Styles */
 .carousel-container {
-    width: 48%;
     position: relative;
+    background: rgba(134, 134, 134, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(149, 149, 149, 0.5);
+    padding: 0px;
+    height: 535px; /* Matches the fixed height of the code block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
-    background: rgba(134, 134, 134, 0.1); /* Semi-transparent dark background */
-    border-radius: 10px; /* Soft round edges */
-    box-shadow: 0 4px 15px rgba(149, 149, 149, 0.5); /* Feathered shadow for a soft effect */
-    padding: 20px; /* Add padding to give some space between images and the box */
 }
 
 .carousel {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%; /* Fills the container height */
+    width: 100%; /* Fills the container width */
 }
 
 .slides {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%; /* Ensure the slides take full width */
+    height: 100%; /* Ensure the slides take full height */
 }
 
 .carousel-item {
-    max-height: 25vw;
-    width: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Scales the image to fit without distortion */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Keeps a subtle shadow on images */
-    object-fit: contain;
 }
 
-.carousel-item img {
-    height: 100%; /* Forces the image to fill the container's height */
-    width: auto; /* Maintains the aspect ratio */
+.carousel-item img, .carousel-item video {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures it fits within the carousel, maintaining aspect ratio */
 }
 
 .carousel-prev, .carousel-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
@@ -252,6 +348,37 @@ pre code {
 
 .carousel-prev:hover, .carousel-next:hover {
     background-color: rgba(0,0,0,0.7);
+}
+
+/* Media Queries */
+@media (max-width: 1100px) {
+    .content-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Changed from 20px to 15px */
+    }
+
+    .code-container, .carousel-container {
+        width: 95%;
+        min-height: auto;
+        
+    }
+
+}
+
+@media (min-width: 1100px) {
+    .content-container {
+        display: flex;
+        flex-direction: row;
+        gap: 5px; /* Horizontal gap between flex items */
+    }
+
+    .code-container, .carousel-container {
+        width: 47%;
+        margin: auto;
+        gap: 0; /* No additional gap needed */
+    }
 }
 
 /* Download Button */
@@ -310,7 +437,7 @@ table {
 }
 
 /* Ensuring responsive scrolling if necessary */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     table {
         display: block;
         overflow-x: auto; /* Allow horizontal scroll if necessary on small screens */
@@ -330,16 +457,11 @@ table {
     margin-top: 0px;
 }
 
+#survey-results {
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
 #survey-results table {
-    margin-bottom: 25px;
-}
-
-#survey-results p:last-of-type {
-    margin-bottom: 0;
-}
-
-/* Improved Table Styles for Boundaries and Limitations */
-#boundaries-limitations table {
     width: 100%; /* Make the table take up full width */
     border-collapse: collapse;
     margin: 20px 0;
@@ -347,14 +469,85 @@ table {
     font-family: 'Arial', sans-serif;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    overflow: hidden;
+    table-layout: fixed; /* Force table to respect column widths */
+}
+
+#survey-results table th, 
+#survey-results table td {
+    padding: 14px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Set specific widths for each column */
+#survey-results table th:nth-child(1),
+#survey-results table td:nth-child(1) {
+    min-width: 160px; /* First column */
+}
+
+#survey-results table th:nth-child(2),
+#survey-results table td:nth-child(2) {
+    min-width: 120px; /* Second column */
+}
+
+#survey-results table th:nth-child(3),
+#survey-results table td:nth-child(3) {
+    min-width: 140px; /* Third column */
+}
+
+#survey-results table th:nth-child(4),
+#survey-results table td:nth-child(4) {
+    min-width: 100px; /* Fourth column */
+}
+
+#survey-results table th:nth-child(5),
+#survey-results table td:nth-child(5) {
+    min-width: 80px; /* Fifth column */
+}
+
+#survey-results table th:nth-child(6),
+#survey-results table td:nth-child(6) {
+    min-width: 120px; /* Sixth column */
+}
+
+#survey-results table th {
+    background-color: #4CAF50;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#survey-results table td {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+#survey-results table tr:hover {
+    background-color: #f1f1f1; /* Add hover effect */
+}
+
+
+/* Improved Table Styles for Boundaries and Limitations */
+#boundaries-limitations {
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+}
+
+#boundaries-limitations table {
+    width: 100%; /* Make the table take up full width */
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Apply the same border radius */
+    table-layout: fixed; /* Ensure the column widths are respected */
 }
 
 #boundaries-limitations table th, 
 #boundaries-limitations table td {
-    padding: 14px 10px; /* Increase padding for better readability */
-    text-align: left; /* Align text to the left for consistency */
-    vertical-align: top; /* Ensure text is aligned at the top of each cell */
+    padding: 14px 10px;
+    text-align: left;
+    vertical-align: top;
 }
 
 #boundaries-limitations table th {
@@ -374,13 +567,14 @@ table {
 }
 
 /* Ensure table stays responsive */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
     #boundaries-limitations table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
     }
 }
+
 
 /* Avatar Section Styling */
 .avatar-container {
@@ -482,22 +676,37 @@ table {
 }
 
 /* Max-width configuration for specific sections */
-.max-width-small {
-    max-width: 30%;
-}
 
-.max-width-medium {
-    max-width: 45%;
-}
 
-.max-width-large {
-    max-width: 70%;
+@media (max-width: 1100px) {
+    .max-width-small {
+        max-width: 95%;
+    }
+    .max-width-medium {
+        max-width: 95%;
+    }
+    .max-width-large {
+        max-width: 95%;
+    }
+    .max-width-very-large {
+        max-width: 95%;
+    }
 }
-
-.max-width-very-large {
-    max-width: 85%;
+@media (min-width: 1100px) {
+    .max-width-small {
+        max-width: 30%;
+    }
+    .max-width-medium {
+        max-width: 45%;
+    }
+    .max-width-large {
+        max-width: 70%;
+    }
+    .max-width-very-large {
+        max-width: 85%;
+    }
+    
 }
-
 .max-width-full {
     max-width: 100%;
 }
@@ -801,9 +1010,17 @@ section ul li {
     margin-bottom: 20px; /* Spacing between code block and instructions */
 }
 
+
 /* Adjust code block padding */
 .code-container pre {
-    padding: 20px;
+    padding: 10px;
+}
+
+.code-display {
+    position: relative;
+    overflow-y: auto;
+    max-height: 475px; /* Adjust as needed */
+    flex: 1;
 }
 
 /* Other styles from before, unchanged */
@@ -880,6 +1097,8 @@ section ul li {
 .folio-header {
     background-color: #f0f0f0;
     padding: 10px;
+    border-top-left-radius: 10;
+    border-top-right-radius: 10;
     text-align: center;
 }
 
@@ -980,4 +1199,124 @@ section ul li {
     text-decoration: none;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+/* Container for code and instructions */
+.code-instructions-cert-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Media query for wider screens */
+@media (min-width: 900px) {
+    .code-instructions-cert-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+    }
+
+    .code-container-cert, .instructions-cert {
+        width: auto; /* Override any width constraints */
+    }
+}
+
+/* Ensure the code container is relative */
+.code-container-cert {
+    position: relative;
+    /* Other existing styles */
+}
+
+.copy-code-btn-cert {
+    position: absolute;
+    top: calc(100% - 450px); /* Adjust the value based on your header's height */
+    right: 35px; /* Adjust these values for positioning */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 24px;
+    color: #4CAF50;
+    transition: color 0.3s ease;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+}
+
+.copy-code-btn-cert:hover {
+    color: #45a049;
+}
+
+.copy-code-btn-cert .tooltip-text {
+    visibility: hidden;
+    width: 80px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1001;
+    bottom: 125%; /* Position above the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.copy-code-btn-cert .tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent; /* Triangle pointing down */
+}
+
+.copy-code-btn-cert:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* New Grid Container */
+.content-grid-container {
+    display: grid;
+    grid-template-columns: 2fr; /* Single column layout by default */
+    grid-gap: 0px;
+    width: 100%;
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1100px) {
+    .content-grid-container .code-container {
+        width: 90%;
+        margin: auto;
+        gap: 0;
+    }
+    .content-grid-container .instructions {
+        width: 80%;
+    }
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .content-grid-container {
+        grid-template-columns: 2fr 1fr; /* Two columns: code container takes 2 parts, instructions take 1 part */
+    }
+}
+
+/* Style for Code Container and Instructions */
+.content-grid-container .code-container,
+.content-grid-container .instructions {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
