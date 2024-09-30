@@ -1,27 +1,78 @@
-/* General Styles */
+html {
+    scroll-behavior: smooth;
+    overflow: auto; /* Allow scrolling */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(180deg, #37a01f41 9%, #ffffff 10%,#b6ffc1 20%, #c4daff 100%);
 }
 
+.highlight {
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* Keyframe Animation for Sliding Header */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframe Animation for the Glowing Text */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #4CAF50, 0 0 15px #4CAF50, 0 0 20px #4CAF50;
+    }
+    100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #4CAF50, 0 0 30px #4CAF50, 0 0 40px #4CAF50;
+    }
+}
+
+@keyframes glow2 {
+    0% {
+        text-shadow: 0 0 5px #0e6c00, 0 0 10px #4CAF50, 0 0 15px #4CAF50, 0 0 20px #4CAF50;
+    }
+    100% {
+        text-shadow: 0 0 10px #024700, 0 0 20px #4CAF50, 0 0 30px #4CAF50, 0 0 40px #4CAF50;
+    }
+}
+
+/* Header Styles */
 header {
-    background-color: #333;
-    color: white;
+    opacity: 0; /* Initial state before animation */
+    animation: slideDown 0.8s ease forwards;
+    background: linear-gradient(135deg, #333, #555);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow for 3D effect */
     padding: 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 999; /* Ensures the header stays on top */
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: white;
+    animation: glow 1.5s ease-in-out infinite alternate; /* Glow effect for the header text */
 }
 
 /* Navigation Bar */
 nav {
     margin-top: 10px;
-    text-align: center;
-    background-color: #333;
+    background-color: transparent;
 }
 
 nav ul {
@@ -31,7 +82,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
 }
 
@@ -45,11 +96,51 @@ nav a {
     font-size: 18px;
     padding: 8px 12px;
     border-bottom: 2px solid transparent;
-    transition: border-bottom 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
+/* Fancy Underline Animation */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #4CAF50;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Glow effect on hover */
 nav a:hover {
-    border-bottom: 2px solid #4CAF50; /* Underline effect on hover */
+    color: #4CAF50;
+    text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50;
+}
+
+/* Sticky Header with a Shrinking Effect on Scroll */
+header.sticky {
+    padding: 10px;
+    background-color: #222;
+    transition: padding 0.4s ease, background-color 0.4s ease;
+}
+
+
+
+#section-heading h2 {
+    font-size: 2rem;
+    color: #45a049;
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 10px;
 }
 
 /* Project Cards Styles */
@@ -62,24 +153,143 @@ nav a:hover {
     margin: 0 auto; /* This centers the project list */
 }
 
+
 #projects-heading {
+    background: transparent;
+    font-size: 3rem; /* Make it stand out */
+    font-weight: bold;
+    color: #32a852; /* Eye-catching color */
     text-align: center;
+    padding-top: 30px; /* Add some space above */
+    letter-spacing: 2px; /* Slight spacing between letters */
+    text-transform: uppercase; /* Make it all caps */
+    opacity: 0; /* Start invisible for animation */
+    transform: translateY(-50px); /* Start slightly above */
+    animation: slideFadeIn 1s ease forwards; /* Animate slide and fade */
+    animation-delay: 0.5s; /* Delay to let other stuff load first */
+}
+
+/* Keyframes for the heading animation */
+@keyframes slideFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px); /* Slide in from above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End in place */
+    }
+}
+
+#projects::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
+    z-index: 1; /* Ensure the overlay is above the background but below the content */
+}
+
+#projects .project-list {
+    position: relative;
+    z-index: 2; /* This ensures the project cards stay above the overlay */
+}
+
+
+#projects {
+    background-image: url('images/parallaxbg.jpg'); /* Add your parallax image here */
+    background-attachment: fixed; /* This is the key for parallax scrolling */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px 0px 30px;
+    border-top: 5px solid #32a852;
+    border-bottom: 5px solid #32a852;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    position: relative; /* Ensure it doesn't mess with other sections */
+}
+
+#projects::after {
+    height: fit-content;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 70 70px rgba(62, 255, 84, 0.998);
+    cursor: pointer;
 }
 
 .project-card {
+    opacity: 0; /* Initial state before animation */
+    animation: slideIn 0.6s ease forwards; /* Slide in from the bottom */
     position: relative;
-    width: 300px; /* Uniform width for all cards */
+    width: 300px;
     margin: 5px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    text-align: center; /* Center align the text in the card */
+    text-align: center;
+    background-color: #ffffff;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* Delay each card a little bit for a staggered effect */
+.project-card:nth-child(1) {
+    animation-delay: 0.3s;
+}
+.project-card:nth-child(2) {
+    animation-delay: 0.6s;
+}
+.project-card:nth-child(3) {
+    animation-delay: 0.9s;
+}
+.project-card:nth-child(4) {
+    animation-delay: 1.2s;
+}
+.project-card:nth-child(5) {
+    animation-delay: 1.5s;
+}
+
+.project-card:hover {
+    transform: scale(1.15); /* 3D tilt and scale on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 0 30px rgba(62, 255, 84, 0.8);
+}
+
+/* Disable card click when hovering over the buttons */
+.project-card .project-button-container a {
+    pointer-events: all; /* Reactivate pointer events for buttons */
+    cursor: pointer; /* Ensure button cursor is clickable */
+}
+
+/* Change the cursor back to pointer when hovering anywhere else in the card */
+.project-card:hover {
+    cursor: pointer;
 }
 
 .project-card img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+}
+.project-card img {
+    transition: transform 0.4s ease; /* Smooth image transition */
+}
+.project-card:hover img {
+    transform: rotate(-3deg); /* Slight image rotation */
 }
 
 .project-card h3 {
@@ -106,13 +316,27 @@ nav a:hover {
 /* Individual Button Styling */
 .project-button-container a {
     padding: 10px 10px;
-    background-color: #4CAF50;
+    background: linear-gradient(90deg, #4CAF50, #45a049, #32a852);
+    background-size: 400%;
     color: white;
     text-decoration: none;
     border-radius: 4px;
     text-align: center;
-    flex: 1; /* Make both buttons take equal space */
-    max-width: 45%; /* Prevent buttons from becoming too wide */
+    flex: 1; 
+    max-width: 45%; 
+    transition: background 0.4s ease, transform 0.4s ease; /* Smooth transition */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.project-button-container a:hover {
+    background-position: right center; /* Animate gradient on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    animation: pulse 0.6s infinite; /* Add pulse animation */
 }
 
 #projectlinkbutton {
@@ -125,64 +349,180 @@ nav a:hover {
 }
 
 
-
 /* About Me Section */
-
-
 #about {
-    background-color: #f4f7fa; /* Light background to contrast the text */
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    background: transparent;
+    padding: 60px 20px;
+    border-radius: 15px;
+    animation: fadeInUp 1s ease forwards;
 }
 
 .about-container {
-    max-width: 900px;
+    max-width: 1000px;
     margin: 0 auto;
+    text-align: center;
     font-family: 'Arial', sans-serif;
     color: #333;
 }
 
 #about h2 {
-    font-size: 2rem;
-    color: #45a049;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 3rem;
     font-weight: bold;
+    color: #45a049;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 #about p {
     font-size: 1.2rem;
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: 20px;
     text-align: justify;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideInUp 0.8s ease forwards;
 }
 
-.about-container p:last-child {
-    margin-bottom: 0;
+#about p:nth-child(2) {
+    animation-delay: 0.4s;
 }
 
-@media (max-width: 768px) {
-    #about {
-        padding: 20px 10px;
+/* Slide and fade-in animation */
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
     }
-
-    #about h2 {
-        font-size: 1.8rem;
-    }
-
-    #about p {
-        font-size: 1rem;
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skills Section */
+#skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/parallaxbg.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2; /* Behind the overlay */
+}
+
+#skills::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay with 50% opacity */
+    z-index: -1; /* Between the content and background */
+}
+
+#skills {
+    animation: glow2 1.5s ease-in-out infinite alternate; /* Glow effect for the header text */
+    background: none; /* Remove any extra background */
+    padding: 40px 20px;
+    margin-left: 90px;
+    margin-right: 90px;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+    border-radius: 95px;
+    border: 8px solid #0a8b08;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #32a852;
+}
+
+
+/* Keyframes for continuous hue rotation */
+@keyframes hueShift {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    row-gap: 50px;
+}
+
+.skill-item {
+    width: 150px;
+    text-align: center;
+}
+
+.skill-item img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover img {
+    transform: scale(1.1);
+}
+
+.skill-item p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #32a852;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 
 #contact {
-    background-color: #f4f7fa; /* Light background to contrast the text */
     padding: 40px 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 .contact-container {
@@ -194,10 +534,11 @@ nav a:hover {
 
 #contact h2 {
     font-size: 2rem;
-    color: #45a049;
+    color: #4caad8;
     text-align: center;
     margin-bottom: 20px;
     font-weight: bold;
+    letter-spacing: 4px;
 }
 
 #contact p {
@@ -212,7 +553,7 @@ nav a:hover {
 }
 
 .contact-details a {
-    color: #45a049;
+    color: #4caad8;
     text-decoration: none;
 }
 
@@ -254,7 +595,7 @@ nav a:hover {
 }
 
 .contact-form button {
-    background-color: #45a049;
+    background-color: #4caad8;;
     color: #fff;
     padding: 12px 30px;
     font-size: 1rem;
@@ -301,3 +642,123 @@ nav a:hover {
     max-width: 63%;
 }
 
+/* Footer Styles */
+footer {
+    color: white;
+    padding: 40px 20px;
+    border-top: 4px solid #2295d8; /* A subtle border to match your green tones */
+    background: linear-gradient(90deg, #333, #111);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+.footer-logo {
+    max-width: 300px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Footer Links */
+.footer-links h3, .footer-social h3 {
+    color: #4caad8;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #4caad8;
+}
+
+/* Social Icons */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #4caad8;
+    transform: scale(1.2); /* Slightly enlarge icons on hover */
+}
+
+.footer-credits {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+.footer-credits a {
+    color: #4caad8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-credits a:hover {
+    text-decoration: underline;
+}
+
+.footer-social i {
+    margin-right: 10px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: 20px;
+    }
+}

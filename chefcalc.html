@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Project description goes here." />
+    <meta name="keywords" content="As many keywords to boost SEO here" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="JJcoded" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.js"></script>
+    <link rel="canonical" href="https://www.jjcoded.com/Template.html" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <title>Template - JJcoded</title>
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+    <meta property="og:title" content="Template - JJcoded" />
+    <meta property="og:description" content="Description about project." />
+    <meta
+      property="og:image"
+      content="https://www.jjcoded.com/images/logo.png"
+    />
+    <meta property="og:url" content="https://www.jjcoded.com/Template.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Template - JJcoded" />
+    <meta name="twitter:description" content="Project Description goes here." />
+    <meta
+      name="twitter:image"
+      content="https://www.jjcoded.com/images/logo.png"
+    />
+
+    <!-- JSON-LD Schema Markup for Rich Snippets -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Template",
+        "operatingSystem": "Sample",
+        "applicationCategory": "Sample",
+        "description": "Description goes here.",
+        "url": "https://www.jjcoded.com/Template.html",
+        "image": "https://www.jjcoded.com/images/logo.png",
+        "softwareVersion": "1.0",
+        "author": {
+          "@type": "Organization",
+          "name": "JJcoded"
+        }
+      }
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style-projects.css" />
+    <!-- Project-specific CSS -->
+  </head>
+
+  <body>
+    <header>
+      <h1>Template</h1>
+      <nav>
+        <a href="index.html" class="nav-link">Back to Projects</a>
+      </nav>
+    </header>
+
+    <section class="project-detail">
+      <h2>Template</h2>
+      <p><em>A project made by me for you to read about :o.</em></p>
+      <p>
+        My program does all these cool things and feel free to read about it or
+        check out the download on github.
+      </p>
+
+      <div class="content-container">
+        <!-- Left Column -->
+        <div class="code-container">
+          <div class="code-header">
+            <div class="tab-bar">
+              <div class="folder-group">
+                <div class="folder-wrapper">
+                  <button class="folder-button" onclick="toggleFolder('sample-folder')">folder/</button>
+                  <div id="sample-folder" class="file-tabs" style="display: none">
+                    <button class="tab-button" onclick="showCode('file.txt')">file.txt</button>
+                    <button class="tab-button" onclick="showCode('file2.txt')">file2.txt</button>
+                    <button class="tab-button" onclick="showCode('logo.png')">logo.png</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Python Files in the root -->
+              <button class="tab-button" onclick="showCode('program.txt')">program.py</button>
+              <button class="tab-button" onclick="showCode('settings.txt')">settings.txt</button>
+            </div>
+          </div>
+          <!-- Code blocks or image display -->
+          <div class="code-display">
+            <pre class="line-numbers"><code id="code-block" class="language-python"></code></pre>
+          </div>
+          <button class="copy-code-btn" id="copy-code-btn" aria-label="Copy Code">
+            <i class="fas fa-copy"></i>
+            <span class="tooltip-text">Copy Code</span>
+          </button>
+        </div>
+
+        <!-- Right Column -->
+        <div class="carousel-container">
+                <div class="carousel">
+                    <div class="slides">
+                        <img src="images/logo.png" class="carousel-item" alt="Screenshot 1" style="display: block;">
+                        <img src="images/favicon.png" class="carousel-item" alt="Screenshot 2" style="display: none;">
+                    </div>
+                    <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
+                </div>
+            </div>
+        </div>
+
+      <div class="instructions">
+        <h2>Installation Instructions</h2>
+        <ol>
+          <li>Download my program using the link below.</li>
+          <li>
+            Do the first step.
+          </li>
+          <li>
+            Do the <strong>second</strong> step.
+          </li>
+          <li>
+            Do <strong>this</strong> with this. If you have
+            this do this, otherwise do this.
+          </li>
+          <li>
+            After that and that completed this, then this
+            will do this!
+          </li>
+          <li>
+            Finally, do this to that and wait for it to do this so.
+            Once you're done that, thats that!
+          </li>
+        </ol>
+        <div class="download-links">
+          <a
+            href="https://github.com/DJJJNabba/"
+            download
+            >Github Repository</a
+          >
+          <a
+            href="https://github.com/DJJJNabba/"
+            download
+            >Download</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="project-detail">
+    <!-- Main Description Section -->
+    <div class="flex-sections"></div>
+
+        <section id="sample-box1" class="">
+            <h2>Template Heading</h2>
+            <p>
+This is so cool because it allows people like this to do this wiht this and now they are like that.
+            </p>
+        </section>
+
+        <section id="sample-box2" class="">
+            <h2>Template Sub Heading 2</h2>
+            <p>
+Infomration about that because this is very that.
+            </p>
+            <h3>Template Sub Sub Heading</h2>
+            <p>
+Infomration about information because this is a sub heading.
+            </p>
+        </section>
+    
+    </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+      <div class="footer-logo">
+          <img src="images/nobglogo.png" alt="JJcoded Logo">
+          <p>From concept to code, turning visions into reality, driven by passion and endless curiosity.</p>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+              <li><a href="index.html#projects">Projects</a></li>
+              <li><a href="index.html#about">About Me</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="https://github.com/DJJJNabba" target="_blank">GitHub</a></li>
+          </ul>
+      </div>
+
+      <!-- Social Media Icons -->
+      <div class="footer-social">
+          <h3>Connect with Me</h3>
+          <a href="https://github.com/DJJJNabba" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/jjcoded.ig/" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://discord.com/channels/@me/586448690084839435" target="_blank"><i class="fab fa-discord"></i></a>
+      </div>
+  </div>
+
+  <div class="footer-credits">
+      <p>This entire website was made by me using HTML, CSS, and JavaScript. <br>
+      Check out the <a href="https://github.com/DJJJNabba/JJcoded" target="_blank">GitHub repo</a> for the website.</p>
+  </div>
+
+  <!-- Copyright and Credits -->
+  <div class="footer-bottom">
+      <p>&copy; 2024 JJcoded. All Rights Reserved.</p>
+      <p>Made with 💻 and 🚫😴 by Jackson.</p>
+  </div>
+</footer>  
+
+    <!-- Prism JS for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+
+    <!-- Carousel and Code Tab Script -->
+    <script>
+        let slideIndex = 0;
+        let autoSlideInterval; // Store the auto-slide interval
+        const slideDuration = 4000; // 4 seconds for each image
+        let slides; // Declare slides here to initialize later
+    
+        function initCarousel() {
+            slides = document.querySelectorAll(".carousel-item"); // Get all slides after DOM is loaded
+            showSlides(slideIndex);
+            autoSlideInterval = setInterval(autoShowSlides, slideDuration); // Start auto slide for images
+        }
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+            resetAutoSlide(); // Reset the auto-slide when manually navigating
+        }
+    
+        function autoShowSlides() {
+            const currentSlide = slides[slideIndex];
+            
+            // If the current slide is not a video, auto-show the next slide after 4 seconds
+            if (currentSlide.tagName !== "VIDEO") {
+                slideIndex++;
+                showSlides(slideIndex);
+            }
+        }
+    
+        function showSlides(n) {
+            if (n >= slides.length) {
+                slideIndex = 0;  // Go back to the first slide
+            } else if (n < 0) {
+                slideIndex = slides.length - 1;  // Go to the last slide
+            }
+    
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.style.display = "none";
+                if (slide.tagName === "VIDEO") {
+                    slide.pause(); // Pause any videos if they are playing
+                    slide.currentTime = 0; // Reset video to start
+                }
+            });
+    
+            // Show the current slide
+            const currentSlide = slides[slideIndex];
+            currentSlide.style.display = "block";
+    
+            // If the current slide is a video, play it and only advance after it's done
+            if (currentSlide.tagName === "VIDEO") {
+                currentSlide.play();
+                currentSlide.onended = function () {
+                    plusSlides(1);  // Move to the next slide when the video finishes
+                };
+                clearInterval(autoSlideInterval); // Stop auto-slide during video playback
+            } else {
+                resetAutoSlide(); // Restart auto-slide if an image is displayed
+            }
+        }
+    
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval); // Clear the current interval
+            autoSlideInterval = setInterval(autoShowSlides, slideDuration); // Restart auto-slide after 4 seconds
+        }
+
+        const codeFiles = {
+            'file.txt': '',
+            'file2.txt': '',
+            'program.txt': '',
+            'settings.txt': '',
+            'logo.png': 'images/logo.png'
+        };
+
+        async function fetchFiles() {
+            const fileNames = Object.keys(codeFiles);
+            for (const fileName of fileNames) {
+                try {
+                    let response;
+                    let filePath = '';
+        
+                    // For image files, store the path directly
+                    if (/\.(png|jpg|jpeg|gif)$/i.test(fileName)) {
+                        // Images are already stored with correct paths
+                        continue;
+                    } else {
+                        // For other files, fetch their content
+                        filePath = 'projectCodeFiles/template/' + fileName;
+                        response = await fetch(filePath);
+        
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+        
+                        // Get the text content
+                        const content = await response.text();
+                        codeFiles[fileName] = content;
+                    }
+                } catch (error) {
+                    console.error(`Failed to fetch ${fileName}: ${error}`);
+                }
+            }
+        }
+
+        window.onload = async function () {
+            await fetchFiles();
+            initCarousel();
+            showCode('file.txt');
+        };
+
+        function showCode(filename) {
+            const codeBlock = document.getElementById('code-block');
+            const codeContainer = document.querySelector('.code-display');
+            const isImage = /\.(png|jpg|jpeg|gif)$/i.test(filename);
+    
+            if (isImage) {
+                codeBlock.innerHTML = '';
+                codeContainer.style.backgroundColor = '#f0f0f0';
+            
+                const image = document.createElement('img');
+                image.src = codeFiles[filename];
+                image.alt = filename;
+                image.style.width = '60%';
+                image.style.height = 'auto';
+                image.style.objectFit = 'contain';
+                image.style.borderRadius = '8px';
+                image.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                
+                // Centering the image horizontally
+                image.style.display = 'block';
+                image.style.margin = '0 auto';
+            
+                codeBlock.appendChild(image);
+            }
+            else {
+                codeBlock.textContent = codeFiles[filename];
+                codeContainer.style.backgroundColor = '#2d2d2d';
+                Prism.highlightAll();
+            }
+            setActiveTab(filename);
+        }
+
+        function setActiveTab(activeFilename) {
+            const buttons = document.getElementsByClassName('tab-button');
+            for (let button of buttons) {
+                button.classList.remove('active');
+                if (button.textContent === activeFilename) {
+                    button.classList.add('active');
+                }
+            }
+        }
+
+        function toggleFolder(folderId) {
+            const folder = document.getElementById(folderId);
+            folder.style.display = folder.style.display === "inline-flex" ? "none" : "inline-flex";
+        }
+
+        document.getElementById('copy-code-btn').addEventListener('click', function () {
+            const code = document.getElementById('code-block').textContent;
+            navigator.clipboard.writeText(code).then(function () {
+                alert('Code copied to clipboard!');
+            });
+        });        
+    </script>
+    <script>
+        const codeHeader = document.querySelector('.code-header');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+    
+        codeHeader.addEventListener('mousedown', (e) => {
+            isDown = true;
+            codeHeader.classList.add('active');
+            startX = e.pageX - codeHeader.offsetLeft;
+            scrollLeft = codeHeader.scrollLeft;
+        });
+    
+        codeHeader.addEventListener('mouseleave', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mouseup', () => {
+            isDown = false;
+            codeHeader.classList.remove('active');
+        });
+    
+        codeHeader.addEventListener('mousemove', (e) => {
+            if (!isDown) return; // stop the function from running
+            e.preventDefault();
+            const x = e.pageX - codeHeader.offsetLeft;
+            const walk = (x - startX) * 3; //scroll-fast
+            codeHeader.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+    
+</body>

@@ -1,4 +1,9 @@
 /* General Styles */
+html {
+    overflow: auto; /* Allow scrolling */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none;  /* For Internet Explorer and Edge */
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,21 +11,62 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Keyframe Animation for Sliding Header */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Keyframe Animation for the Glowing Text */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #fff, 0 0 10px #4CAF50, 0 0 15px #4CAF50, 0 0 20px #4CAF50;
+    }
+    100% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #4CAF50, 0 0 30px #4CAF50, 0 0 40px #4CAF50;
+    }
+}
+
+@keyframes glow2 {
+    0% {
+        text-shadow: 0 0 5px #0e6c00, 0 0 10px #4CAF50, 0 0 15px #4CAF50, 0 0 20px #4CAF50;
+    }
+    100% {
+        text-shadow: 0 0 10px #024700, 0 0 20px #4CAF50, 0 0 30px #4CAF50, 0 0 40px #4CAF50;
+    }
+}
+
+/* Header Styles */
 header {
-    background-color: #333;
-    color: white;
+    opacity: 0; /* Initial state before animation */
+    animation: slideDown 0.8s ease forwards;
+    background: linear-gradient(135deg, #333, #555);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Soft shadow for 3D effect */
     padding: 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 99999; /* Ensures the header stays on top */
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: white;
+    animation: glow 1.5s ease-in-out infinite alternate; /* Glow effect for the header text */
 }
 
+/* Navigation Bar */
 nav {
     margin-top: 10px;
-    text-align: center;
-    background-color: #333;
+    background-color: transparent;
 }
 
 nav ul {
@@ -30,7 +76,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
 }
 
@@ -44,11 +90,40 @@ nav a {
     font-size: 18px;
     padding: 8px 12px;
     border-bottom: 2px solid transparent;
-    transition: border-bottom 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
+/* Fancy Underline Animation */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #4CAF50;
+    left: 0;
+    bottom: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Glow effect on hover */
 nav a:hover {
-    border-bottom: 2px solid #4CAF50; /* Underline effect on hover */
+    color: #4CAF50;
+    text-shadow: 0 0 5px #4CAF50, 0 0 10px #4CAF50;
+}
+
+/* Sticky Header with a Shrinking Effect on Scroll */
+header.sticky {
+    padding: 10px;
+    background-color: #222;
+    transition: padding 0.4s ease, background-color 0.4s ease;
 }
 
 /* Project Page Specific */
@@ -1335,4 +1410,131 @@ section ul li {
     padding: 20px;
     box-sizing: border-box;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+footer {
+    color: white;
+    padding: 40px 20px;
+    border-top: 4px solid #45a049; /* A subtle border to match your green tones */
+    background: linear-gradient(90deg, #333, #111);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo Section */
+.footer-logo {
+    max-width: 300px;
+}
+
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Footer Links */
+.footer-links h3, .footer-social h3 {
+    color: #45a049;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #45a049;
+}
+
+/* Social Icons */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-social a {
+    color: #fff;
+    font-size: 24px;
+    margin-right: 15px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #45a049;
+    transform: scale(1.2); /* Slightly enlarge icons on hover */
+}
+
+.footer-credits {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1rem;
+}
+
+.footer-credits a {
+    color: #45a049;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-credits p {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-credits a:hover {
+    text-decoration: underline;
+}
+
+.footer-social i {
+    margin-right: 10px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    color:white;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: 20px;
+    }
 }
