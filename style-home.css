@@ -263,6 +263,9 @@ header.sticky {
 .project-card:nth-child(5) {
     animation-delay: 1.5s;
 }
+.project-card:nth-child(6) {
+    animation-delay: 1.8s;
+}
 
 .project-card:hover {
     transform: scale(1.15); /* 3D tilt and scale on hover */
